@@ -10,6 +10,14 @@
 
 namespace WEPPO\Presentation;
 
+/**
+ * Simple Templating engine that uses {curly} bracket to define placholders for params.
+ * 
+ * Additionally, some functions can be applied. @TODO more doc.
+ * 
+ * At the moment, parts cannot be used in CurlyTemplate.
+ * 
+ */
 class CurlyTemplate extends TemplateBase {
     static protected $templateRoot = null;
     

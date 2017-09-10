@@ -60,7 +60,9 @@ class SimpleTemplateController extends Controller {
      * with a value like so: `[TemplateClassName]:[TemplateFileName]`.
      * 
      * Example for part 'aside':
-     * ```$page->setConfig('part.aside', '\\WEPPO\\Presentation\\CurlyTemplate:aside.html')```
+     * ```
+     * $page->setConfig('part.aside', '\\WEPPO\\Presentation\\CurlyTemplate:aside.html')
+     * ```
      * 
      * This provides a simple way to merge several parts into one page output.
      * 

@@ -10,6 +10,10 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * What a Page Implementation should be able to do.
+ * 
+ */
 interface PageInterface {
 
     public function getChildren() : array;

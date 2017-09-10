@@ -10,6 +10,17 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * Abstract Basclass for the Page Structure handling.
+ * 
+ * It manages a root page and different maching modes.
+ *  - MATCH_MODE_EXACT: only exact names will match
+ *  - MATCH_MODE_SIMPLE: some simple patterns can be used
+ *  - MATCH_MODE_REGEX: complex regex pattern can be used
+ * 
+ * It finds a matching Page object for a array path.
+ * If some pattern matching is used, it stores the matches in the page object.
+ */
 abstract class PageStructure {
 
     const MATCH_MODE_EXACT = 0;

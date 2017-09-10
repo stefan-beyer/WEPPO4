@@ -1,0 +1,227 @@
+\hypertarget{namespaceWEPPO_1_1Helpers}{}\section{W\+E\+P\+PO\textbackslash{}Helpers Namespace Reference}
+\label{namespaceWEPPO_1_1Helpers}\index{W\+E\+P\+P\+O\textbackslash{}\+Helpers@{W\+E\+P\+P\+O\textbackslash{}\+Helpers}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classWEPPO_1_1Helpers_1_1IBAN}{I\+B\+AN}
+\item 
+class \hyperlink{classWEPPO_1_1Helpers_1_1MultiSession}{Multi\+Session}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a74b2707f3efbcfd966872e605458ff96}{name\+Array} (\$values, \$keys, \$defaults=null)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a8f09da65a77ba4732e5cc4087f5b6310}{is\+Valid\+Email} (\$mail)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a891ecb1686a8bcca73bd18b5adeb6112}{get\+Extention} (\$file)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_add9a10540194b2592cabffda29e10d6e}{is\+U\+T\+F8} (\$string)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a7aba6be7d2fd50163e778914dfcb6176}{ensure\+U\+T\+F8} (\$t)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a9518f7e4142ca1ab4903c96a57a663fb}{mail\+Subject\+Encode} (\$s)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a9719eff55311d90c76062e465fd86f47}{get\+Browser} ()
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_ad88c8357abb00c4c69823295f108a9c0}{is\+I\+E\+\_\+le6} ()
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_ac35584046e823ceda19ca5aea4e861d0}{formated\+Bytes} (\$Wert, \$dec=false)
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a695175f776034e529fcd7592c408412b}{insert\+Breaks} (\$t, \$n, \$break= \textquotesingle{}$<$ br/$>$\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceWEPPO_1_1Helpers_a49c50fb06101e7cfd87655a663808c54}{\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!ensure\+U\+T\+F8@{ensure\+U\+T\+F8}}
+\index{ensure\+U\+T\+F8@{ensure\+U\+T\+F8}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{ensure\+U\+T\+F8(\$t)}{ensureUTF8($t)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}ensure\+U\+T\+F8 (
+\begin{DoxyParamCaption}
+\item[{}]{\$t}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a7aba6be7d2fd50163e778914dfcb6176}{}\label{namespaceWEPPO_1_1Helpers_a7aba6be7d2fd50163e778914dfcb6176}
+Sicherstellen, dass ein Text U\+T\+F8 codiert ist
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!formated\+Bytes@{formated\+Bytes}}
+\index{formated\+Bytes@{formated\+Bytes}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{formated\+Bytes(\$\+Wert, \$dec=false)}{formatedBytes($Wert, $dec=false)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}formated\+Bytes (
+\begin{DoxyParamCaption}
+\item[{}]{\$\+Wert, }
+\item[{}]{\$dec = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_ac35584046e823ceda19ca5aea4e861d0}{}\label{namespaceWEPPO_1_1Helpers_ac35584046e823ceda19ca5aea4e861d0}
+Formatierung von Byte-\/\+Angaben in der größt möglichen Tausender-\/\+Einheit
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$wert} & Die Anzahl Bytes \\
+\hline
+boolean & {\em \$dec} & Sollen 10er Potenzen verwendet werden (true) oder Binär (false)? \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!get\+Browser@{get\+Browser}}
+\index{get\+Browser@{get\+Browser}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{get\+Browser()}{getBrowser()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}get\+Browser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a9719eff55311d90c76062e465fd86f47}{}\label{namespaceWEPPO_1_1Helpers_a9719eff55311d90c76062e465fd86f47}
+Browser ermitteln
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!get\+Extention@{get\+Extention}}
+\index{get\+Extention@{get\+Extention}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{get\+Extention(\$file)}{getExtention($file)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}get\+Extention (
+\begin{DoxyParamCaption}
+\item[{}]{\$file}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a891ecb1686a8bcca73bd18b5adeb6112}{}\label{namespaceWEPPO_1_1Helpers_a891ecb1686a8bcca73bd18b5adeb6112}
+Dateiendung ermitteln
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$file} & Dateiname \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Dateiendung 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!insert\+Breaks@{insert\+Breaks}}
+\index{insert\+Breaks@{insert\+Breaks}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{insert\+Breaks(\$t, \$n, \$break= \textquotesingle{}$<$ br/$>$\textquotesingle{})}{insertBreaks($t, $n, $break= '< br/>')}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}insert\+Breaks (
+\begin{DoxyParamCaption}
+\item[{}]{\$t, }
+\item[{}]{\$n, }
+\item[{}]{\$break = {\ttfamily \textquotesingle{}$<$br/$>$\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a695175f776034e529fcd7592c408412b}{}\label{namespaceWEPPO_1_1Helpers_a695175f776034e529fcd7592c408412b}
+Fügt ein Zeilenumbruch nach einer bestimmten Azahl von Zeichen ein
+
+Die stelle zum Einfügen wird so gesucht, dass von der Soll-\/\+Stelle nach vorne und nach hinten im String die nächste Bruchmöglichkeit gesucht wird\+: Diejenige, die näher am Soll ist, wird verwendet
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$t} & Text \\
+\hline
+integer & {\em \$n} & Soll-\/\+Umbruchbreite in Anzahl Zeichen \\
+\hline
+string & {\em \$break} & An der Bruchstelle einzufügender String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!is\+I\+E\+\_\+le6@{is\+I\+E\+\_\+le6}}
+\index{is\+I\+E\+\_\+le6@{is\+I\+E\+\_\+le6}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{is\+I\+E\+\_\+le6()}{isIE_le6()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}is\+I\+E\+\_\+le6 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_ad88c8357abb00c4c69823295f108a9c0}{}\label{namespaceWEPPO_1_1Helpers_ad88c8357abb00c4c69823295f108a9c0}
+Ist es der I\+E6 oder älter?
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!is\+U\+T\+F8@{is\+U\+T\+F8}}
+\index{is\+U\+T\+F8@{is\+U\+T\+F8}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{is\+U\+T\+F8(\$string)}{isUTF8($string)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}is\+U\+T\+F8 (
+\begin{DoxyParamCaption}
+\item[{}]{\$string}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_add9a10540194b2592cabffda29e10d6e}{}\label{namespaceWEPPO_1_1Helpers_add9a10540194b2592cabffda29e10d6e}
+Ist U\+T\+F8-\/\+Codiert?
+
+Wird duch dekodieren und erneutes kodieren ermitteln
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$string} & Text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!is\+Valid\+Email@{is\+Valid\+Email}}
+\index{is\+Valid\+Email@{is\+Valid\+Email}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{is\+Valid\+Email(\$mail)}{isValidEmail($mail)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}is\+Valid\+Email (
+\begin{DoxyParamCaption}
+\item[{}]{\$mail}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a8f09da65a77ba4732e5cc4087f5b6310}{}\label{namespaceWEPPO_1_1Helpers_a8f09da65a77ba4732e5cc4087f5b6310}
+Mail-\/\+Adresse überprüfen
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$mail} & Mailadresse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!mail\+Subject\+Encode@{mail\+Subject\+Encode}}
+\index{mail\+Subject\+Encode@{mail\+Subject\+Encode}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{mail\+Subject\+Encode(\$s)}{mailSubjectEncode($s)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}mail\+Subject\+Encode (
+\begin{DoxyParamCaption}
+\item[{}]{\$s}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a9518f7e4142ca1ab4903c96a57a663fb}{}\label{namespaceWEPPO_1_1Helpers_a9518f7e4142ca1ab4903c96a57a663fb}
+Mail-\/\+Betreff richtig codieren
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$s} & Betreff \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!name\+Array@{name\+Array}}
+\index{name\+Array@{name\+Array}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{name\+Array(\$values, \$keys, \$defaults=null)}{nameArray($values, $keys, $defaults=null)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}name\+Array (
+\begin{DoxyParamCaption}
+\item[{}]{\$values, }
+\item[{}]{\$keys, }
+\item[{}]{\$defaults = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceWEPPO_1_1Helpers_a74b2707f3efbcfd966872e605458ff96}{}\label{namespaceWEPPO_1_1Helpers_a74b2707f3efbcfd966872e605458ff96}
+Gibt den Elementen eines Arrays der Reihenfolge nach bestimmte Schlüssel
+
+Wird verwendet um ein U\+R\+L-\/\+Muster aufzuschlüsseln
+
+Sind in \$values weniger Einträge als in \$keys so werden die Werte null gesetzt. Sind in \$values mehr Einträge als in \$keys so werden die übrigen ignoriert (mit nummerischen idex versehen).
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$values} & Werte \\
+\hline
+array & {\em \$keys} & Namen für die Werte\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\index{W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}!\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension@{\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension}}
+\index{\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension@{\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension}!W\+E\+P\+P\+O\+::\+Helpers@{W\+E\+P\+P\+O\+::\+Helpers}}
+\subsubsection[{\texorpdfstring{\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension}{$__disable_iiban_gmp_extension}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\+::\+Helpers\textbackslash{}\$\+\_\+\+\_\+disable\+\_\+iiban\+\_\+gmp\+\_\+extension = false}\hypertarget{namespaceWEPPO_1_1Helpers_a49c50fb06101e7cfd87655a663808c54}{}\label{namespaceWEPPO_1_1Helpers_a49c50fb06101e7cfd87655a663808c54}

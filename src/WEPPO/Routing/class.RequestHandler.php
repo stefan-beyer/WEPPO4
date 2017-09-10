@@ -10,6 +10,14 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * Handels a Request.
+ * 
+ * Provides some helpers for path processing e.g. preparing a path by removing
+ * the part that was used by a path gate and parse it into an array: preparePath().
+ * And the other way arround: buildPath().
+ * 
+ */
 class RequestHandler {
 
     const OK = 0;

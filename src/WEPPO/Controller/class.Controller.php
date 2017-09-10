@@ -10,7 +10,12 @@
 
 namespace WEPPO\Controller;
 
-
+/**
+ * The first Level Controller for a page.
+ * 
+ * Subclasses of this classes will be used to configure th pages.
+ * 
+ */
 class Controller extends Service {
     
     protected $requestHandler;
@@ -27,8 +32,8 @@ class Controller extends Service {
      * Und möglichst keine von Request abhängigen aktionen...
      * Sowas sollte erst z.B. in einer überschriebenen dispatch()-Methode passieren.
      * 
-     * @param \WEPPO\Routing\Request $request
-     * @param \WEPPO\Routing\RequestHandler $requestHandler
+     * @param WEPPO::Routing::Request $request
+     * @param WEPPO::Routing::RequestHandler $requestHandler
      */
     public function __construct(\WEPPO\Routing\Request &$request, \WEPPO\Routing\RequestHandler &$requestHandler) {
         $parent = null;
@@ -78,7 +83,7 @@ class Controller extends Service {
     /**
      * Parts are an other possible way of communication between controller and template.
      * 
-     * In contrast to params (via \WEPPO\Presentation\TemplateBase::set() and \WEPPO\Presentation\TemplateBase::get()),
+     * In contrast to params (via @see WEPPO::Presentation::TemplateBase::set() and @see WEPPO::Presentation::TemplateBase::get()),
      * parts are generated on demand.
      * 
      * To give a controller the abillity to generate parts, you just have to overwrite getParts().

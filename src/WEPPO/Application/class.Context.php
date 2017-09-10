@@ -41,7 +41,7 @@ class Context {
     /**
      * Get the context instance. Creates it, if necessary.
      * 
-     * @return \WEPPO\Application\Context
+     * @return WEPPO::Application::Context
      */
     static public function &getInstance() : Context {
         if (self::$instance === null) {
@@ -69,7 +69,7 @@ class Context {
     /**
      * Set the application reference.
      * 
-     * @param \WEPPO\Application\Application $app
+     * @param WEPPO::Application::Application $app
      */
     public function setApplication(Application &$app) {
         $this->application = $app;
@@ -78,7 +78,7 @@ class Context {
     /**
      * Get the application reference. 
      * 
-     * @return \WEPPO\Application\Application
+     * @return WEPPO::Application::Application
      */
     public function &getApplication() : Application {
         return $this->application;
@@ -87,7 +87,7 @@ class Context {
     /**
      * Convenience method to get the current request handler.
      * 
-     * @return \WEPPO\Routing\RequestHandler
+     * @return WEPPO::Routing::RequestHandler
      */
     public function &getRequestHandler() : \WEPPO\Routing\RequestHandler {
         return $this->getApplication()->getRequestHandler();
@@ -96,7 +96,7 @@ class Context {
     /**
      * Get the settings reference. 
      * 
-     * @return \WEPPO\Application\Settings
+     * @return WEPPO::Application::Settings
      */
     public function &getSettings() : Settings {
         return $this->settings;

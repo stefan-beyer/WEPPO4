@@ -1,5 +1,7 @@
-/docs/
 /nbproject/
 /test/
 /index.php
 /router.php
+/Doxyfile
+/docs/notes.txt
+/docs/warn.log

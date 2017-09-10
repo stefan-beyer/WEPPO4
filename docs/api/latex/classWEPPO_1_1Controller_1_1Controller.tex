@@ -1,0 +1,122 @@
+\hypertarget{classWEPPO_1_1Controller_1_1Controller}{}\section{W\+E\+P\+PO\textbackslash{}Controller\textbackslash{}Controller Class Reference}
+\label{classWEPPO_1_1Controller_1_1Controller}\index{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller@{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller}}
+
+
+Inheritance diagram for W\+E\+P\+PO\textbackslash{}Controller\textbackslash{}Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWEPPO_1_1Controller_1_1Controller__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Controller_a5a5dfa8ba627ddac02675d0c1fb44b92}{\+\_\+\+\_\+construct} (\textbackslash{}\hyperlink{classWEPPO_1_1Routing_1_1Request}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request} \&\$request,\textbackslash{}\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler} \&\$request\+Handler)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Controller_abfdc2454689d032a81a7eddee91b7445}{run} ()
+\item 
+\& \hyperlink{classWEPPO_1_1Controller_1_1Controller_af32d3de1298eb0c19ba07585f207ad1c}{get\+Request\+Handler} ()
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Controller_a8710ee71c9768e78b7e5d15c8624602f}{collect\+Maches} ()
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Controller_ab9a68bc1c7f77d9fd2e620e4c0fb4e84}{get\+Part} (string \$name)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Controller_ab0ddc5efebeac13fc91736e9ba521486}{\$request\+Handler}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Controller_a9b3514daa7cd3165920c2b9bdeef53bf}{\$index\+Action} = \textquotesingle{}index\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The first Level \hyperlink{classWEPPO_1_1Controller_1_1Controller}{Controller} for a page.
+
+Subclasses of this classes will be used to configure th pages. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request \&\$request,\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler \&\$request\+Handler)}{__construct(\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}Request &$request,\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}RequestHandler &$requestHandler)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request} \&}]{\$request, }
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler} \&}]{\$request\+Handler}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Controller_a5a5dfa8ba627ddac02675d0c1fb44b92}{}\label{classWEPPO_1_1Controller_1_1Controller_a5a5dfa8ba627ddac02675d0c1fb44b92}
+Ein \hyperlink{classWEPPO_1_1Controller_1_1Controller}{Controller} soll im Konstruktor keine Änderungen an Daten vornehmen oder sonstige persistente Aktionen (Emails versenden z.\+B.). Und möglichst keine von Request abhängigen aktionen... Sowas sollte erst z.\+B. in einer überschriebenen \hyperlink{classWEPPO_1_1Controller_1_1Service_ab84cfaaa9aa55776dbe34acd468b82f2}{dispatch()}-\/\+Methode passieren.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\hyperlink{classWEPPO_1_1Routing_1_1Request}{W\+E\+P\+P\+O\+::\+Routing\+::\+Request} & {\em \$request} & \\
+\hline
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler}{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler} & {\em \$request\+Handler} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!collect\+Maches@{collect\+Maches}}
+\index{collect\+Maches@{collect\+Maches}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{collect\+Maches()}{collectMaches()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::collect\+Maches (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Controller_a8710ee71c9768e78b7e5d15c8624602f}{}\label{classWEPPO_1_1Controller_1_1Controller_a8710ee71c9768e78b7e5d15c8624602f}
+Sammelt die Named Matches der Seite und seiner Eltern in einem Array. \begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!get\+Part@{get\+Part}}
+\index{get\+Part@{get\+Part}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{get\+Part(string \$name)}{getPart(string $name)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::get\+Part (
+\begin{DoxyParamCaption}
+\item[{string}]{\$name}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Controller_ab9a68bc1c7f77d9fd2e620e4c0fb4e84}{}\label{classWEPPO_1_1Controller_1_1Controller_ab9a68bc1c7f77d9fd2e620e4c0fb4e84}
+Parts are an other possible way of communication between controller and template.
+
+In contrast to params (via \begin{DoxySeeAlso}{See also}
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_af4bee053712054122263fb75bd1c47ab}{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base\+::set()} and 
+
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a5be83129d029e94060fe6056e024cae7}{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base\+::get()}), parts are generated on demand.
+\end{DoxySeeAlso}
+To give a controller the abillity to generate parts, you just have to overwrite get\+Parts().
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!get\+Request\+Handler@{get\+Request\+Handler}}
+\index{get\+Request\+Handler@{get\+Request\+Handler}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{get\+Request\+Handler()}{getRequestHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::get\+Request\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Controller_af32d3de1298eb0c19ba07585f207ad1c}{}\label{classWEPPO_1_1Controller_1_1Controller_af32d3de1298eb0c19ba07585f207ad1c}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!run@{run}}
+\index{run@{run}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Controller_abfdc2454689d032a81a7eddee91b7445}{}\label{classWEPPO_1_1Controller_1_1Controller_abfdc2454689d032a81a7eddee91b7445}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!\$index\+Action@{\$index\+Action}}
+\index{\$index\+Action@{\$index\+Action}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{\$index\+Action}{$indexAction}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::\$index\+Action = \textquotesingle{}index\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Controller_a9b3514daa7cd3165920c2b9bdeef53bf}{}\label{classWEPPO_1_1Controller_1_1Controller_a9b3514daa7cd3165920c2b9bdeef53bf}
+wird der \hyperlink{classWEPPO_1_1Controller_1_1Controller}{Controller} ohne Action aufgerufen wird diese Action ausgeführt\+: \index{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}!\$request\+Handler@{\$request\+Handler}}
+\index{\$request\+Handler@{\$request\+Handler}!W\+E\+P\+P\+O\+::\+Controller\+::\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+Controller}}
+\subsubsection[{\texorpdfstring{\$request\+Handler}{$requestHandler}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller\+::\$request\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Controller_ab0ddc5efebeac13fc91736e9ba521486}{}\label{classWEPPO_1_1Controller_1_1Controller_ab0ddc5efebeac13fc91736e9ba521486}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Controller/\hyperlink{class_8Controller_8php}{class.\+Controller.\+php}\end{DoxyCompactItemize}

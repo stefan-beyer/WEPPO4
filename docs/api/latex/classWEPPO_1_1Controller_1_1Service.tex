@@ -1,0 +1,204 @@
+\hypertarget{classWEPPO_1_1Controller_1_1Service}{}\section{W\+E\+P\+PO\textbackslash{}Controller\textbackslash{}Service Class Reference}
+\label{classWEPPO_1_1Controller_1_1Service}\index{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service@{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service}}
+
+
+Inheritance diagram for W\+E\+P\+PO\textbackslash{}Controller\textbackslash{}Service\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWEPPO_1_1Controller_1_1Service__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_ab1df701c9be0cfac3d4f07772803a755}{\+\_\+\+\_\+construct} (\&\$parent,\textbackslash{}\hyperlink{classWEPPO_1_1Routing_1_1Request}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request} \&\$request)
+\item 
+\& \hyperlink{classWEPPO_1_1Controller_1_1Service_acac4c44dde4f13d7d99de0f0f06dd059}{get\+Services} ()
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_ab84cfaaa9aa55776dbe34acd468b82f2}{dispatch} (string \$action, array \$arr\+Path)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_a82d169a54fdd8353b430d519b2e3765a}{catch\+All} (string \$action, array \$arr\+Path)
+\item 
+\& \hyperlink{classWEPPO_1_1Controller_1_1Service_a0d6d038b799533b957a0b9e6509984d7}{get\+Root\+Controller} ()
+\item 
+\& \hyperlink{classWEPPO_1_1Controller_1_1Service_afb4522e177f5249ae72f6bceb208c755}{get\+Page} ()
+\item 
+\& \hyperlink{classWEPPO_1_1Controller_1_1Service_a3790f53e1f06e955a0f20e0fa06c46a4}{get\+Request} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_a8827d0f34711f678a79d45022cb605be}{register\+Service} (array \$serves, string \$classname)
+\item 
+\& \hyperlink{classWEPPO_1_1Controller_1_1Service_a39a3a2a3214e9e84305655683f8eefcb}{get\+Service} (string \$name)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_a5b64c7141eebd4233342985ee9eca236}{\$services} = \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_ad21c89cadbd889023ade358e1a340505}{\$parent\+Controller} = null
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_ad6e534e2ccd0f39b86f0ade64209296e}{\$called\+Action} = null
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_a866d6d4731f3e15041a73e551fef847d}{\$service\+Arr\+Path} = \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1Service_aab9a070609bf114a6d53c8c4259b4401}{\$request}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{classWEPPO_1_1Controller_1_1Service}{Service} is the main action dispatcher. A service can have child services attached, where you can outsource some of the work. A service can not be used as a \hyperlink{classWEPPO_1_1Controller_1_1Controller}{Controller}, but as part of a controller. And it is the baseclass of a \hyperlink{classWEPPO_1_1Controller_1_1Controller}{Controller}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\&\$parent,\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request \&\$request)}{__construct(&$parent,\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}Request &$request)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{\&}]{\$parent, }
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request} \&}]{\$request}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_ab1df701c9be0cfac3d4f07772803a755}{}\label{classWEPPO_1_1Controller_1_1Service_ab1df701c9be0cfac3d4f07772803a755}
+The constructor of a service should not change any data or take persist actions (send emails). If possible do nothing that is dependend on the request. Those things should be done in an overwritten \hyperlink{classWEPPO_1_1Controller_1_1Service_ab84cfaaa9aa55776dbe34acd468b82f2}{dispatch()} method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\hyperlink{classWEPPO_1_1Controller_1_1Service}{W\+E\+P\+P\+O\+::\+Controller\+::\+Service} & {\em \$parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!catch\+All@{catch\+All}}
+\index{catch\+All@{catch\+All}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{catch\+All(string \$action, array \$arr\+Path)}{catchAll(string $action, array $arrPath)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::catch\+All (
+\begin{DoxyParamCaption}
+\item[{string}]{\$action, }
+\item[{array}]{\$arr\+Path}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_a82d169a54fdd8353b430d519b2e3765a}{}\label{classWEPPO_1_1Controller_1_1Service_a82d169a54fdd8353b430d519b2e3765a}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{dispatch(string \$action, array \$arr\+Path)}{dispatch(string $action, array $arrPath)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::dispatch (
+\begin{DoxyParamCaption}
+\item[{string}]{\$action, }
+\item[{array}]{\$arr\+Path}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_ab84cfaaa9aa55776dbe34acd468b82f2}{}\label{classWEPPO_1_1Controller_1_1Service_ab84cfaaa9aa55776dbe34acd468b82f2}
+Dispatches the action.
+
+
+\begin{DoxyEnumerate}
+\item If there is a child service for the action, call the dispatcher of that service.
+\item If there is an action method (function action\+\_\+\mbox{[}actionname\mbox{]}(\$pathdata)), call it.
+\item call catch\+All method (which will throw an exception by default.)
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$action} & \\
+\hline
+array & {\em \$arr\+Path} & The Rest of the request path array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!get\+Page@{get\+Page}}
+\index{get\+Page@{get\+Page}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{get\+Page()}{getPage()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::get\+Page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_afb4522e177f5249ae72f6bceb208c755}{}\label{classWEPPO_1_1Controller_1_1Service_afb4522e177f5249ae72f6bceb208c755}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!get\+Request@{get\+Request}}
+\index{get\+Request@{get\+Request}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{get\+Request()}{getRequest()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::get\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_a3790f53e1f06e955a0f20e0fa06c46a4}{}\label{classWEPPO_1_1Controller_1_1Service_a3790f53e1f06e955a0f20e0fa06c46a4}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!get\+Root\+Controller@{get\+Root\+Controller}}
+\index{get\+Root\+Controller@{get\+Root\+Controller}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{get\+Root\+Controller()}{getRootController()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::get\+Root\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_a0d6d038b799533b957a0b9e6509984d7}{}\label{classWEPPO_1_1Controller_1_1Service_a0d6d038b799533b957a0b9e6509984d7}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!get\+Service@{get\+Service}}
+\index{get\+Service@{get\+Service}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{get\+Service(string \$name)}{getService(string $name)}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::get\+Service (
+\begin{DoxyParamCaption}
+\item[{string}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_a39a3a2a3214e9e84305655683f8eefcb}{}\label{classWEPPO_1_1Controller_1_1Service_a39a3a2a3214e9e84305655683f8eefcb}
+Get a \hyperlink{classWEPPO_1_1Controller_1_1Service}{Service} Object. Creates it, if not yet created.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classWEPPO_1_1Controller_1_1Service}{W\+E\+P\+P\+O\+::\+Controller\+::\+Service} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!get\+Services@{get\+Services}}
+\index{get\+Services@{get\+Services}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{get\+Services()}{getServices()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::get\+Services (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1Service_acac4c44dde4f13d7d99de0f0f06dd059}{}\label{classWEPPO_1_1Controller_1_1Service_acac4c44dde4f13d7d99de0f0f06dd059}
+Returns the array of registered Services The values can be strings or \hyperlink{classWEPPO_1_1Controller_1_1Service}{Service} objects.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!register\+Service@{register\+Service}}
+\index{register\+Service@{register\+Service}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{register\+Service(array \$serves, string \$classname)}{registerService(array $serves, string $classname)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::register\+Service (
+\begin{DoxyParamCaption}
+\item[{array}]{\$serves, }
+\item[{string}]{\$classname}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_a8827d0f34711f678a79d45022cb605be}{}\label{classWEPPO_1_1Controller_1_1Service_a8827d0f34711f678a79d45022cb605be}
+Register a \hyperlink{classWEPPO_1_1Controller_1_1Service}{Service} for some key aktions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$serves} & Array with keys that will be connected to the service. \\
+\hline
+string & {\em \$classname} & Classname of a subclass of \hyperlink{classWEPPO_1_1Controller_1_1Service}{W\+E\+P\+P\+O\+::\+Controller\+::\+Service} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!\$called\+Action@{\$called\+Action}}
+\index{\$called\+Action@{\$called\+Action}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{\$called\+Action}{$calledAction}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::\$called\+Action = null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_ad6e534e2ccd0f39b86f0ade64209296e}{}\label{classWEPPO_1_1Controller_1_1Service_ad6e534e2ccd0f39b86f0ade64209296e}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!\$parent\+Controller@{\$parent\+Controller}}
+\index{\$parent\+Controller@{\$parent\+Controller}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{\$parent\+Controller}{$parentController}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::\$parent\+Controller = null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_ad21c89cadbd889023ade358e1a340505}{}\label{classWEPPO_1_1Controller_1_1Service_ad21c89cadbd889023ade358e1a340505}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!\$request@{\$request}}
+\index{\$request@{\$request}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{\$request}{$request}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::\$request\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_aab9a070609bf114a6d53c8c4259b4401}{}\label{classWEPPO_1_1Controller_1_1Service_aab9a070609bf114a6d53c8c4259b4401}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!\$service\+Arr\+Path@{\$service\+Arr\+Path}}
+\index{\$service\+Arr\+Path@{\$service\+Arr\+Path}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{\$service\+Arr\+Path}{$serviceArrPath}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::\$service\+Arr\+Path = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_a866d6d4731f3e15041a73e551fef847d}{}\label{classWEPPO_1_1Controller_1_1Service_a866d6d4731f3e15041a73e551fef847d}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}!\$services@{\$services}}
+\index{\$services@{\$services}!W\+E\+P\+P\+O\+::\+Controller\+::\+Service@{W\+E\+P\+P\+O\+::\+Controller\+::\+Service}}
+\subsubsection[{\texorpdfstring{\$services}{$services}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Service\+::\$services = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1Service_a5b64c7141eebd4233342985ee9eca236}{}\label{classWEPPO_1_1Controller_1_1Service_a5b64c7141eebd4233342985ee9eca236}
+Array of sub services. (key=$>$classname).
+
+This will hold only classnames associated with a key until the service is called\+: the created object will replace its classname in the array. The advantage of this is, that no service object will be created until its used. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Controller/\hyperlink{class_8Service_8php}{class.\+Service.\+php}\end{DoxyCompactItemize}

@@ -1,0 +1,169 @@
+\hypertarget{classWEPPO_1_1Routing_1_1Gate}{}\section{W\+E\+P\+PO\textbackslash{}Routing\textbackslash{}Gate Class Reference}
+\label{classWEPPO_1_1Routing_1_1Gate}\index{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate@{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_a7ffa4bb1abb78f057c2c27797e968fee}{\+\_\+\+\_\+construct} (\$def, \$mode, \$lvl=false)
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_a1084a2aa3302bbee0e5f7394f6b1e4e1}{call} ()
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_ae58398e36df9f7a9c64643c94a1b910b}{error} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1Gate_ace0b76502180ef1c36c4bf157a8e940d}{M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN} = 1
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1Gate_abc68289168d1451768d390fad7435e75}{M\+O\+D\+E\+\_\+\+P\+A\+TH} = 3
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1Gate_a64916c1484e8d22de9b9371e42e345a0}{L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN} = 2
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1Gate_a24835577fd5362264520625cd0fa358e}{L\+E\+V\+E\+L\+\_\+\+F\+U\+LL} = 0
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classWEPPO_1_1Routing_1_1Gate_a294a04242d8cf46b9542097105c19477}{\$gate\+Path} = null
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_a5ef1ce1bfce8ed10fe5cd19292d47ee4}{\+\_\+get\+\_\+parts} ()
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_af9605f0498bfd014156c3a0f4d890e62}{\+\_\+call} (\$key)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_ad509062f07757873c558f2b3a20b9a71}{\$definition}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_a39c9b5f7432b888f5a752913290c39a8}{\$mode}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_a8728048a96c0b706eb1c0cfa526921b4}{\$level}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1Gate_ab3c74fc204264f562ee3bc8a34b77bac}{\$separator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Start-\/\+Skript-\/\+Wechsel nach Domain-\/ und Pfad
+
+Um unterschiedliche Konfigurationen je nach Domain oder Pfad zu laden.
+
+Bevor die eigentliche Konfigurstion vorgenommen wird, kann eine Weiche (\hyperlink{classWEPPO_1_1Routing_1_1Gate}{Gate}) aufgerufen werden, die die weitere Konfiguration abhängig von der aufgerufenen U\+RL (Domain, Subdomain, Pfad) durchführt.
+
+Damit kann z.\+B. für die selbe W\+E\+P\+P\+O-\/\+Installation je nach Subdomain eine andere Konfiguration geladen werden, das heißt, eine andere Seitenstruktur, eine andere Datenbank etc... Dafür stellt man z.\+B. `\$cfg\mbox{[}\textquotesingle{}xmldb\+\_\+path\textquotesingle{}\mbox{]}{\ttfamily und}\$cfg\mbox{[}\textquotesingle{}xml\+\_\+pages\textquotesingle{}\mbox{]}` je nach App unterschiedlich ein. \begin{DoxyVerb}Die Zuordnung ist ein Array wie z.B.:
+\end{DoxyVerb}
+ 
+\begin{DoxyCode}
+array(
+     \textcolor{stringliteral}{'subdomain'} => \textcolor{stringliteral}{'<Start-Skript relativ zu APP\_ROOT>'},
+);
+\end{DoxyCode}
+
+
+Wird der zugeordneten Konfigurationsdatei ein {\ttfamily /} vorangestellt, so wird der System-\/cfg-\/\+Ordner verwendet, sonst der A\+P\+P-\/cfg-\/\+Ordner.
+
+Quellen können sein\+: {\ttfamily \hyperlink{classWEPPO_1_1Routing_1_1Gate_ace0b76502180ef1c36c4bf157a8e940d}{Gate\+::\+M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN}} oder {\ttfamily \hyperlink{classWEPPO_1_1Routing_1_1Gate_abc68289168d1451768d390fad7435e75}{Gate\+::\+M\+O\+D\+E\+\_\+\+P\+A\+TH}} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\$def, \$mode, \$lvl=false)}{__construct($def, $mode, $lvl=false)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$def, }
+\item[{}]{\$mode, }
+\item[{}]{\$lvl = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a7ffa4bb1abb78f057c2c27797e968fee}{}\label{classWEPPO_1_1Routing_1_1Gate_a7ffa4bb1abb78f057c2c27797e968fee}
+Erstellt ein \hyperlink{classWEPPO_1_1Routing_1_1Gate}{Gate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$def} & Zuordnung \\
+\hline
+integer & {\em \$mode} & Modus \\
+\hline
+integer & {\em \$lvl} & Level \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\+\_\+call@{\+\_\+call}}
+\index{\+\_\+call@{\+\_\+call}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\+\_\+call(\$key)}{_call($key)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+\_\+call (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_af9605f0498bfd014156c3a0f4d890e62}{}\label{classWEPPO_1_1Routing_1_1Gate_af9605f0498bfd014156c3a0f4d890e62}
+Versuche, die Weiche nach dem key zu stellen.
+
+Wenn dafür keine Zuordnung vorhanden ist, wird false zurückgeliefert
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$key} & Zuordnungs-\/\+Schlüssel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true die Weiche gestellt wurde 
+
+false wenn die Zuordnung oder die Konfigurations-\/\+Datei nicht vorhanden ist 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\+\_\+get\+\_\+parts@{\+\_\+get\+\_\+parts}}
+\index{\+\_\+get\+\_\+parts@{\+\_\+get\+\_\+parts}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\+\_\+get\+\_\+parts()}{_get_parts()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+\_\+get\+\_\+parts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a5ef1ce1bfce8ed10fe5cd19292d47ee4}{}\label{classWEPPO_1_1Routing_1_1Gate_a5ef1ce1bfce8ed10fe5cd19292d47ee4}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!call@{call}}
+\index{call@{call}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{call()}{call()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::call (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a1084a2aa3302bbee0e5f7394f6b1e4e1}{}\label{classWEPPO_1_1Routing_1_1Gate_a1084a2aa3302bbee0e5f7394f6b1e4e1}
+Die Weiche ausführen. \index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!error@{error}}
+\index{error@{error}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{error()}{error()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1Gate_ae58398e36df9f7a9c64643c94a1b910b}{}\label{classWEPPO_1_1Routing_1_1Gate_ae58398e36df9f7a9c64643c94a1b910b}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\$definition@{\$definition}}
+\index{\$definition@{\$definition}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\$definition}{$definition}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\$definition\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_ad509062f07757873c558f2b3a20b9a71}{}\label{classWEPPO_1_1Routing_1_1Gate_ad509062f07757873c558f2b3a20b9a71}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\$gate\+Path@{\$gate\+Path}}
+\index{\$gate\+Path@{\$gate\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\$gate\+Path}{$gatePath}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\$gate\+Path = null\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a294a04242d8cf46b9542097105c19477}{}\label{classWEPPO_1_1Routing_1_1Gate_a294a04242d8cf46b9542097105c19477}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\$level@{\$level}}
+\index{\$level@{\$level}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\$level}{$level}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\$level\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a8728048a96c0b706eb1c0cfa526921b4}{}\label{classWEPPO_1_1Routing_1_1Gate_a8728048a96c0b706eb1c0cfa526921b4}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\$mode@{\$mode}}
+\index{\$mode@{\$mode}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\$mode}{$mode}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\$mode\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a39c9b5f7432b888f5a752913290c39a8}{}\label{classWEPPO_1_1Routing_1_1Gate_a39c9b5f7432b888f5a752913290c39a8}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!\$separator@{\$separator}}
+\index{\$separator@{\$separator}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{\$separator}{$separator}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\$separator\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1Gate_ab3c74fc204264f562ee3bc8a34b77bac}{}\label{classWEPPO_1_1Routing_1_1Gate_ab3c74fc204264f562ee3bc8a34b77bac}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!L\+E\+V\+E\+L\+\_\+\+F\+U\+LL@{L\+E\+V\+E\+L\+\_\+\+F\+U\+LL}}
+\index{L\+E\+V\+E\+L\+\_\+\+F\+U\+LL@{L\+E\+V\+E\+L\+\_\+\+F\+U\+LL}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{L\+E\+V\+E\+L\+\_\+\+F\+U\+LL}{LEVEL_FULL}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+L\+E\+V\+E\+L\+\_\+\+F\+U\+LL = 0}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a24835577fd5362264520625cd0fa358e}{}\label{classWEPPO_1_1Routing_1_1Gate_a24835577fd5362264520625cd0fa358e}
+Vollständige Weiche wird verwendet \index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN@{L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN}}
+\index{L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN@{L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN}{LEVEL_SUBDOMAIN}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+L\+E\+V\+E\+L\+\_\+\+S\+U\+B\+D\+O\+M\+A\+IN = 2}\hypertarget{classWEPPO_1_1Routing_1_1Gate_a64916c1484e8d22de9b9371e42e345a0}{}\label{classWEPPO_1_1Routing_1_1Gate_a64916c1484e8d22de9b9371e42e345a0}
+T\+LD und Second-\/\+Level-\/\+Domain werden ignoriert, also wird nur ab der Subdomain geprüft. Für M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN. \index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN@{M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN}}
+\index{M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN@{M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN}{MODE_DOMAIN}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+M\+O\+D\+E\+\_\+\+D\+O\+M\+A\+IN = 1}\hypertarget{classWEPPO_1_1Routing_1_1Gate_ace0b76502180ef1c36c4bf157a8e940d}{}\label{classWEPPO_1_1Routing_1_1Gate_ace0b76502180ef1c36c4bf157a8e940d}
+Die Domain wird als Quelle verwendet \index{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}!M\+O\+D\+E\+\_\+\+P\+A\+TH@{M\+O\+D\+E\+\_\+\+P\+A\+TH}}
+\index{M\+O\+D\+E\+\_\+\+P\+A\+TH@{M\+O\+D\+E\+\_\+\+P\+A\+TH}!W\+E\+P\+P\+O\+::\+Routing\+::\+Gate@{W\+E\+P\+P\+O\+::\+Routing\+::\+Gate}}
+\subsubsection[{\texorpdfstring{M\+O\+D\+E\+\_\+\+P\+A\+TH}{MODE_PATH}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Gate\+::\+M\+O\+D\+E\+\_\+\+P\+A\+TH = 3}\hypertarget{classWEPPO_1_1Routing_1_1Gate_abc68289168d1451768d390fad7435e75}{}\label{classWEPPO_1_1Routing_1_1Gate_abc68289168d1451768d390fad7435e75}
+Der Request-\/\+Path (Pfad) wird als Quelle verwendet 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Routing/\hyperlink{class_8Gate_8php}{class.\+Gate.\+php}\end{DoxyCompactItemize}

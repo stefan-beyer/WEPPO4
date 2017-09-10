@@ -1,0 +1,120 @@
+\hypertarget{classWEPPO_1_1Routing_1_1PageStructure}{}\section{W\+E\+P\+PO\textbackslash{}Routing\textbackslash{}Page\+Structure Class Reference}
+\label{classWEPPO_1_1Routing_1_1PageStructure}\index{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure@{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure}}
+
+
+Inheritance diagram for W\+E\+P\+PO\textbackslash{}Routing\textbackslash{}Page\+Structure\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classWEPPO_1_1Routing_1_1PageStructure__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1PageStructure_a24610490f7f72a6e1069404f53a39928}{\+\_\+\+\_\+construct} (\$pattern\+Matching=\hyperlink{classWEPPO_1_1Routing_1_1PageStructure_acd456b36874bf5f113861b18edffa052}{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT})
+\item 
+\& \hyperlink{classWEPPO_1_1Routing_1_1PageStructure_aa10eb6a49414f998716d960724c279ba}{find\+Page} (array \$path\+Arr, \$exact)
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1PageStructure_a3b19feff0cf70327212a77b4aaad8a93}{has\+Root\+Page} ()
+\item 
+\& \hyperlink{classWEPPO_1_1Routing_1_1PageStructure_a56036f146200b6cfa0cbf40d6357b723}{get\+Root\+Page} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1PageStructure_acd456b36874bf5f113861b18edffa052}{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT} = 0
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1PageStructure_a52f371b7de8e41c5e7f78d0ce73ff047}{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE} = 1
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1PageStructure_a1ebae2430cd701d5b5c877b3c5b6c5f0}{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX} = 2
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1PageStructure_aa924cdcb6b4c303ba4eff0a95bd59f52}{load\+\_\+root\+\_\+page} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1PageStructure_aadefa7828669140f8ba751beecba02e4}{\$match\+Mode}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1PageStructure_a2ca8856124b59fc74746ac83440a4afc}{\$root\+Page} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract Basclass for the Page Structure handling.
+
+It manages a root page and different maching modes.
+\begin{DoxyItemize}
+\item M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT\+: only exact names will match
+\item M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE\+: some simple patterns can be used
+\item M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX\+: complex regex pattern can be used
+\end{DoxyItemize}
+
+It finds a matching Page object for a array path. If some pattern matching is used, it stores the matches in the page object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\$pattern\+Matching=\+M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+C\+T)}{__construct($patternMatching=MATCH_MODE_EXACT)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$pattern\+Matching = {\ttfamily {\bf M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_a24610490f7f72a6e1069404f53a39928}{}\label{classWEPPO_1_1Routing_1_1PageStructure_a24610490f7f72a6e1069404f53a39928}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!find\+Page@{find\+Page}}
+\index{find\+Page@{find\+Page}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{find\+Page(array \$path\+Arr, \$exact)}{findPage(array $pathArr, $exact)}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::find\+Page (
+\begin{DoxyParamCaption}
+\item[{array}]{\$path\+Arr, }
+\item[{}]{\$exact}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_aa10eb6a49414f998716d960724c279ba}{}\label{classWEPPO_1_1Routing_1_1PageStructure_aa10eb6a49414f998716d960724c279ba}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!get\+Root\+Page@{get\+Root\+Page}}
+\index{get\+Root\+Page@{get\+Root\+Page}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{get\+Root\+Page()}{getRootPage()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::get\+Root\+Page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_a56036f146200b6cfa0cbf40d6357b723}{}\label{classWEPPO_1_1Routing_1_1PageStructure_a56036f146200b6cfa0cbf40d6357b723}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!has\+Root\+Page@{has\+Root\+Page}}
+\index{has\+Root\+Page@{has\+Root\+Page}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{has\+Root\+Page()}{hasRootPage()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::has\+Root\+Page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_a3b19feff0cf70327212a77b4aaad8a93}{}\label{classWEPPO_1_1Routing_1_1PageStructure_a3b19feff0cf70327212a77b4aaad8a93}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!load\+\_\+root\+\_\+page@{load\+\_\+root\+\_\+page}}
+\index{load\+\_\+root\+\_\+page@{load\+\_\+root\+\_\+page}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{load\+\_\+root\+\_\+page()}{load_root_page()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::load\+\_\+root\+\_\+page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_aa924cdcb6b4c303ba4eff0a95bd59f52}{}\label{classWEPPO_1_1Routing_1_1PageStructure_aa924cdcb6b4c303ba4eff0a95bd59f52}
+Should return the Root-\/\+Page-\/\+Object. 
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!\$match\+Mode@{\$match\+Mode}}
+\index{\$match\+Mode@{\$match\+Mode}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{\$match\+Mode}{$matchMode}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::\$match\+Mode\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_aadefa7828669140f8ba751beecba02e4}{}\label{classWEPPO_1_1Routing_1_1PageStructure_aadefa7828669140f8ba751beecba02e4}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!\$root\+Page@{\$root\+Page}}
+\index{\$root\+Page@{\$root\+Page}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{\$root\+Page}{$rootPage}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::\$root\+Page = null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_a2ca8856124b59fc74746ac83440a4afc}{}\label{classWEPPO_1_1Routing_1_1PageStructure_a2ca8856124b59fc74746ac83440a4afc}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT@{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT}}
+\index{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT@{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT}{MATCH_MODE_EXACT}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::\+M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+A\+CT = 0}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_acd456b36874bf5f113861b18edffa052}{}\label{classWEPPO_1_1Routing_1_1PageStructure_acd456b36874bf5f113861b18edffa052}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX@{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX}}
+\index{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX@{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX}{MATCH_MODE_REGEX}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::\+M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+EX = 2}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_a1ebae2430cd701d5b5c877b3c5b6c5f0}{}\label{classWEPPO_1_1Routing_1_1PageStructure_a1ebae2430cd701d5b5c877b3c5b6c5f0}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}!M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE@{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE}}
+\index{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE@{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE}!W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure@{W\+E\+P\+P\+O\+::\+Routing\+::\+Page\+Structure}}
+\subsubsection[{\texorpdfstring{M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE}{MATCH_MODE_SIMPLE}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Structure\+::\+M\+A\+T\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+M\+P\+LE = 1}\hypertarget{classWEPPO_1_1Routing_1_1PageStructure_a52f371b7de8e41c5e7f78d0ce73ff047}{}\label{classWEPPO_1_1Routing_1_1PageStructure_a52f371b7de8e41c5e7f78d0ce73ff047}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Routing/\hyperlink{class_8PageStructure_8php}{class.\+Page\+Structure.\+php}\end{DoxyCompactItemize}

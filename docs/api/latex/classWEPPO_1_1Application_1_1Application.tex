@@ -1,0 +1,146 @@
+\hypertarget{classWEPPO_1_1Application_1_1Application}{}\section{W\+E\+P\+PO\textbackslash{}Application\textbackslash{}Application Class Reference}
+\label{classWEPPO_1_1Application_1_1Application}\index{W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application@{W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_a2cd6c081f9605dda65b37a029423c704}{\+\_\+\+\_\+construct} (\textbackslash{}\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler} \&\$request\+Handler)
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_a1c329557d725b13597fe42d9d2c7ef9d}{init} ()
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_a1a0c0171a086ce9a74fdb58ab891a488}{auto\+Request} ()
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_a46df3113be7bf1f246c00a12dd9b1e3f}{run} ()
+\item 
+\& \hyperlink{classWEPPO_1_1Application_1_1Application_a94528e20d3434aafc6248a0854dac725}{get\+Request\+Handler} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_aa12cd49108ce93ec22bacefc8eea1ca6}{internal\+Init} ()
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_a72fc6bc6898fe1190fb08406d18ab35c}{\+\_\+print\+\_\+exception} (\textbackslash{}Exception \$e, \$js=true)
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_a7f2fef7292ea957391414a2c46b44e60}{\+\_\+get\+\_\+source\+\_\+lines} (string \$sfile, int \$line, int \$plus, bool \$html=true)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Application_ad2673af59a0e2c46d403e8193fc4d73f}{\$request\+Handler}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+In the first place, the application holds the Request\+Handler Instance and serves the start methode \hyperlink{classWEPPO_1_1Application_1_1Application_a46df3113be7bf1f246c00a12dd9b1e3f}{run()}. By default, \hyperlink{classWEPPO_1_1Application_1_1Application_a46df3113be7bf1f246c00a12dd9b1e3f}{run()} will call \hyperlink{classWEPPO_1_1Application_1_1Application_a1a0c0171a086ce9a74fdb58ab891a488}{auto\+Request()} to handle a normal Request. It will also catch redirect exceptions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler \&\$request\+Handler)}{__construct(\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}RequestHandler &$requestHandler)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler} \&}]{\$request\+Handler}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Application_a2cd6c081f9605dda65b37a029423c704}{}\label{classWEPPO_1_1Application_1_1Application_a2cd6c081f9605dda65b37a029423c704}
+This contruktor must be called in all subclasses. It will register the application in the context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler & {\em \$request\+Handler} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!\+\_\+get\+\_\+source\+\_\+lines@{\+\_\+get\+\_\+source\+\_\+lines}}
+\index{\+\_\+get\+\_\+source\+\_\+lines@{\+\_\+get\+\_\+source\+\_\+lines}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{\+\_\+get\+\_\+source\+\_\+lines(string \$sfile, int \$line, int \$plus, bool \$html=true)}{_get_source_lines(string $sfile, int $line, int $plus, bool $html=true)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::\+\_\+get\+\_\+source\+\_\+lines (
+\begin{DoxyParamCaption}
+\item[{string}]{\$sfile, }
+\item[{int}]{\$line, }
+\item[{int}]{\$plus, }
+\item[{bool}]{\$html = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Application_a7f2fef7292ea957391414a2c46b44e60}{}\label{classWEPPO_1_1Application_1_1Application_a7f2fef7292ea957391414a2c46b44e60}
+Get some lines of a source file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sfile} & The sourcefile you want \\
+\hline
+int & {\em \$line} & The line you want \\
+\hline
+int & {\em \$plus} & Amount of lines to get before and after the line \\
+\hline
+bool & {\em \$html} & Create H\+T\+ML Code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!\+\_\+print\+\_\+exception@{\+\_\+print\+\_\+exception}}
+\index{\+\_\+print\+\_\+exception@{\+\_\+print\+\_\+exception}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{\+\_\+print\+\_\+exception(\textbackslash{}\+Exception \$e, \$js=true)}{_print_exception(\textbackslash{}Exception $e, $js=true)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::\+\_\+print\+\_\+exception (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}Exception}]{\$e, }
+\item[{}]{\$js = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Application_a72fc6bc6898fe1190fb08406d18ab35c}{}\label{classWEPPO_1_1Application_1_1Application_a72fc6bc6898fe1190fb08406d18ab35c}
+Helper for pretty printing an exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+Exception & {\em \$e} & \\
+\hline
+bool & {\em \$js} & \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!auto\+Request@{auto\+Request}}
+\index{auto\+Request@{auto\+Request}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{auto\+Request()}{autoRequest()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::auto\+Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Application_a1a0c0171a086ce9a74fdb58ab891a488}{}\label{classWEPPO_1_1Application_1_1Application_a1a0c0171a086ce9a74fdb58ab891a488}
+Starts a normal request handling with the \$\+\_\+\+S\+E\+R\+V\+ER\mbox{[}\textquotesingle{}R\+E\+Q\+U\+E\+S\+T\+\_\+\+U\+RI\textquotesingle{}\mbox{]} and \$\+\_\+\+G\+ET and \$\+\_\+\+P\+O\+ST vars. \index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!get\+Request\+Handler@{get\+Request\+Handler}}
+\index{get\+Request\+Handler@{get\+Request\+Handler}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{get\+Request\+Handler()}{getRequestHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::get\+Request\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Application_a94528e20d3434aafc6248a0854dac725}{}\label{classWEPPO_1_1Application_1_1Application_a94528e20d3434aafc6248a0854dac725}
+Get the Request\+Handler instance.
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler}{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler} 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!init@{init}}
+\index{init@{init}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Application_a1c329557d725b13597fe42d9d2c7ef9d}{}\label{classWEPPO_1_1Application_1_1Application_a1c329557d725b13597fe42d9d2c7ef9d}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!internal\+Init@{internal\+Init}}
+\index{internal\+Init@{internal\+Init}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{internal\+Init()}{internalInit()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::internal\+Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Application_aa12cd49108ce93ec22bacefc8eea1ca6}{}\label{classWEPPO_1_1Application_1_1Application_aa12cd49108ce93ec22bacefc8eea1ca6}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!run@{run}}
+\index{run@{run}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Application_a46df3113be7bf1f246c00a12dd9b1e3f}{}\label{classWEPPO_1_1Application_1_1Application_a46df3113be7bf1f246c00a12dd9b1e3f}
+This is the main call in a start script. Calls \hyperlink{classWEPPO_1_1Application_1_1Application_a1c329557d725b13597fe42d9d2c7ef9d}{init()} and \hyperlink{classWEPPO_1_1Application_1_1Application_a1a0c0171a086ce9a74fdb58ab891a488}{auto\+Request()} 
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}!\$request\+Handler@{\$request\+Handler}}
+\index{\$request\+Handler@{\$request\+Handler}!W\+E\+P\+P\+O\+::\+Application\+::\+Application@{W\+E\+P\+P\+O\+::\+Application\+::\+Application}}
+\subsubsection[{\texorpdfstring{\$request\+Handler}{$requestHandler}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Application\+::\$request\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Application_ad2673af59a0e2c46d403e8193fc4d73f}{}\label{classWEPPO_1_1Application_1_1Application_ad2673af59a0e2c46d403e8193fc4d73f}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Application/\hyperlink{class_8Application_8php}{class.\+Application.\+php}\end{DoxyCompactItemize}

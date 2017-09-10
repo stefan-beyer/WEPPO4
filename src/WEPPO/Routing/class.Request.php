@@ -10,6 +10,11 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * Holds Information about a request.
+ * 
+ * It can manage its own GET and POST data with some automated type casting.
+ */
 class Request {
 
     protected $arrPath;

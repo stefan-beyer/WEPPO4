@@ -9,6 +9,9 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * URL Helpers
+ */
 class Url {
     
     static public function &getHost() {
@@ -28,7 +31,7 @@ class Url {
     /**
      * Erzeugt eine absolute URL aus einem Pfad
      * 
-     * @param	string	Pfad
+     * @param	string	$path Pfad
      * @return	string	Absolute URL
      */
     static public function getAbsUrl($path) {

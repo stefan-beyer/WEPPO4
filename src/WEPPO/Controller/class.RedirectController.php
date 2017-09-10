@@ -9,6 +9,15 @@
 
 namespace WEPPO\Controller;
 
+/**
+ * Controller that can be configurated to redirect to an other location.
+ * 
+ * @TODO documentation for modes:
+ *  - intern
+ *  - extern
+ *  - web
+ * @TODO implement intern and web
+ */
 class RedirectController extends Controller {
 
     public function catchAll(string $action, array $arrPath): bool {
@@ -33,6 +42,7 @@ class RedirectController extends Controller {
             echo '
             <p>Den gewünschten Inhalt finden Sie unter <a href="'. htmlspecialchars($to) .'">'. htmlspecialchars(\WEPPO\Routing\Url::getAbsUrl($to)) .'</a></p>
             ';
+            throw new \WEPPO\Routing\RedirectException($to);
         } else if ($mode === 'intern') {
             //$p = \WEPPO\System::$requestHandler->structure->getPageObject($m);
             #\WEPPO\System::$requestHandler->processRequest($to);

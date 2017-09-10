@@ -91,7 +91,7 @@ class Application {
     /**
      * Get the RequestHandler instance.
      * 
-     * @return \WEPPO\Routing\RequestHandler
+     * @return WEPPO::Routing::RequestHandler
      */
     public function &getRequestHandler(): \WEPPO\Routing\RequestHandler {
         return $this->requestHandler;
@@ -100,7 +100,8 @@ class Application {
     /**
      * Helper for pretty printing an exception.
      * 
-     * @param \Exception $e
+     * @param Exception $e
+     * @param bool $js
      */
     protected function _print_exception(\Exception $e, $js = true) {
         echo '<h1>'.get_class($e).'</h1>';

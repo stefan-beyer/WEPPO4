@@ -55,7 +55,7 @@ class Settings {
     /**
      * Get the Settings instance. Creates one if not created.
      * 
-     * @return \WEPPO\Application\Settings
+     * @return WEPPO::Application::Settings
      */
     static public function &getInstance() : Settings {
         if (self::$instance === null) {
@@ -72,7 +72,7 @@ class Settings {
      * APP_ROOT that will be included and should return an array with the settings.
      * 
      * @param mixed $settings array or file name
-     * @throws \Exception if settings could not be merged. eg. no array given or include file does not return an array.
+     * @throws Exception if settings could not be merged. eg. no array given or include file does not return an array.
      */
     public function loadSettings($settings) {
         if (!is_null($settings)) {

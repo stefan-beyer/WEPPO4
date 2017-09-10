@@ -10,6 +10,9 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * A Mixin for implementing parts of the PageInterface
+ */
 trait PageImplementation {
 
     protected $Page_Children = [];

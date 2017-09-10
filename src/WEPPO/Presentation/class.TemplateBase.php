@@ -10,6 +10,18 @@
 
 namespace WEPPO\Presentation;
 
+/**
+ * Base Class for Templates of all sorts.
+ * 
+ * Defines two ways of communiaction between template and controller:
+ *  - Params: params will be created by the controller and privides via set().
+ *    The template can use them via get(). The thing with params is:
+ *    they will be created whether it's used or not.
+ *  - Parts: parts work the other way around. They are requested by the template
+ *    via getPart(). This call will be forwarded to the controller in charge.
+ *    So the content is generated on demand.
+ *    
+ */
 abstract class TemplateBase {
     /* @var $controller \WEPPO\Controller\Controller */
     protected $controller = null;
@@ -152,7 +164,7 @@ abstract class TemplateBase {
     /**
      * Get a part from the controller on demand.
      * 
-     * @see \WEPPO\Controller::getPart()
+     * @see WEPPO::Controller::getPart()
      * 
      * @param string $name
      * @return string

@@ -9,6 +9,11 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * Page Structure created in-memory (not in xml file or in database).
+ * 
+ * Used with @see WEPPO::Routing::MemoryPage
+ */
 class MemoryPageStructure extends PageStructure {
     
     

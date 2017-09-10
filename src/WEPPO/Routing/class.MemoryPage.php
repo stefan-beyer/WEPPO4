@@ -9,6 +9,11 @@
 
 namespace WEPPO\Routing;
 
+/**
+ * To define an in-memory page structure.
+ * 
+ * Method chaining can be used for the setters.
+ */
 class MemoryPage implements PageInterface {
     use PageImplementation;
     

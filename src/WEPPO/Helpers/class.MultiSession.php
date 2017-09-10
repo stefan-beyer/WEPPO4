@@ -42,7 +42,7 @@ class MultiSession {
      * Erzeugt eine MultiSession mit einem Namen
      * 
      * @param string $name
-     * @throws \Exception Bei Mix von manueller Session und MultiSession hindeutet.
+     * @throws Exception Bei Mix von manueller Session und MultiSession hindeutet.
      */
     public function __construct($name) {
         # Wenn erkannt wurde, dass vor der ersten Objekterzeugung bereits ein session_start() erfolgt hat.

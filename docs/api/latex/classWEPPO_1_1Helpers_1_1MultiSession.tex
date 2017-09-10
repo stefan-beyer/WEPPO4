@@ -1,0 +1,186 @@
+\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession}{}\section{W\+E\+P\+PO\textbackslash{}Helpers\textbackslash{}Multi\+Session Class Reference}
+\label{classWEPPO_1_1Helpers_1_1MultiSession}\index{W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session@{W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a73e90e3bd34487d37ce3cd99744e63c4}{\+\_\+\+\_\+construct} (\$name)
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a57e21fecb9f906a75a6cbe4fad589f69}{write} ()
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_ad81fa382fa00ea04c7824ce4def022bd}{start} ()
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_ab9fad4174e71cc66cbcf0eee9c578955}{end} ()
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a999532084df734ac8ad1fcd3c6954180}{get\+Name} ()
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_ab2d6d1948e5a7e2d127160ca98f412fb}{get\+ID} ()
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_ac1f6ebbc3c9bd4cc3ea6ac3afe9295c1}{is\+Running} ()
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a0921f23ccda22c8be40c58bfcc4a2cd2}{set} (\$n, \$v)
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a29f51d6a99bb9e3673b206c663985beb}{get} (\$n)
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a9f6d4bbe654c36b3fcdff2e724137a0e}{has} (\$n)
+\item 
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_aed3b3c08d685f45d43a5af9d9a1b62df}{dump} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classWEPPO_1_1Helpers_1_1MultiSession_a1431b5eb9becee142a6b1823a196a2ad}{\$first} = true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classWEPPO_1_1Helpers_1_1MultiSession}{Multi\+Session}
+
+Diese Klasse ermöglicht es, mehrere getrennte P\+H\+P-\/\+Sessions zu verwalten. Die Session-\/\+Variablen der einzelnen Sessions sind getrennt von einander. Die Funktionalität setzt auf die session\+\_\+$\ast$() Funktionen von P\+HP auf und ermöglicht über wechseln von Session-\/\+Id und Session-\/\+Name, das Auslesen und Manipulieren mehrerer Sessions. Bei jeder Operation wird die gewünschte Session geöffnet und danach wieder geschlossen (nicht beendet!).
+
+Eine Session kann gezielt gestartet und beendet werden. Jede \hyperlink{classWEPPO_1_1Helpers_1_1MultiSession}{Multi\+Session} hat dabei ihren eigenen Cookie.
+
+Multi\+Sessions können nicht parallel mit manuellen session\+\_\+start() Aufrufen verwendet werden. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\$name)}{__construct($name)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a73e90e3bd34487d37ce3cd99744e63c4}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a73e90e3bd34487d37ce3cd99744e63c4}
+Erzeugt eine \hyperlink{classWEPPO_1_1Helpers_1_1MultiSession}{Multi\+Session} mit einem Namen
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Bei Mix von manueller Session und \hyperlink{classWEPPO_1_1Helpers_1_1MultiSession}{Multi\+Session} hindeutet. \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!dump@{dump}}
+\index{dump@{dump}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{dump()}{dump()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::dump (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_aed3b3c08d685f45d43a5af9d9a1b62df}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_aed3b3c08d685f45d43a5af9d9a1b62df}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!end@{end}}
+\index{end@{end}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_ab9fad4174e71cc66cbcf0eee9c578955}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_ab9fad4174e71cc66cbcf0eee9c578955}
+Session beenden. Cookie löschen. \index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!get@{get}}
+\index{get@{get}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{get(\$n)}{get($n)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::get (
+\begin{DoxyParamCaption}
+\item[{}]{\$n}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a29f51d6a99bb9e3673b206c663985beb}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a29f51d6a99bb9e3673b206c663985beb}
+Abfrage einer Session-\/\+Variable
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Name der Variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+type 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{get\+I\+D()}{getID()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::get\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_ab2d6d1948e5a7e2d127160ca98f412fb}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_ab2d6d1948e5a7e2d127160ca98f412fb}
+Session-\/\+ID \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{get\+Name()}{getName()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a999532084df734ac8ad1fcd3c6954180}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a999532084df734ac8ad1fcd3c6954180}
+Name der Session \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!has@{has}}
+\index{has@{has}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{has(\$n)}{has($n)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::has (
+\begin{DoxyParamCaption}
+\item[{}]{\$n}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a9f6d4bbe654c36b3fcdff2e724137a0e}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a9f6d4bbe654c36b3fcdff2e724137a0e}
+Prüfen, ob eine Session-\/\+Variable vorhanden / gesetzt ist.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Name der Variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!is\+Running@{is\+Running}}
+\index{is\+Running@{is\+Running}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{is\+Running()}{isRunning()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::is\+Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_ac1f6ebbc3c9bd4cc3ea6ac3afe9295c1}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_ac1f6ebbc3c9bd4cc3ea6ac3afe9295c1}
+Läuft die Session? (ist das Cookie vorhanden?) \begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!set@{set}}
+\index{set@{set}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{set(\$n, \$v)}{set($n, $v)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::set (
+\begin{DoxyParamCaption}
+\item[{}]{\$n, }
+\item[{}]{\$v}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a0921f23ccda22c8be40c58bfcc4a2cd2}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a0921f23ccda22c8be40c58bfcc4a2cd2}
+Setzt eine Variable der Session Die Session wird bei jedem Aufruf zurückgeschrieben.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Name der Variable \\
+\hline
+mixed & {\em \$v} & Wert der Variable \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!start@{start}}
+\index{start@{start}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{start()}{start()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_ad81fa382fa00ea04c7824ce4def022bd}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_ad81fa382fa00ea04c7824ce4def022bd}
+Die Session starten. Cookie setzen. \index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!write@{write}}
+\index{write@{write}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{write()}{write()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a57e21fecb9f906a75a6cbe4fad589f69}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a57e21fecb9f906a75a6cbe4fad589f69}
+Session-\/\+Daten zurück schreiben Das wird nur gemacht, wenn die Session bereits läuft. 
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}!\$first@{\$first}}
+\index{\$first@{\$first}!W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session@{W\+E\+P\+P\+O\+::\+Helpers\+::\+Multi\+Session}}
+\subsubsection[{\texorpdfstring{\$first}{$first}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Helpers\textbackslash{}\+Multi\+Session\+::\$first = true\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classWEPPO_1_1Helpers_1_1MultiSession_a1431b5eb9becee142a6b1823a196a2ad}{}\label{classWEPPO_1_1Helpers_1_1MultiSession_a1431b5eb9becee142a6b1823a196a2ad}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Helpers/\hyperlink{class_8MultiSession_8php}{class.\+Multi\+Session.\+php}\end{DoxyCompactItemize}

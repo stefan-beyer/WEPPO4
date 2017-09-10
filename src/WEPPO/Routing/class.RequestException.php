@@ -8,6 +8,16 @@
  * 
  */
 
+/**
+ * Exeption thrown by the Requesthandling and PageStructure.
+ *  - ROOT_PAGE_NOT_SET
+ *  - PAGE_NOT_FOUND
+ *  - CONTROLLER_NOT_SET
+ *  - CONTROLLER_NOT_FOUND
+ *  - ACTION_NOT_HANDLED
+ * 
+ * If available, the Request object is set an can be used.
+ */
 namespace WEPPO\Routing;
 
 class RequestException extends \Exception {

@@ -1,0 +1,269 @@
+\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase}{}\section{W\+E\+P\+PO\textbackslash{}Presentation\textbackslash{}Template\+Base Class Reference}
+\label{classWEPPO_1_1Presentation_1_1TemplateBase}\index{W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base@{W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base}}
+
+
+Inheritance diagram for W\+E\+P\+PO\textbackslash{}Presentation\textbackslash{}Template\+Base\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classWEPPO_1_1Presentation_1_1TemplateBase__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a9ff7c3e6cc0610bcaed63e33c376a339}{is\+Existing} ()
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a6206bb24a20f4ca995c6368abd9bc55e}{get\+Output} (bool \$trim=true)
+\item 
+\& \hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a23829533363e3ba1c1e554cb42661524}{get\+Controller} ()
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_ac2f035d3aff03f536714a74276614efc}{set\+Params} (array \$params)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a18f4efb3ba00f613242f330524714826}{reset\+Params} ()
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a5be83129d029e94060fe6056e024cae7}{get} (\$n, \$default=null)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a6bd538f09d9386dfdb63116bf714e169}{has\+Param} (\$n)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_af4bee053712054122263fb75bd1c47ab}{set} (\$n, \$v)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a44077d6046940c2ff7b7f4be7865b249}{add} (\$n, \$v, \$k=null)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a677f9ea193034a459d2838e1c0d67212}{start\+Param} (\$name)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a1dc9463afcbd64cb066e3ee1d7909b5a}{end\+Param} (\$name, \$callback=null)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_afc965dea79037a11a3bee98bbd4966b4}{set\+Params\+From\+Template} (array \$param\+Names, \hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase}{Template\+Base} \&\$template)
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_aae20cdd328f9e5314a39e6a610e2878a}{get\+Part} (string \$name)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a9e6b6cab5b0740ef10b9fafbc5d8d220}{\+\_\+\+\_\+construct} (\textbackslash{}\hyperlink{classWEPPO_1_1Controller_1_1Controller}{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller} \&\$controller)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a7cdce844fed099ef42f6b1aec8e20279}{\$controller} = null
+\item 
+\hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_ae75957248eb5759beec80bbe0317cf8a}{\$params} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base Class for Templates of all sorts.
+
+Defines two ways of communiaction between template and controller\+:
+\begin{DoxyItemize}
+\item Params\+: params will be created by the controller and privides via \hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_af4bee053712054122263fb75bd1c47ab}{set()}. The template can use them via \hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_a5be83129d029e94060fe6056e024cae7}{get()}. The thing with params is\+: they will be created whether it\textquotesingle{}s used or not.
+\item Parts\+: parts work the other way around. They are requested by the template via \hyperlink{classWEPPO_1_1Presentation_1_1TemplateBase_aae20cdd328f9e5314a39e6a610e2878a}{get\+Part()}. This call will be forwarded to the controller in charge. So the content is generated on demand. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller \&\$controller)}{__construct(\textbackslash{}WEPPO\textbackslash{}Controller\textbackslash{}Controller &$controller)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+Controller} \&}]{\$controller}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a9e6b6cab5b0740ef10b9fafbc5d8d220}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a9e6b6cab5b0740ef10b9fafbc5d8d220}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!add@{add}}
+\index{add@{add}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{add(\$n, \$v, \$k=null)}{add($n, $v, $k=null)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::add (
+\begin{DoxyParamCaption}
+\item[{}]{\$n, }
+\item[{}]{\$v, }
+\item[{}]{\$k = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a44077d6046940c2ff7b7f4be7865b249}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a44077d6046940c2ff7b7f4be7865b249}
+Daten einem Template-\/\+Parameter hinzufügen
+
+Dafür wird ggf. aus dem bisherigen Wert ein Array gemacht und der neue Wert wird dem Array hinzugefügt. 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Schlüssel des Template-\/\+Parameters \\
+\hline
+mixed & {\em \$v} & Wert, der hinzugefügt wird \\
+\hline
+mixed & {\em \$k} & Schlüssel für den Wert im (neuen) Array \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!end\+Param@{end\+Param}}
+\index{end\+Param@{end\+Param}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{end\+Param(\$name, \$callback=null)}{endParam($name, $callback=null)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::end\+Param (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$callback = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a1dc9463afcbd64cb066e3ee1d7909b5a}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a1dc9463afcbd64cb066e3ee1d7909b5a}
+Beendet das Aufzeichnen eines Parameters und setzt den Parameter
+
+Der Ausgabe-\/\+Buffer wird beendet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Parameter-\/\+Name \\
+\hline
+callable & {\em \$callback} & Callback-\/\+Funktion, die vor dem setzen auf den Parameter-\/\+Wert angewendet wird. Signatur\+: string cb(string) \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!get@{get}}
+\index{get@{get}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{get(\$n, \$default=null)}{get($n, $default=null)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::get (
+\begin{DoxyParamCaption}
+\item[{}]{\$n, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a5be83129d029e94060fe6056e024cae7}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a5be83129d029e94060fe6056e024cae7}
+Template-\/\+Parameter abfragen
+
+Wenn der Parameter nicht gesetzt ist und kein \$default gesetzt ist, so wird \textquotesingle{}\textquotesingle{} zurück gegeben.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Schlüssel \\
+\hline
+mixed & {\em \$default} & Wert, der zurück kommt, wenn Parameter nicht gesetzt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!get\+Controller@{get\+Controller}}
+\index{get\+Controller@{get\+Controller}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{get\+Controller()}{getController()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::get\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a23829533363e3ba1c1e554cb42661524}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a23829533363e3ba1c1e554cb42661524}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{get\+Output(bool \$trim=true)}{getOutput(bool $trim=true)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::get\+Output (
+\begin{DoxyParamCaption}
+\item[{bool}]{\$trim = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a6206bb24a20f4ca995c6368abd9bc55e}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a6206bb24a20f4ca995c6368abd9bc55e}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!get\+Part@{get\+Part}}
+\index{get\+Part@{get\+Part}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{get\+Part(string \$name)}{getPart(string $name)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::get\+Part (
+\begin{DoxyParamCaption}
+\item[{string}]{\$name}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_aae20cdd328f9e5314a39e6a610e2878a}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_aae20cdd328f9e5314a39e6a610e2878a}
+Get a part from the controller on demand.
+
+\begin{DoxySeeAlso}{See also}
+W\+E\+P\+P\+O\+::\+Controller\+::get\+Part()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!has\+Param@{has\+Param}}
+\index{has\+Param@{has\+Param}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{has\+Param(\$n)}{hasParam($n)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::has\+Param (
+\begin{DoxyParamCaption}
+\item[{}]{\$n}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a6bd538f09d9386dfdb63116bf714e169}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a6bd538f09d9386dfdb63116bf714e169}
+Template-\/\+Parameter definiert?
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Schlüssel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!is\+Existing@{is\+Existing}}
+\index{is\+Existing@{is\+Existing}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{is\+Existing()}{isExisting()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::is\+Existing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a9ff7c3e6cc0610bcaed63e33c376a339}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a9ff7c3e6cc0610bcaed63e33c376a339}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!reset\+Params@{reset\+Params}}
+\index{reset\+Params@{reset\+Params}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{reset\+Params()}{resetParams()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::reset\+Params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a18f4efb3ba00f613242f330524714826}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a18f4efb3ba00f613242f330524714826}
+Die Template-\/\+Parameter zurücksetzen \index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!set@{set}}
+\index{set@{set}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{set(\$n, \$v)}{set($n, $v)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::set (
+\begin{DoxyParamCaption}
+\item[{}]{\$n, }
+\item[{}]{\$v}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_af4bee053712054122263fb75bd1c47ab}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_af4bee053712054122263fb75bd1c47ab}
+Einen Template-\/\+Parameter setzen
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$n} & Schlüssel \\
+\hline
+mixed & {\em \$v} & Wert \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!set\+Params@{set\+Params}}
+\index{set\+Params@{set\+Params}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{set\+Params(array \$params)}{setParams(array $params)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::set\+Params (
+\begin{DoxyParamCaption}
+\item[{array}]{\$params}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_ac2f035d3aff03f536714a74276614efc}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_ac2f035d3aff03f536714a74276614efc}
+Setzt das gesamte Parameter-\/\+Array
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$params} & Parameter \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!set\+Params\+From\+Template@{set\+Params\+From\+Template}}
+\index{set\+Params\+From\+Template@{set\+Params\+From\+Template}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{set\+Params\+From\+Template(array \$param\+Names, Template\+Base \&\$template)}{setParamsFromTemplate(array $paramNames, TemplateBase &$template)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::set\+Params\+From\+Template (
+\begin{DoxyParamCaption}
+\item[{array}]{\$param\+Names, }
+\item[{{\bf Template\+Base} \&}]{\$template}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_afc965dea79037a11a3bee98bbd4966b4}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_afc965dea79037a11a3bee98bbd4966b4}
+Holt die im Array angegebenen Parameter aus einem anderen Template \index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!start\+Param@{start\+Param}}
+\index{start\+Param@{start\+Param}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{start\+Param(\$name)}{startParam($name)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::start\+Param (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a677f9ea193034a459d2838e1c0d67212}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a677f9ea193034a459d2838e1c0d67212}
+Startet das Aufzeichnen eines Parameters für dieses Template
+
+Der Ausgabe-\/\+Buffer wird gestartet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Parameter-\/\+Name, wird hier nicht verwendet, ist nur zur Übersicht beim Aufruf \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!\$controller@{\$controller}}
+\index{\$controller@{\$controller}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{\$controller}{$controller}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::\$controller = null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_a7cdce844fed099ef42f6b1aec8e20279}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_a7cdce844fed099ef42f6b1aec8e20279}
+\index{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}!\$params@{\$params}}
+\index{\$params@{\$params}!W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base@{W\+E\+P\+P\+O\+::\+Presentation\+::\+Template\+Base}}
+\subsubsection[{\texorpdfstring{\$params}{$params}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Presentation\textbackslash{}\+Template\+Base\+::\$params = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Presentation_1_1TemplateBase_ae75957248eb5759beec80bbe0317cf8a}{}\label{classWEPPO_1_1Presentation_1_1TemplateBase_ae75957248eb5759beec80bbe0317cf8a}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Presentation/\hyperlink{class_8TemplateBase_8php}{class.\+Template\+Base.\+php}\end{DoxyCompactItemize}

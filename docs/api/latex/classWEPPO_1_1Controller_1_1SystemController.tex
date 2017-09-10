@@ -1,0 +1,139 @@
+\hypertarget{classWEPPO_1_1Controller_1_1SystemController}{}\section{W\+E\+P\+PO\textbackslash{}Controller\textbackslash{}System\+Controller Class Reference}
+\label{classWEPPO_1_1Controller_1_1SystemController}\index{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller@{W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller}}
+
+
+Inheritance diagram for W\+E\+P\+PO\textbackslash{}Controller\textbackslash{}System\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classWEPPO_1_1Controller_1_1SystemController__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_add8804a28bb82aaa9e08cbd6aa021d22}{\+\_\+\+\_\+construct} (\textbackslash{}\hyperlink{classWEPPO_1_1Routing_1_1Request}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request} \&\$request,\textbackslash{}\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler} \&\$request\+Handler)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_adb3cf859b53d7fab9001753a1ba00772}{action\+\_\+index} (array \$pd)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_ab5eabc9bda8fc4925e91b6ee111c879f}{action\+\_\+controllers} (array \$pd)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_a5a13ad1f6ab454f752bb27f4a4de11e9}{\+\_\+collect\+\_\+controllers} (\textbackslash{}\hyperlink{interfaceWEPPO_1_1Routing_1_1PageInterface}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Interface} \&\$root)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_a927787c038886a3b6029773ec30df5ce}{\+\_\+print\+\_\+controller\+\_\+info} (\&\$parent, \$classname, \$uses)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_a77170c639d18ddf42dec56a436b85064}{action\+\_\+pagetree} (array \$pd)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_ae7196f4fdf82e3cb2aa16ad5cf2d5495}{\+\_\+print\+\_\+pages} (\textbackslash{}\hyperlink{interfaceWEPPO_1_1Routing_1_1PageInterface}{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Interface} \&\$root)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_afa20fd606ec5cf6de5ca68e7eabc909e}{\+\_\+get\+\_\+action\+\_\+info} (\$name)
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_a3560293d4e5f6beab77f26e82507e0d2}{\+\_\+print\+\_\+header} (\$title)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Controller_1_1SystemController_add05530beca6cea0df53af932006304e}{\$test\+Request} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Der System-\/\+Controller stellt einige Informationen über die Seiten-\/\+Konfiguration zur Verfügung.
+
+Er ist über /root/zur/app/\hyperlink{namespaceweppo}{weppo}/ erreichbar.
+
+Unbedingt für ein Produktiv-\/\+System mit der Einstellung \textquotesingle{}system\+Controllers\textquotesingle{} auf false deaktivieren. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request \&\$request,\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler \&\$request\+Handler)}{__construct(\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}Request &$request,\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}RequestHandler &$requestHandler)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request} \&}]{\$request, }
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler} \&}]{\$request\+Handler}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_add8804a28bb82aaa9e08cbd6aa021d22}{}\label{classWEPPO_1_1Controller_1_1SystemController_add8804a28bb82aaa9e08cbd6aa021d22}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\+\_\+collect\+\_\+controllers@{\+\_\+collect\+\_\+controllers}}
+\index{\+\_\+collect\+\_\+controllers@{\+\_\+collect\+\_\+controllers}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+collect\+\_\+controllers(\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Interface \&\$root)}{_collect_controllers(\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}PageInterface &$root)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\+\_\+collect\+\_\+controllers (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Interface} \&}]{\$root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_a5a13ad1f6ab454f752bb27f4a4de11e9}{}\label{classWEPPO_1_1Controller_1_1SystemController_a5a13ad1f6ab454f752bb27f4a4de11e9}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\+\_\+get\+\_\+action\+\_\+info@{\+\_\+get\+\_\+action\+\_\+info}}
+\index{\+\_\+get\+\_\+action\+\_\+info@{\+\_\+get\+\_\+action\+\_\+info}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+get\+\_\+action\+\_\+info(\$name)}{_get_action_info($name)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\+\_\+get\+\_\+action\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_afa20fd606ec5cf6de5ca68e7eabc909e}{}\label{classWEPPO_1_1Controller_1_1SystemController_afa20fd606ec5cf6de5ca68e7eabc909e}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\+\_\+print\+\_\+controller\+\_\+info@{\+\_\+print\+\_\+controller\+\_\+info}}
+\index{\+\_\+print\+\_\+controller\+\_\+info@{\+\_\+print\+\_\+controller\+\_\+info}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+print\+\_\+controller\+\_\+info(\&\$parent, \$classname, \$uses)}{_print_controller_info(&$parent, $classname, $uses)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\+\_\+print\+\_\+controller\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{\&}]{\$parent, }
+\item[{}]{\$classname, }
+\item[{}]{\$uses}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_a927787c038886a3b6029773ec30df5ce}{}\label{classWEPPO_1_1Controller_1_1SystemController_a927787c038886a3b6029773ec30df5ce}
+
+\begin{DoxyParams}[1]{Parameters}
+type & {\em \$parent} & \\
+\hline
+type & {\em \$classname} & \\
+\hline
+type & {\em \$uses} & for \hyperlink{classWEPPO_1_1Controller_1_1Controller}{Controller}\+: page paths $\vert$ for \hyperlink{classWEPPO_1_1Controller_1_1Service}{Service}\+: service mapping key \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\+\_\+print\+\_\+header@{\+\_\+print\+\_\+header}}
+\index{\+\_\+print\+\_\+header@{\+\_\+print\+\_\+header}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+print\+\_\+header(\$title)}{_print_header($title)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\+\_\+print\+\_\+header (
+\begin{DoxyParamCaption}
+\item[{}]{\$title}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_a3560293d4e5f6beab77f26e82507e0d2}{}\label{classWEPPO_1_1Controller_1_1SystemController_a3560293d4e5f6beab77f26e82507e0d2}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\+\_\+print\+\_\+pages@{\+\_\+print\+\_\+pages}}
+\index{\+\_\+print\+\_\+pages@{\+\_\+print\+\_\+pages}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\+\_\+print\+\_\+pages(\textbackslash{}\+W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Interface \&\$root)}{_print_pages(\textbackslash{}WEPPO\textbackslash{}Routing\textbackslash{}PageInterface &$root)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\+\_\+print\+\_\+pages (
+\begin{DoxyParamCaption}
+\item[{\textbackslash{}{\bf W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Page\+Interface} \&}]{\$root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_ae7196f4fdf82e3cb2aa16ad5cf2d5495}{}\label{classWEPPO_1_1Controller_1_1SystemController_ae7196f4fdf82e3cb2aa16ad5cf2d5495}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!action\+\_\+controllers@{action\+\_\+controllers}}
+\index{action\+\_\+controllers@{action\+\_\+controllers}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{action\+\_\+controllers(array \$pd)}{action_controllers(array $pd)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::action\+\_\+controllers (
+\begin{DoxyParamCaption}
+\item[{array}]{\$pd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_ab5eabc9bda8fc4925e91b6ee111c879f}{}\label{classWEPPO_1_1Controller_1_1SystemController_ab5eabc9bda8fc4925e91b6ee111c879f}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!action\+\_\+index@{action\+\_\+index}}
+\index{action\+\_\+index@{action\+\_\+index}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{action\+\_\+index(array \$pd)}{action_index(array $pd)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::action\+\_\+index (
+\begin{DoxyParamCaption}
+\item[{array}]{\$pd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_adb3cf859b53d7fab9001753a1ba00772}{}\label{classWEPPO_1_1Controller_1_1SystemController_adb3cf859b53d7fab9001753a1ba00772}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!action\+\_\+pagetree@{action\+\_\+pagetree}}
+\index{action\+\_\+pagetree@{action\+\_\+pagetree}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{action\+\_\+pagetree(array \$pd)}{action_pagetree(array $pd)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::action\+\_\+pagetree (
+\begin{DoxyParamCaption}
+\item[{array}]{\$pd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_a77170c639d18ddf42dec56a436b85064}{}\label{classWEPPO_1_1Controller_1_1SystemController_a77170c639d18ddf42dec56a436b85064}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}!\$test\+Request@{\$test\+Request}}
+\index{\$test\+Request@{\$test\+Request}!W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller@{W\+E\+P\+P\+O\+::\+Controller\+::\+System\+Controller}}
+\subsubsection[{\texorpdfstring{\$test\+Request}{$testRequest}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Controller\textbackslash{}\+System\+Controller\+::\$test\+Request = null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Controller_1_1SystemController_add05530beca6cea0df53af932006304e}{}\label{classWEPPO_1_1Controller_1_1SystemController_add05530beca6cea0df53af932006304e}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Controller/\hyperlink{class_8SystemController_8php}{class.\+System\+Controller.\+php}\end{DoxyCompactItemize}

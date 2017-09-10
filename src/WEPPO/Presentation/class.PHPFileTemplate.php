@@ -10,6 +10,14 @@
 
 namespace WEPPO\Presentation;
 
+/**
+ * A Templating engine that uses simple PHP-Scripts.
+ * 
+ * Thy will be included in the Templates getOutput() method,
+ * so $this will be the template instance.
+ * 
+ * For more abeout Templates @see WEPPO::Presentation::TemplateBase
+ */
 class PHPFileTemplate extends TemplateBase {
     static protected $templateRoot = null;
     

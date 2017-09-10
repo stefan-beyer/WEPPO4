@@ -1,0 +1,182 @@
+\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler}{}\section{W\+E\+P\+PO\textbackslash{}Routing\textbackslash{}Request\+Handler Class Reference}
+\label{classWEPPO_1_1Routing_1_1RequestHandler}\index{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler@{W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_adfa76d1575861720bd8872265aefc117}{\+\_\+\+\_\+construct} (\&\$structure)
+\item 
+\& \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a7759792e1fd253cffe56cf12196c0677}{get\+Errors} ()
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_af20adb60caa078da7f1cdd8e47655b03}{build\+Path} (array \$arr\+Path, bool \$full=true)
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_aefbf05ae0a9a701d01cc09d26a923862}{remove\+Gate\+Path} (\$path)
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a2b6e932b267e51551bd6206a39c269c6}{prepend\+Gate\+Path} (\$path)
+\item 
+\& \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a7893df91cb1bfffb062eb382c12b18e6}{get\+Gate\+Path} ()
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a3e898b9ae66f5c226f66019922093e19}{process\+Request} (\hyperlink{classWEPPO_1_1Routing_1_1Request}{Request} \&\$request)
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_ad31e31ca436f34505f386e6088bc0d7b}{process\+Request\+Buffered} (\hyperlink{classWEPPO_1_1Routing_1_1Request}{Request} \&\$request)
+\item 
+\& \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_aa09c60557bcbfce83970045848c5e0cd}{get\+Structure} ()
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a4aebc3b54214e52690684f7db35a3cde}{prepare\+Path} (string \$path)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a7736e868c03f20211a3dc035ed7d6229}{path2\+Array} (string \$path)
+\item 
+static \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a2b65faf4cbf9602211dca21949ecaa72}{array2\+Path} (array \$arr\+Path)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a2c5d97348177dbc8665d5f4acf76b869}{OK} = 0
+\item 
+const \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a881ac6ebc505c9427b362b99573d3dd3}{F\+A\+IL} = 1
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a25956ff2ffa4882e8190dc6593e72b31}{\$structure}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_accdf8b06b5cca76e8c12d1d45f0f088f}{\$request\+Stack} = \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a9db9addd7c0509b80a8a252743257f2f}{\$errors} = \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a2c10ac0592a81286c45fe9b6fdf9dba0}{\$gate\+Path} = null
+\item 
+\hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_adfc93c985b9e351716670689a05dfed7}{\$exact} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handels a \hyperlink{classWEPPO_1_1Routing_1_1Request}{Request}.
+
+Provides some helpers for path processing e.\+g. preparing a path by removing the part that was used by a path gate and parse it into an array\+: \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_a4aebc3b54214e52690684f7db35a3cde}{prepare\+Path()}. And the other way arround\+: \hyperlink{classWEPPO_1_1Routing_1_1RequestHandler_af20adb60caa078da7f1cdd8e47655b03}{build\+Path()}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct(\&\$structure)}{__construct(&$structure)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{\&}]{\$structure}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_adfa76d1575861720bd8872265aefc117}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_adfa76d1575861720bd8872265aefc117}
+
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!array2\+Path@{array2\+Path}}
+\index{array2\+Path@{array2\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{array2\+Path(array \$arr\+Path)}{array2Path(array $arrPath)}}]{\setlength{\rightskip}{0pt plus 5cm}static W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::array2\+Path (
+\begin{DoxyParamCaption}
+\item[{array}]{\$arr\+Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a2b65faf4cbf9602211dca21949ecaa72}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a2b65faf4cbf9602211dca21949ecaa72}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!build\+Path@{build\+Path}}
+\index{build\+Path@{build\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{build\+Path(array \$arr\+Path, bool \$full=true)}{buildPath(array $arrPath, bool $full=true)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::build\+Path (
+\begin{DoxyParamCaption}
+\item[{array}]{\$arr\+Path, }
+\item[{bool}]{\$full = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_af20adb60caa078da7f1cdd8e47655b03}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_af20adb60caa078da7f1cdd8e47655b03}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!get\+Errors@{get\+Errors}}
+\index{get\+Errors@{get\+Errors}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Errors()}{getErrors()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::get\+Errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a7759792e1fd253cffe56cf12196c0677}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a7759792e1fd253cffe56cf12196c0677}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!get\+Gate\+Path@{get\+Gate\+Path}}
+\index{get\+Gate\+Path@{get\+Gate\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Gate\+Path()}{getGatePath()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::get\+Gate\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a7893df91cb1bfffb062eb382c12b18e6}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a7893df91cb1bfffb062eb382c12b18e6}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!get\+Structure@{get\+Structure}}
+\index{get\+Structure@{get\+Structure}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Structure()}{getStructure()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::get\+Structure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_aa09c60557bcbfce83970045848c5e0cd}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_aa09c60557bcbfce83970045848c5e0cd}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!path2\+Array@{path2\+Array}}
+\index{path2\+Array@{path2\+Array}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{path2\+Array(string \$path)}{path2Array(string $path)}}]{\setlength{\rightskip}{0pt plus 5cm}static W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::path2\+Array (
+\begin{DoxyParamCaption}
+\item[{string}]{\$path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a7736e868c03f20211a3dc035ed7d6229}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a7736e868c03f20211a3dc035ed7d6229}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!prepare\+Path@{prepare\+Path}}
+\index{prepare\+Path@{prepare\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{prepare\+Path(string \$path)}{preparePath(string $path)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::prepare\+Path (
+\begin{DoxyParamCaption}
+\item[{string}]{\$path}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a4aebc3b54214e52690684f7db35a3cde}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a4aebc3b54214e52690684f7db35a3cde}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!prepend\+Gate\+Path@{prepend\+Gate\+Path}}
+\index{prepend\+Gate\+Path@{prepend\+Gate\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{prepend\+Gate\+Path(\$path)}{prependGatePath($path)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::prepend\+Gate\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a2b6e932b267e51551bd6206a39c269c6}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a2b6e932b267e51551bd6206a39c269c6}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!process\+Request@{process\+Request}}
+\index{process\+Request@{process\+Request}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{process\+Request(\+Request \&\$request)}{processRequest(Request &$request)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::process\+Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Request} \&}]{\$request}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a3e898b9ae66f5c226f66019922093e19}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a3e898b9ae66f5c226f66019922093e19}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!process\+Request\+Buffered@{process\+Request\+Buffered}}
+\index{process\+Request\+Buffered@{process\+Request\+Buffered}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{process\+Request\+Buffered(\+Request \&\$request)}{processRequestBuffered(Request &$request)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::process\+Request\+Buffered (
+\begin{DoxyParamCaption}
+\item[{{\bf Request} \&}]{\$request}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_ad31e31ca436f34505f386e6088bc0d7b}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_ad31e31ca436f34505f386e6088bc0d7b}
+Einen internen \hyperlink{classWEPPO_1_1Routing_1_1Request}{Request} absetzen und den erzeugten Inhalt als String zurückgeben lassen.
+
+\begin{DoxyReturn}{Returns}
+string Erzeugter Inhalt 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!remove\+Gate\+Path@{remove\+Gate\+Path}}
+\index{remove\+Gate\+Path@{remove\+Gate\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{remove\+Gate\+Path(\$path)}{removeGatePath($path)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::remove\+Gate\+Path (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_aefbf05ae0a9a701d01cc09d26a923862}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_aefbf05ae0a9a701d01cc09d26a923862}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!\$errors@{\$errors}}
+\index{\$errors@{\$errors}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{\$errors}{$errors}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\$errors = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a9db9addd7c0509b80a8a252743257f2f}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a9db9addd7c0509b80a8a252743257f2f}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!\$exact@{\$exact}}
+\index{\$exact@{\$exact}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{\$exact}{$exact}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\$exact = false\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_adfc93c985b9e351716670689a05dfed7}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_adfc93c985b9e351716670689a05dfed7}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!\$gate\+Path@{\$gate\+Path}}
+\index{\$gate\+Path@{\$gate\+Path}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{\$gate\+Path}{$gatePath}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\$gate\+Path = null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a2c10ac0592a81286c45fe9b6fdf9dba0}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a2c10ac0592a81286c45fe9b6fdf9dba0}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!\$request\+Stack@{\$request\+Stack}}
+\index{\$request\+Stack@{\$request\+Stack}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{\$request\+Stack}{$requestStack}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\$request\+Stack = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_accdf8b06b5cca76e8c12d1d45f0f088f}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_accdf8b06b5cca76e8c12d1d45f0f088f}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!\$structure@{\$structure}}
+\index{\$structure@{\$structure}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{\$structure}{$structure}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\$structure\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a25956ff2ffa4882e8190dc6593e72b31}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a25956ff2ffa4882e8190dc6593e72b31}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!F\+A\+IL@{F\+A\+IL}}
+\index{F\+A\+IL@{F\+A\+IL}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{F\+A\+IL}{FAIL}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\+F\+A\+IL = 1}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a881ac6ebc505c9427b362b99573d3dd3}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a881ac6ebc505c9427b362b99573d3dd3}
+\index{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}!OK@{OK}}
+\index{OK@{OK}!W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler@{W\+E\+P\+P\+O\+::\+Routing\+::\+Request\+Handler}}
+\subsubsection[{\texorpdfstring{OK}{OK}}]{\setlength{\rightskip}{0pt plus 5cm}const W\+E\+P\+P\+O\textbackslash{}\+Routing\textbackslash{}\+Request\+Handler\+::\+OK = 0}\hypertarget{classWEPPO_1_1Routing_1_1RequestHandler_a2c5d97348177dbc8665d5f4acf76b869}{}\label{classWEPPO_1_1Routing_1_1RequestHandler_a2c5d97348177dbc8665d5f4acf76b869}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Routing/\hyperlink{class_8RequestHandler_8php}{class.\+Request\+Handler.\+php}\end{DoxyCompactItemize}

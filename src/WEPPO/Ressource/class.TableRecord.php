@@ -34,6 +34,11 @@ interface DBCastInterface2 {
     function isValid($v);
 }
 
+/**
+ * Base class for database operations and database to object transformations.
+ * 
+ * @TODO more documentation!
+ */
 class TableRecord extends \stdclass {
 
     /**

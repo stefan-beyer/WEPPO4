@@ -1,0 +1,180 @@
+\hypertarget{classWEPPO_1_1Application_1_1Settings}{}\section{W\+E\+P\+PO\textbackslash{}Application\textbackslash{}Settings Class Reference}
+\label{classWEPPO_1_1Application_1_1Settings}\index{W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings@{W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Settings_a5fdde58045099bacbe6a39eb9232f48c}{load\+Settings} (\$settings)
+\item 
+\& \hyperlink{classWEPPO_1_1Application_1_1Settings_ae9111bd47c38c8fb2e5264ab51c39de8}{get\+Settings} ()
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Settings_a829f07b911e13e87c0ea9de92f768c12}{has} (string \$name)
+\item 
+\& \hyperlink{classWEPPO_1_1Application_1_1Settings_a5603134cd45b159212865318c39e005d}{get} (string \$name, \$default=null)
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Settings_a048f2cc5a512379f14e82ad9f9144b83}{set} (string \$name, \$val)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \& \hyperlink{classWEPPO_1_1Application_1_1Settings_a290dd31853a1a113122a091c1d0ade3f}{get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Settings_a1e3da1a562d1a19f27403141f15900ca}{\+\_\+\+\_\+construct} ()
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Settings_a256155e489a920f34a1150997bb2a5af}{merge\+Settings} (array \$new\+Settings)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWEPPO_1_1Application_1_1Settings_ad99df8f4422446f29e4e625d7c80aaed}{\$settings} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classWEPPO_1_1Application_1_1Settings_aa598a980eea4ff7247242bb2a5690c9d}{\$instance} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages globally available application settings.
+
+It implements the singelton pattern so that there is only one settings object throughout the application. It initially loads a file called \hyperlink{default_8php}{default.\+php} in the \hyperlink{namespaceWEPPO}{W\+E\+P\+PO} directory. With \hyperlink{classWEPPO_1_1Application_1_1Settings_a5fdde58045099bacbe6a39eb9232f48c}{load\+Settings()} you can load application specific settings and thereby overwrite the defaults. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+construct()}{__construct()}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Settings_a1e3da1a562d1a19f27403141f15900ca}{}\label{classWEPPO_1_1Application_1_1Settings_a1e3da1a562d1a19f27403141f15900ca}
+Protected Constructor. Loads default settings from \hyperlink{default_8php}{default.\+php} in the \hyperlink{namespaceWEPPO}{W\+E\+P\+PO} directory. 
+
+\subsection{Member Function Documentation}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!get@{get}}
+\index{get@{get}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{get(string \$name, \$default=null)}{get(string $name, $default=null)}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::get (
+\begin{DoxyParamCaption}
+\item[{string}]{\$name, }
+\item[{}]{\$default = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Settings_a5603134cd45b159212865318c39e005d}{}\label{classWEPPO_1_1Application_1_1Settings_a5603134cd45b159212865318c39e005d}
+Get a settings value or the default.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{get\+Instance()}{getInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}static\& W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classWEPPO_1_1Application_1_1Settings_a290dd31853a1a113122a091c1d0ade3f}{}\label{classWEPPO_1_1Application_1_1Settings_a290dd31853a1a113122a091c1d0ade3f}
+Get the \hyperlink{classWEPPO_1_1Application_1_1Settings}{Settings} instance. Creates one if not created.
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classWEPPO_1_1Application_1_1Settings}{W\+E\+P\+P\+O\+::\+Application\+::\+Settings} 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!get\+Settings@{get\+Settings}}
+\index{get\+Settings@{get\+Settings}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{get\+Settings()}{getSettings()}}]{\setlength{\rightskip}{0pt plus 5cm}\& W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::get\+Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Settings_ae9111bd47c38c8fb2e5264ab51c39de8}{}\label{classWEPPO_1_1Application_1_1Settings_ae9111bd47c38c8fb2e5264ab51c39de8}
+Get the array of settings \begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!has@{has}}
+\index{has@{has}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{has(string \$name)}{has(string $name)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::has (
+\begin{DoxyParamCaption}
+\item[{string}]{\$name}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Settings_a829f07b911e13e87c0ea9de92f768c12}{}\label{classWEPPO_1_1Application_1_1Settings_a829f07b911e13e87c0ea9de92f768c12}
+Checks if a Setting is present.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!load\+Settings@{load\+Settings}}
+\index{load\+Settings@{load\+Settings}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{load\+Settings(\$settings)}{loadSettings($settings)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::load\+Settings (
+\begin{DoxyParamCaption}
+\item[{}]{\$settings}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Settings_a5fdde58045099bacbe6a39eb9232f48c}{}\label{classWEPPO_1_1Application_1_1Settings_a5fdde58045099bacbe6a39eb9232f48c}
+Loads a settings file and merges it with the persisting settings. This way settings can be overwritten.
+
+The \hyperlink{classWEPPO_1_1Application_1_1Settings}{Settings} can be an array or a filename of a php file relative to the A\+P\+P\+\_\+\+R\+O\+OT that will be included and should return an array with the settings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$settings} & array or file name \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if settings could not be merged. eg. no array given or include file does not return an array. \\
+\hline
+\end{DoxyExceptions}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!merge\+Settings@{merge\+Settings}}
+\index{merge\+Settings@{merge\+Settings}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{merge\+Settings(array \$new\+Settings)}{mergeSettings(array $newSettings)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::merge\+Settings (
+\begin{DoxyParamCaption}
+\item[{array}]{\$new\+Settings}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Settings_a256155e489a920f34a1150997bb2a5af}{}\label{classWEPPO_1_1Application_1_1Settings_a256155e489a920f34a1150997bb2a5af}
+Merges new settings with the persisting ones.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$new\+Settings} & \\
+\hline
+\end{DoxyParams}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!set@{set}}
+\index{set@{set}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{set(string \$name, \$val)}{set(string $name, $val)}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::set (
+\begin{DoxyParamCaption}
+\item[{string}]{\$name, }
+\item[{}]{\$val}
+\end{DoxyParamCaption}
+)}\hypertarget{classWEPPO_1_1Application_1_1Settings_a048f2cc5a512379f14e82ad9f9144b83}{}\label{classWEPPO_1_1Application_1_1Settings_a048f2cc5a512379f14e82ad9f9144b83}
+Sets a Setting-\/
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+mixed & {\em \$val} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!\$instance@{\$instance}}
+\index{\$instance@{\$instance}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{\$instance}{$instance}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::\$instance = null\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Settings_aa598a980eea4ff7247242bb2a5690c9d}{}\label{classWEPPO_1_1Application_1_1Settings_aa598a980eea4ff7247242bb2a5690c9d}
+\index{W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}!\$settings@{\$settings}}
+\index{\$settings@{\$settings}!W\+E\+P\+P\+O\+::\+Application\+::\+Settings@{W\+E\+P\+P\+O\+::\+Application\+::\+Settings}}
+\subsubsection[{\texorpdfstring{\$settings}{$settings}}]{\setlength{\rightskip}{0pt plus 5cm}W\+E\+P\+P\+O\textbackslash{}\+Application\textbackslash{}\+Settings\+::\$settings = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classWEPPO_1_1Application_1_1Settings_ad99df8f4422446f29e4e625d7c80aaed}{}\label{classWEPPO_1_1Application_1_1Settings_ad99df8f4422446f29e4e625d7c80aaed}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+W\+E\+P\+P\+O/\+Application/\hyperlink{class_8Settings_8php}{class.\+Settings.\+php}\end{DoxyCompactItemize}

@@ -42,7 +42,7 @@ class Service {
      * If possible do nothing that is dependend on the request.
      * Those things should be done in an overwritten dispatch() method.
      * 
-     * @param \WEPPO\Controller\Service $parent
+     * @param WEPPO::Controller::Service $parent
      */
     public function __construct(/*Service || null*/ &$parent, \WEPPO\Routing\Request &$request) {
         $this->parentController = $parent;
@@ -53,7 +53,7 @@ class Service {
      * Register a Service for some key aktions.
      * 
      * @param array $serves Array with keys that will be connected to the service.
-     * @param string $classname Classname of a subclass of \WEPPO\Controller\Service
+     * @param string $classname Classname of a subclass of WEPPO::Controller::Service
      */
     protected function registerService(array $serves, string $classname) {
         foreach ($serves as $s) {
@@ -77,8 +77,8 @@ class Service {
      * Creates it, if not yet created.
      * 
      * @param string $name
-     * @return \WEPPO\Controller\Service
-     * @throws \Exception
+     * @return WEPPO::Controller::Service
+     * @throws Exception
      */
     protected function &getService(string $name) : Service {
         
