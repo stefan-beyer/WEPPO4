@@ -10,6 +10,7 @@
 
 namespace WEPPO\Application;
 
+
 /**
  * With its singelton pattern, the context gives "global" access to the settings
  * and application object.
@@ -25,6 +26,7 @@ class Context {
     /* @var $application \WEPPO\Application\Application */
     protected $application = null;
 
+    protected $errorHandler = null;
 
 
     /**
@@ -34,7 +36,8 @@ class Context {
      */
     protected function __construct() {
         $this->settings = Settings::getInstance();
-        $this->startErrorHandling();
+        $this->errorHandler = new ErrorHandler();
+        $this->errorHandler->start();
     }
     
     
@@ -50,23 +53,12 @@ class Context {
         return self::$instance;
     }
     
-    /**
-     * Starts global error handling as cofigured in the settings.
-     * @TODO
-     */
-    protected function startErrorHandling() {
-        //echo 'start error handling';
-        # PHP-Fehlerbehandlung wird eingestellt.
-        # in der konfiguration wird eingestellt, wie Fehler abgefangen werden sollen
-        ini_set('display_errors', 'on');
-        ini_set('display_startup_errors', 'on');
-        ini_set('html_errors', 'on');
-        ini_set('log_errors', 'on');
-        error_reporting(-1);
-        ini_set('error_log', './log/error.log');
-    }
     
-    /**
+    public function &getErrorHandler(): ErrorHandler {
+        return $this->errorHandler;
+    }
+
+        /**
      * Set the application reference.
      * 
      * @param WEPPO::Application::Application $app
@@ -102,3 +94,7 @@ class Context {
         return $this->settings;
     }
 }
+
+
+
+
