@@ -191,12 +191,10 @@ class Gate {
             $fn = $this->definition[$key];
             $fn = APP_ROOT . $fn;
             if (\file_exists($fn)) {
-                include $fn;
                 if ($this->mode == self::MODE_PATH) {
-                    #$rh = \WEPPO\Application\Context::getInstance()->getRequestHandler();
-                    #$rh->setGatePath(explode('/', $key));
                     self::$gatePath = explode('/', $key);
                 }
+                include $fn;
                 return true;
             }
         }

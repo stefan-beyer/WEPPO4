@@ -77,7 +77,8 @@ class Application {
     public function run() {
         $this->init();
         
-        $this->g->a();
+        // fehler erzeugen
+        //$this->g->a();
         
         #try {
             $this->autoRequest();

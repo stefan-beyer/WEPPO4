@@ -11,13 +11,13 @@
 namespace WEPPO\Application;
 
 /**
- * 
+ * @TODO mail versand
  * 
  */
 class ErrorHandler {
     
     protected $plus_code_lines = 2;
-    protected $html = true; // TODO
+    protected $html = true;
 
 
     public function start() {
@@ -36,15 +36,15 @@ class ErrorHandler {
     }
 
     public function handleException($ex) {
-        echo $this->getExceptionHTML($ex, true);
+        echo $this->getExceptionText($ex, true);
     }
     
     public function handleError($errno, $errstr = '', $errfile = '', $errline = '', $errcontext = null) {
-        echo $this->getErrorHtml($errno, $errstr, $errfile, $errline, $errcontext);
+        echo $this->getErrorText($errno, $errstr, $errfile, $errline, $errcontext);
     }
     
     
-    protected function getErrorHtml($errno, $errstr, $errfile, $errline, $errcontext) {
+    protected function getErrorText($errno, $errstr, $errfile, $errline, $errcontext) {
         
         $errorType = array(
             E_ERROR => 'ERROR',
@@ -64,7 +64,7 @@ class ErrorHandler {
         
         $s = '';
         
-        $s .= $this->getErrorLineHTML(
+        $s .= $this->getIntroLine(
                 (isset($errorType[$errno]) ? $errorType[$errno] : 'Unknown Error'),
                 $errstr,
                 $errfile,
@@ -73,31 +73,93 @@ class ErrorHandler {
         
         // array_reverse
         $trace = (debug_backtrace());
-        $s .= $this->getTraceHTML($trace);
+        $s .= $this->getTraceText($trace);
 
-        $s .= $this->getJS();
+        if ($this->html) {
+            $s .= $this->getJS();
+        }
         
         return $s;
     }
     
-    protected function getErrorLineHTML($h1, $h2, $file, $line) {
+    private function h($s, $c, $e, $nl = true, $h = true) {
+        if (!$this->html) {
+            if ($nl) {
+                return $c . "\n";
+            }
+            return $c;
+        }
+        if ($h) {
+            $c = htmlentities($c);
+        }
+        return $s.$c.$e;
+    }
+    
+    protected function getIntroLine($h1, $h2, $file, $line) {
         $s = '';
-        $s .= '<h1>'.$h1.'</h1>';
-        $s .= '<h2>»'. $h2. '«</h2>';
+        $s .= $this->h('<h1>', $h1, '</h1>', true, true);
+        $s .= $this->h('<h2>', '»'.$h2.'«', '</h2>', true, true);
         
-        $lines = $this->_get_source_lines($file, $line, $this->plus_code_lines);
-        $s .= '<div style="margin-top:10px; cursor:pointer;" class="trace_step"><code style="color:blue;">'. $file. '</code> (<code style="color:brown;">'. $line. '</code>):'.
-        '<div class="trace_code" style="font-family:mono;font-size:70%; padding:10px;background-color:#eee;display:none;"><small>Code-Context<br/></small><br/>'. implode('<br/>', $lines). '</div>'.
-        '</div>';
+        
+        $s .= $this->getLineText($file, $line);
         
         return $s;
     }
     
-    protected function getTraceHTML(&$trace) {
-        $s = '';
+    protected function getLineText($file, $line, $class=null, $type=null, $function=null, $args=null) {
+        $s = $this->h(
+                '<div style="margin-top:10px; cursor:pointer;" class="trace_step">',
+                $this->h(
+                        '<code style="color:blue;">',
+                        $file,
+                        '</code>',
+                        false, true
+                        ) . ' (' . 
+                $this->h(
+                        '<code style="color:brown;">',
+                        $line,
+                        '</code>',
+                        false, true
+                        ) . '):',
+                '</div>',
+                true, false
+                );
+         
+        if ($class) {
+            $s .= $this->h(
+                    '<code style="color:green;">',
+                    $class . $type . $this->h('<strong>', $function, '</strong>', false, false) . '('. implode(', ', $args). ')',
+                    '</code>',
+                    true, false
+                    );
+        }
         
-        $s .= '<h3>Trace</h3><ol>';
+        
+        if ($this->html) {
+            $lines = $this->_get_source_lines($file, $line, $this->plus_code_lines, $this->html);
+            $s .= $this->h(
+                    '<div class="trace_code" style="font-family:mono;font-size:70%; padding:10px;background-color:#eee;display:none;">',
+                    $this->h(
+                            '<small>',
+                            'Code-Context',
+                            '<br/></small>',
+                            true, true
+                            ).implode('<br/>', $lines),
+                    '</div>',
+                    true, false
+                    );
+        }
+        return $s;
+    }
+    
+    
+    protected function getTraceText(&$trace) {
+        $s = $this->h('<h3>', 'Trace', '</h3>', true, true);
+        
+        $str_trace = '';
+        
         foreach ($trace as &$tr) {
+            
             $args = $tr['args'];
             $strargs = [];
             foreach ($args as &$arg) {
@@ -107,15 +169,18 @@ class ErrorHandler {
                 } else if ($a === 'array') {
                     $a .= '(' . count($arg) . ')';
                 }
-                $strargs[] = '<em>&lt;' . htmlentities($a) . '&gt;</em>';
+                $strargs[] = $this->h('<em>', $a, '</em>', false, true);
             }
-            $lines = $this->_get_source_lines($tr['file'], $tr['line'], $this->plus_code_lines);
-            $s .= '<li style="margin-top:10px; cursor:pointer;" class="trace_step"><code style="color:blue;">'. $tr['file']. '</code> (<code style="color:brown;">'. $tr['line']. '</code>):'.
-            '<br/><code style="color:green;">'. (isset($tr['class']) ? $tr['class'] : ''). (isset($tr['type']) ? $tr['type'] : ''). '<strong>'. $tr['function']. '</strong>'. '('. implode(', ', $strargs). ')'. '</code>'.
-            '<div class="trace_code" style="font-family:mono;font-size:70%; padding:10px;background-color:#eee;display:none;"><small>Code-Context<br/></small><br/>'. implode('<br/>', $lines). '</div>'.
-            '</li>';
+            
+            $str_trace .= $this->h(
+                    '<li style="margin-top:10px; cursor:pointer;" class="">',
+                    $this->getLineText($tr['file'], $tr['line'], (isset($tr['class']) ? $tr['class'] : ''), (isset($tr['type']) ? $tr['type'] : ''), $tr['function'], $strargs),
+                    '</li>',
+                    true, false
+                    );
         }
-        $s .= '</ol>';
+        
+        $s .= $this->h('<ol>', $str_trace, '</ol>', true, false);
         
         return $s;
     }
@@ -129,28 +194,27 @@ class ErrorHandler {
      * @param Exception $e
      * @param bool $js
      */
-    protected function getExceptionHTML(\Throwable $e, $js = true) {
+    protected function getExceptionText(\Throwable $e, $js = true) {
         $s = '';
         
-        $s .= $this->getErrorLineHTML(
+        $s .= $this->getIntroLine(
                 get_class($e),
                 $e->getMessage(),
                 $e->getFile(),
                 $e->getLine()
         );
         
-        
-
-
         $trace = $e->getTrace();
-        $s .= $this->getTraceHTML($trace);
+        $s .= $this->getTraceText($trace);
         
         if ($e->getPrevious()) {
-            $s .= $this->getExceptionHTML($e->getPrevious(), false);
+            $s .= $this->getExceptionText($e->getPrevious(), false);
         }
         
-        if ($js) {
-            $s .= $this->getJS();
+        if ($this->html) {
+            if ($js) {
+                $s .= $this->getJS();
+            }
         }
         
         return $s;
@@ -163,13 +227,14 @@ class ErrorHandler {
         . ' (function(){'
         . '  var elem = trs.item(i);'
         . '  elem.onclick = function(e) {'
-        . '   for(var n=0; n < elem.childNodes.length; n++) {'
-        . '    var celem = elem.childNodes.item(n);'
-        . '    if (celem.className == "trace_code") {'
-        . '     celem.style.display= celem.style.display=="none" ? "block" : "none";'
-        . '     break;'
-        . '    }'
-        . '   }'
+                . 'var nxt = elem;'
+                . 'while(nxt = nxt.nextSibling) {'
+                . ' console.log(nxt);'
+        . '         if (nxt.className == "trace_code") {'
+        . '         nxt.style.display= nxt.style.display=="none" ? "block" : "none";'
+        . '         break;'
+        . '       }'
+                . '}'
         . '  }'
         . ' })();'
         . '}'
