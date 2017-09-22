@@ -160,24 +160,27 @@ class ErrorHandler {
         
         foreach ($trace as &$tr) {
             
-            $args = $tr['args'];
-            $strargs = [];
-            foreach ($args as &$arg) {
-                $a = gettype($arg);
-                if ($a === 'object') {
-                    $a = get_class($arg);
-                } else if ($a === 'array') {
-                    $a .= '(' . count($arg) . ')';
+            if (isset($tr['file']) && isset($tr['line']) && isset($tr['args'])) {
+                
+                $args = $tr['args'];
+                $strargs = [];
+                foreach ($args as &$arg) {
+                    $a = gettype($arg);
+                    if ($a === 'object') {
+                        $a = get_class($arg);
+                    } else if ($a === 'array') {
+                        $a .= '(' . count($arg) . ')';
+                    }
+                    $strargs[] = $this->h('<em>', $a, '</em>', false, true);
                 }
-                $strargs[] = $this->h('<em>', $a, '</em>', false, true);
-            }
             
-            $str_trace .= $this->h(
-                    '<li style="margin-top:10px; cursor:pointer;" class="">',
-                    $this->getLineText($tr['file'], $tr['line'], (isset($tr['class']) ? $tr['class'] : ''), (isset($tr['type']) ? $tr['type'] : ''), $tr['function'], $strargs),
-                    '</li>',
-                    true, false
-                    );
+                $str_trace .= $this->h(
+                        '<li style="margin-top:10px; cursor:pointer;" class="">',
+                        $this->getLineText($tr['file'], $tr['line'], (isset($tr['class']) ? $tr['class'] : ''), (isset($tr['type']) ? $tr['type'] : ''), $tr['function'], $strargs),
+                        '</li>',
+                        true, false
+                        );
+            }
         }
         
         $s .= $this->h('<ol>', $str_trace, '</ol>', true, false);

@@ -21,40 +21,139 @@ class XMLPageStructure extends PageStructure {
     
     protected $autoNameCounter = 0;
     
+    protected $useCache = true;
+
+
     public function __construct($xmlFilename, $patternMatching = MATCH_MODE_EXACT) {
         parent::__construct($patternMatching);
         $this->filename = $xmlFilename;
         
+        if ($this->useCache) {
+            $cacheFileName = dirname($this->filename) . '/cache.' . basename($this->filename, '.xml') . '.php';
+        }
         
-        // TODO cache
-        #if (!!$cache && file_exists($cache) && (!file_exists($fn) || filemtime($cache) >= filemtime($fn))) {
-        #    $this->Pages = (include $cache);
-        #} else {
-        
-        
-            if (!file_exists($this->filename)) {
-                throw new \Exception('XMLPageStructure: file not found.');
-            }
-        
-            $this->xml = simplexml_load_file($this->filename);
-            $this->rootPage = null;
-            $this->readXml($this->rootPage, $this->xml);
-
-            #if (!!$cache) {
-            #    //echo 'NEW CACHE';
-            #    $this->writeCache();
-            #}
-        #}
+        // IF  cache ist used
+        // AND the cachefile is readable
+        // AND if the xml file not existing OR it is older than cache file
+        if ($this->useCache && is_readable($cacheFileName) && (!file_exists($this->filename) || (filemtime($this->filename) <= filemtime($cacheFileName))) ) {
+            echo 'READ FROM CACHE';
+            $this->rootPage = (include $cacheFileName);
             
-        //o($this->rootPage);
+            return;
+        }
+        
+        if (!file_exists($this->filename)) {
+            throw new \Exception('XMLPageStructure: file not found.');
+        }
+
+        $this->xml = simplexml_load_file($this->filename);
+        $this->rootPage = null;
+        $this->readXml($this->rootPage, $this->xml);
+
+        if ($this->useCache && is_writable(dirname($cacheFileName))) {
+            //echo 'NEW CACHE';
+            $this->writeCache($cacheFileName);
+        }
     }
     
-        // will not be called, unless root was not set
-    protected function load_root_page() {
-        return null;
+    
+    
+    
+    private function writeCache($cache) {
+        if (!!$cache) {
+            $fh = fopen($cache, 'w');
+            if ($fh) {
+                $code = '<?php' . PHP_EOL
+                        . '# WEPPO 4 Page-Structure Cache' . PHP_EOL
+                        . 'return ';
+                ;
+                $code .= $this->_wc($this->rootPage);
+                $code .= ';';
+                
+                //echo $code;
+                
+                fwrite($fh, $code);
+                fclose($fh);
+            }
+        }
     }
+    
+    private function _wc(MemoryPage &$p, $l = 0) {
 
-    protected function readXML(&$parent, &$xml) {
+        $indent = str_repeat('  ', $l);
+        
+        $code = '';
+        
+        $_ = function($a) {
+            return str_replace("'", "\\'", str_replace("\\", "\\\\", $a));
+        };
+        
+        // prepare Match Map array
+        $mm = array_map(function(&$a) use($_) {
+            return "'".$_($a)."'";
+        }, $p->getMatchMap());
+        
+        
+        
+        
+        
+        $pvar = '$p_'.$l;
+        
+        #$code .= ($pvar . ' = new \\WEPPO\\Routing\\MemoryPage();' . PHP_EOL);
+        #$code .= ($pvar . PHP_EOL);
+        
+        $code .= ('(new \\WEPPO\\Routing\\MemoryPage())' . PHP_EOL);
+        $code .= ($indent.'->setPageName('."'".$_($p->getPageName())."'".')' . PHP_EOL);
+        $code .= ($indent.'->setPattern('."'".$_($p->getPattern())."'".')' . PHP_EOL);
+        $code .= ($indent.'->setControllerName('."'".$_($p->getControllerName())."'".')' . PHP_EOL);
+        $code .= ($indent.'->setMatchMap(['.implode(',', $mm).'])' . PHP_EOL);
+        
+        $config = &$p->getAllConfig();
+        foreach ($config as $k => $v) {
+            if (is_array($v)) {
+                $k.='[]';
+            }
+            $k = "'".$_($k)."'";
+            
+            if (is_string($v)) {
+                $code .= ($indent.'->setConfig(');
+                $code .= ($k.', '."'".$_($v)."'");
+                $code .= (')' . PHP_EOL);
+            } else if (is_int($v) || is_float($v)) {
+                $code .= ($indent.'->setConfig(');
+                $code .= ($k.', '.''.$v);
+                $code .= (')' . PHP_EOL);
+            } else if (is_bool($v)) {
+                $code .= ($indent.'->setConfig(');
+                $code .= ($k.', '.$v ? 'true' : 'false');
+                $code .= (')' . PHP_EOL);
+            } else if (is_array($v)) {
+                foreach ($v as $_v) {
+                    $code .= ($indent.'->setConfig(');
+                    $code .= ($k.', '."'".$_($_v)."'");
+                    $code .= (')' . PHP_EOL);
+                }
+            }
+        }
+        
+        $children = $p->getChildren();
+        if (count($children)) {
+            $chs = [];
+            foreach ($children as &$ch) {
+                $chs[] = PHP_EOL.$indent.'('.$this->_wc($ch, $l+1).$indent.')';
+            }
+            $code .= ($indent.'->addChildren(['. implode(', ', $chs).PHP_EOL.$indent.'])' . PHP_EOL);
+        }
+
+        return $code;
+    }
+    
+    
+    
+    
+    
+    
+    private function readXML(&$parent, &$xml) {
         if (!$xml) {
             throw new \Exception('XMLPageStructure: could not load file.');
         }
@@ -124,4 +223,11 @@ class XMLPageStructure extends PageStructure {
     }
     
     
+    
+    
+    // will not be called, unless root was not set
+    protected function load_root_page() {
+        return null;
+    }
+
 }

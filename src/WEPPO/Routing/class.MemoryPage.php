@@ -100,6 +100,13 @@ class MemoryPage implements PageInterface {
         return $this;
     }
     
+    public function &addChildren(array $children) : MemoryPage  {
+        foreach ($children as &$ch) {
+            $this->addChild($ch);
+        }
+        return $this;
+    }
+    
     public function &addTo(MemoryPage &$parent) {
         $parent->addChild($this);
         return $this;
