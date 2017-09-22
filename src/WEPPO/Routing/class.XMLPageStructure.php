@@ -19,6 +19,8 @@ class XMLPageStructure extends PageStructure {
     protected $filename;
     protected $xml = null;
     
+    protected $autoNameCounter = 0;
+    
     public function __construct($xmlFilename, $patternMatching = MATCH_MODE_EXACT) {
         parent::__construct($patternMatching);
         $this->filename = $xmlFilename;
@@ -44,7 +46,7 @@ class XMLPageStructure extends PageStructure {
             #}
         #}
             
-        o($this->rootPage);
+        //o($this->rootPage);
     }
     
         // will not be called, unless root was not set
@@ -62,14 +64,17 @@ class XMLPageStructure extends PageStructure {
         $pattern = (string) $xml->attributes()->pattern;
         $controller = (string) $xml->attributes()->controller;
         $name = (string) $xml->attributes()->name;
+        if (empty($name)) {
+            $name = 'p-'.$this->autoNameCounter++;
+        }
         
         
         # erstes element in den matches ist immer der ganze match
         $matchmap = (string) $xml->attributes()->matchmap;
         if (!!$matchmap) {
-            $matchmap = array_merge(array('full'), explode(',', $matchmap));
+            $matchmap = explode(',', $matchmap);
         } else {
-            $matchmap = array('full');
+            $matchmap = [];
         }
 
         $page->setPattern($pattern)
@@ -90,7 +95,7 @@ class XMLPageStructure extends PageStructure {
         }
         
         if ($parent == null) {
-            $parent = $p;
+            $parent = $page;
         } else {
             $page->addTo($parent);
         }

@@ -108,7 +108,7 @@ abstract class PageStructure {
                 break;
             }
         }
-
+        
         return $last_page_hit;
     }
 

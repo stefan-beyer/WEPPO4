@@ -76,6 +76,11 @@ class MemoryPage implements PageInterface {
         return $this;
     }
     
+    public function &setMatches($mm) {
+        $this->Page_Matches = $mm;
+        return $this;
+    }
+    
     public function &setPattern($p) : MemoryPage {
         $this->Page_Pattern = $p;
         return $this;

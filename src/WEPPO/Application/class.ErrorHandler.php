@@ -229,7 +229,7 @@ class ErrorHandler {
         . '  elem.onclick = function(e) {'
                 . 'var nxt = elem;'
                 . 'while(nxt = nxt.nextSibling) {'
-                . ' console.log(nxt);'
+                . ' '
         . '         if (nxt.className == "trace_code") {'
         . '         nxt.style.display= nxt.style.display=="none" ? "block" : "none";'
         . '         break;'

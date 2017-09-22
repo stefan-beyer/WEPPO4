@@ -140,13 +140,16 @@ trait PageImplementation {
 
         if (\preg_match($regex, $tid, $matches)) {
             $this->Page_Matches = $matches;
+            
+            //$this->map_matches();
+            //o($this->Page_Matches);
+            
             return true;
         }
         return false;
     }
     
     public function isMatch($tid, $mode) : bool {
-        
         if ($mode === PageStructure::MATCH_MODE_EXACT) {
             return $this->_match_exact($tid);
         }
@@ -158,8 +161,35 @@ trait PageImplementation {
         if ($mode == PageStructure::MATCH_MODE_REGEX) {
             return $this->_match_regex($tid, '`^' . $this->getPattern() . '$`');
         }
+        
 
         return false;
+    }
+    
+    //private
+    public 
+            function map_matches() {
+        
+        if (!isset($this->Page_MatchMap[0]) || $this->Page_MatchMap[0] !== 'full') {
+            array_unshift($this->Page_MatchMap, 'full');
+        }
+        
+        // mehr matches als keys
+        // matches die zu viel sind abschneiden / ignorieren
+        if (count($this->Page_Matches) > count($this->Page_MatchMap)) {
+            $this->Page_Matches = array_slice($this->Page_Matches, 0, count($this->Page_MatchMap), true);
+        } // TODO: test
+        
+        // mehr keys als matches
+        // matches mit null auffüllen
+        else if (count($this->Page_Matches) < count($this->Page_MatchMap)) {
+            $this->Page_Matches = array_pad($this->Page_Matches, count($this->Page_MatchMap), null);
+        } // TODO: test
+        
+        if (count($this->Page_Matches) === count($this->Page_MatchMap)) {
+            $this->Page_Matches = array_combine($this->Page_MatchMap, $this->Page_Matches);
+            return;
+        }
     }
 
     /**
@@ -189,7 +219,8 @@ trait PageImplementation {
             $url = \array_merge($url, $parent->_getArrPath($v));
         }
         //else $url = '/';
-        $fm = $this->getFullMatch();
+        $fm = $this->getMatch('full');
+        
         if ($fm) {
             $url[] = $fm;
         }
@@ -222,15 +253,11 @@ trait PageImplementation {
     }
 
     /**
-     * Gibt den Tatsächlichen Match der aktuellen Seite.
      */
-    public function getFullMatch(): string {
+    public function getMatch($key): string {
         $m = $this->getMatches();
-        if (isset($m['full'])) {
-            return $m['full'];
-        }
-        if (isset($m[0])) {
-            return $m[0];
+        if (isset($m[$key])) {
+            return $m[$key];
         }
         return '';
     }
@@ -244,10 +271,7 @@ trait PageImplementation {
      */
     public function getMatches() : array {
         if (!isset($this->Page_Matches['full'])) {
-            $mm = $this->getMatchMap();
-            # full muss immer erstes element sein
-            array_unshift($mm, 'full');
-            $this->Page_Matches = \WEPPO\Helpers\nameArray($this->Page_Matches, $mm);
+            $this->map_matches();
         }
         return $this->Page_Matches;
     }

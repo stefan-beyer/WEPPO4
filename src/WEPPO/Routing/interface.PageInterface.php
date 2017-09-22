@@ -51,6 +51,4 @@ interface PageInterface {
     public function getPath(bool $full = true) : string;
 
     public function getMatches() : array;
-
-    public function getFullMatch(): string;
 }
