@@ -83,10 +83,28 @@ class XMLPageStructure extends PageStructure {
                 ->setMatchMap($matchmap);
         
         foreach ($xml->config as $ctag) {
-            $value = (string) $ctag['value'];
-            if (!$value) {
-                $value = (string) $ctag;
+            $type = (string) $ctag['type'];
+            if (!$type) {
+                $type = 'string';
             }
+            
+            
+            if ($type === 'xml' || $type === 'html') {
+                $value = (string) $ctag; // should use CDATA
+                #$value = '';
+                #foreach($ctag->children() as $c) {
+                #    $value .= $c->asXML() . "\n";
+                #}
+            } else {
+                $value = $ctag['value'];
+                if (is_null($value)) {
+                    $value = (string) $ctag;
+                } else {
+                    $value = (string) $value;
+                }
+            }
+            
+            
             $key = (string) $ctag['name'];
             
             // TODO type
