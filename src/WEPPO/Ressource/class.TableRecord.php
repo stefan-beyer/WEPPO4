@@ -10,29 +10,7 @@
 
 namespace WEPPO\Ressource;
 
-/**
- * Wert ist instanz von dieser Klasse
- */
-interface DBCastInterface {
 
-    function parse($v);
-
-    function toString();
-
-    function isValid();
-}
-
-/**
- * Wert ist der Rückgabewert von parse()
- */
-interface DBCastInterface2 {
-
-    function parse($v);
-
-    function toString($v);
-
-    function isValid($v);
-}
 
 /**
  * Base class for database operations and database to object transformations.
