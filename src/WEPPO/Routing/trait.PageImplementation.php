@@ -63,7 +63,7 @@ trait PageImplementation {
             $p = &$this->getParent();
             return $p->getConfig($key, $default, $inherit);
         }
-        return null;
+        return $default;
     }
 
     public function hasConfig($key): bool {
