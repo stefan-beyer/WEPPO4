@@ -174,4 +174,21 @@ abstract class TemplateBase {
     }
     
     
+    static protected function parseTemplateDescriptor(string $td): array {
+        return explode(':', $td);
+    }
+    
+    static function createTemplate($descriptor, $th): \WEPPO\Presentation\TemplateBase {
+        $parsed = self::parseTemplateDescriptor($descriptor);
+        if (count($parsed) !== 2) {
+            throw new \Exception('Template descriptor \''.$descriptor.'\' is incorrect.');
+        }
+        list($classname, $nameParam) = $parsed;
+        if (!class_exists($classname)) {
+            throw new \Exception('Template class '.$classname.' not found.');
+        }
+        $template = new $classname($nameParam, $th);
+        return $template;
+    }
+    
 }

@@ -27,29 +27,14 @@ class SimpleTemplateController extends Controller {
             throw new \Exception('Cannot create site Template. \'site\' not set.');
         }
         
-        $siteTemplate = $this->createTemplate($siteTemplDescr);
+        $siteTemplate = \WEPPO\Presentation\TemplateBase::createTemplate($siteTemplDescr, $this);
         
         echo $siteTemplate->getOutput();
         
         return true;
     }
     
-    static protected function parseTemplateDescriptor(string $td): array {
-        return explode(':', $td);
-    }
     
-    protected function createTemplate($descriptor): \WEPPO\Presentation\TemplateBase {
-        $parsed = self::parseTemplateDescriptor($descriptor);
-        if (count($parsed) !== 2) {
-            throw new \Exception('Template descriptor \''.$descriptor.'\' is incorrect.');
-        }
-        list($classname, $nameParam) = $parsed;
-        if (!class_exists($classname)) {
-            throw new \Exception('Template class '.$classname.' not found.');
-        }
-        $template = new $classname($nameParam, $this);
-        return $template;
-    }
 
 
     /**
