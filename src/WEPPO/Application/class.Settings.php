@@ -77,7 +77,10 @@ class Settings {
     public function loadSettings($settings) {
         if (!is_null($settings)) {
             if (is_string($settings)) {
-                $settings = (include APP_ROOT . $settings);
+                if (!is_readable($settings)) {
+                    throw new \Exception('Settings::loadSettings() Settings not found: '.$settings);
+                }
+                $settings = (include $settings);
             }
             if (!is_array($settings)) {
                 throw new \Exception('Settings::loadSettings() no valid settings.');
