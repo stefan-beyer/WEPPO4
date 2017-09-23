@@ -88,6 +88,13 @@ class RequestHandler {
         return $this->gatePath;
     }
     
+    public function &getCurrentRequest() : Request {
+        if (count($this->requestStack) === 0) {
+            throw new \Exception('No Request in request stack.');
+        }
+        return $this->requestStack(count($this->requestStack) - 1);
+    }
+            
     
     function processRequest(Request &$request) {
         array_push($this->requestStack, $request);
