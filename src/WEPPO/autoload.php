@@ -39,7 +39,7 @@ spl_autoload_register(function ($class) {
     }
     
     # erster Teil muss WEPPO sein, um von diesem Autoloader verarbeitet zu werden
-    if ($cn[0] !== 'WEPPO') {
+    if (!in_array($cn[0], ['WEPPO', 'i18n'])) {
         return;
     }
     

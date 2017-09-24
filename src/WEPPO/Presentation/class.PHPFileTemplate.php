@@ -25,7 +25,7 @@ class PHPFileTemplate extends TemplateBase {
     
     protected $filename = null;
     
-    public function __construct(string $name, \WEPPO\Controller\Controller &$controller) {
+    public function __construct(string $name, /*\WEPPO\Controller\Controller*/ &$controller) {
         parent::__construct($controller);
         $this->setName($name);
         

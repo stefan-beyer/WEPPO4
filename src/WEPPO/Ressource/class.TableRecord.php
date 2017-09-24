@@ -59,20 +59,20 @@ class TableRecord extends \stdclass {
                 $c = $cast[$k];
                 if (is_string($c) && class_exists($c)) {
                     $o = new $c();
-                    if ($o instanceof \WEPPO\Model\DBCastInterface) {
+                    if ($o instanceof \WEPPO\Ressource\DBCastInterface) {
                         if ($o->parse($v)) {
                             $v = $o;
                         } else {
                             $v = null;
                         }
-                    } else if ($o instanceof \WEPPO\Model\DBCastInterface2) {
+                    } else if ($o instanceof \WEPPO\Ressource\DBCastInterface2) {
                         try {
                             $v = $o->parse($v);
                         } catch (\Exception $e) {
                             $v = null;
                         }
                     }
-                } else if ($c instanceof \WEPPO\Model\DBCastInterface2) {
+                } else if ($c instanceof \WEPPO\Ressource\DBCastInterface2) {
                     try {
                         $v = $c->parse($v);
                     } catch (\Exception $e) {

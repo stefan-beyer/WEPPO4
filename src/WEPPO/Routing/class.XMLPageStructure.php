@@ -36,7 +36,7 @@ class XMLPageStructure extends PageStructure {
         // AND the cachefile is readable
         // AND if the xml file not existing OR it is older than cache file
         if ($this->useCache && is_readable($cacheFileName) && (!file_exists($this->filename) || (filemtime($this->filename) <= filemtime($cacheFileName))) ) {
-            echo 'READ FROM CACHE';
+            //echo 'READ FROM CACHE';
             $this->rootPage = (include $cacheFileName);
             
             return;

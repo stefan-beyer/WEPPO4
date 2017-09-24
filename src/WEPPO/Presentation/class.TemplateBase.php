@@ -29,7 +29,7 @@ abstract class TemplateBase {
     protected $params = [];
     
     # abgeleitete klasse braucht eigenen, öffentlichen Konstruktor!
-    protected function __construct(\WEPPO\Controller\Controller &$controller) {
+    protected function __construct(/*\WEPPO\Controller\Controller*/ &$controller) {
         $this->controller = $controller;
         $this->resetParams();
     }
@@ -39,6 +39,9 @@ abstract class TemplateBase {
     abstract public function getOutput(bool $trim = true) : string;
     
     public function &getController() : \WEPPO\Controller\Controller {
+        if (!$this->controller) {
+            throw new \Exception("Template has no Controller");
+        }
         return $this->controller;
     }
             

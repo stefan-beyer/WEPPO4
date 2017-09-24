@@ -42,8 +42,11 @@ namespace i18n {
                     $s .= '# ' . $nt[1] . PHP_EOL;
                     $s .= "\t'" . md5($nt[1]) . "' =&gt; '" . str_replace("'", "\\'", $nt[1]) . "'," . PHP_EOL;
                 }
-                if (file_put_contents(APP_ROOT . 'data/untranslated.txt', $s) === false) {
-                    //echo('ddd');
+                $fn  = APP_ROOT . 'data/untranslated.txt';
+                if (file_exists($fn)) {
+                    if (file_put_contents($fn, $s) === false) {
+                        //echo('ddd');
+                    }
                 }
             }
         }
