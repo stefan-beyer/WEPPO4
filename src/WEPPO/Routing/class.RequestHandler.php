@@ -92,7 +92,7 @@ class RequestHandler {
         if (count($this->requestStack) === 0) {
             throw new \Exception('No Request in request stack.');
         }
-        return $this->requestStack(count($this->requestStack) - 1);
+        return $this->requestStack[count($this->requestStack) - 1];
     }
             
     

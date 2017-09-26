@@ -120,18 +120,24 @@ trait PageImplementation {
         
         # damit wir keine probleme mit preg_quote bekommen
         # werden alle codes mit einer anderen anzahl von # kodiert
-        $pattern = str_replace('*?', '###', $pattern);
-        $pattern = str_replace('#?', '####', $pattern);
-        $pattern = str_replace('*', '##', $pattern);
+        $pattern = str_replace('*?', '#1#', $pattern);
+        $pattern = str_replace('#?', '#2#', $pattern);
+        $pattern = str_replace('*', '#3#', $pattern);
+        #$pattern = str_replace('|', '#4#', $pattern);
 
         $pattern = preg_quote($pattern, '`');
 
         //$pattern = str_replace('.', '\\.', $pattern);
         # reihenfilge wichtig!
-        $pattern = str_replace('####', '(\\d*)', $pattern);
-        $pattern = str_replace('###', '(.*)', $pattern);
-        $pattern = str_replace('##', '(.+)', $pattern);
+        $pattern = str_replace('#2#', '(\\d*)', $pattern);
+        $pattern = str_replace('#1#', '(.*)', $pattern);
+        $pattern = str_replace('#3#', '(.+)', $pattern);
+        #$pattern = str_replace('#4#', '|', $pattern);
+        
         $pattern = str_replace('#', '(\\d+)', $pattern);
+        
+        #echo $pattern, ' | ';
+        
         return $this->_match_regex($tid, '`^' . $pattern . '$`');
     }
 
@@ -243,6 +249,21 @@ trait PageImplementation {
         return $url;
     }
     
+    /**
+     * Eine Pfad zu dieser Seite als Array erzeugen.
+     * 
+     * @return string[]
+     */
+    public function getArrNamePath() : array {
+        $url = [];
+        
+        if ($this->hasParent()) {
+            $parent = $this->getParent();
+            $url = \array_merge($url, $parent->getArrNamePath());
+            $url[] = $this->getPageName();
+        }
+        return $url;
+    }
     
     public function getPath(bool $full = true) : string {
         return \WEPPO\Application\Context::getInstance()->getRequestHandler()->buildPath($this->getArrPath(), $full);
@@ -250,6 +271,10 @@ trait PageImplementation {
     
     public function getPatternPath() : string {
         return \WEPPO\Application\Context::getInstance()->getRequestHandler()->buildPath($this->getArrPatternPath(), false);
+    }
+    
+    public function getNamePath() : string {
+        return implode('/', $this->getArrNamePath());
     }
 
     /**

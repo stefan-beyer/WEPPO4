@@ -43,12 +43,14 @@ interface PageInterface {
     public function isMatch($tid, $mode): bool;
 
     public function getArrPath(): array;
+    public function getPath(bool $full = true) : string;
     
     public function getArrPatternPath(): array;
-    
     public function getPatternPath(): string;
     
-    public function getPath(bool $full = true) : string;
+    public function getArrNamePath(): array;
+    public function getNamePath(): string;
+    
 
     public function getMatches() : array;
 }

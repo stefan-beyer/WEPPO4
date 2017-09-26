@@ -24,6 +24,8 @@ namespace i18n {
         static $defaultLanguage = 'en';
         static $mode = 'cookie';
         static $domain = 'cookie';
+        
+        static $useFiles = true;
 
         function __construct($l) {
 
@@ -56,12 +58,12 @@ namespace i18n {
             $hi_code = '';
 
             if (self::$mode == 'cookie') {
-
                 if (isset($_COOKIE[self::$cookieName])) {
                     $hi_code = $_COOKIE[self::$cookieName];
                     $hi_code = substr($hi_code, 0, 2);
-                    if (!self::isLangAvailable($hi_code))
+                    if (!self::isLangAvailable($hi_code)) {
                         $hi_code = '';
+                    }
                 }
             } else if (self::$mode == 'subdomain') {
                 $domain = explode('.', $_SERVER['SERVER_NAME']);
@@ -128,8 +130,11 @@ namespace i18n {
 
         static function isLangAvailable($lang) {
             $a = in_array($lang, array_keys(self::$availableLanguages));
-            $b = file_exists(self::getLangInclude($lang));
-            return $a && $b;
+            if (self::$useFiles) {
+                $b = file_exists(self::getLangInclude($lang));
+                return $a && $b;
+            }
+            return $a;
         }
 
         static function getLangInclude($lang) {

@@ -95,4 +95,9 @@ class Controller extends Service {
         return '';
     }
     
+    
+    public function text(string $key, $context = null): string {
+        return $key;
+    }
+    
 }

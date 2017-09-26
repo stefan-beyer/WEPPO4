@@ -44,6 +44,10 @@ abstract class TemplateBase {
         }
         return $this->controller;
     }
+    
+    public function setController(\WEPPO\Controller\Controller &$c) {
+        $this->controller = $c;
+    }
             
     /**
      * Setzt das gesamte Parameter-Array

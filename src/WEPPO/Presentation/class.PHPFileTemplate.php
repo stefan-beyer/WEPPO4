@@ -28,17 +28,6 @@ class PHPFileTemplate extends TemplateBase {
     public function __construct(string $name, /*\WEPPO\Controller\Controller*/ &$controller) {
         parent::__construct($controller);
         $this->setName($name);
-        
-        if (self::$templateRoot === null) {
-            if (\WEPPO\Application\Settings::getInstance()->has('phpTemplateRoot')) {
-                self::$templateRoot = \WEPPO\Application\Settings::getInstance()->get('phpTemplateRoot', APP_ROOT);
-            } else {
-                self::$templateRoot = \WEPPO\Application\Settings::getInstance()->get('templateRoot', APP_ROOT);
-            }
-            if (substr(self::$templateRoot, -1) !== '/') {
-                self::$templateRoot = self::$templateRoot . '/';
-            }
-        }
     }
     
     public function getOutput(bool $trim = true): string {
@@ -62,9 +51,23 @@ class PHPFileTemplate extends TemplateBase {
             if (strpos($this->filename, '.php') !== (strlen($this->filename)-4)) {
                 $this->filename .= '.php';
             }
-            $this->filename = self::$templateRoot . $this->filename;
+            $this->filename = self::getTemplateRoot() . $this->filename;
         }
         return $this->filename;
+    }
+    
+    static public function getTemplateRoot() {
+        if (self::$templateRoot === null) {
+            if (\WEPPO\Application\Settings::getInstance()->has('phpTemplateRoot')) {
+                self::$templateRoot = \WEPPO\Application\Settings::getInstance()->get('phpTemplateRoot', APP_ROOT);
+            } else {
+                self::$templateRoot = \WEPPO\Application\Settings::getInstance()->get('templateRoot', APP_ROOT);
+            }
+            if (substr(self::$templateRoot, -1) !== '/') {
+                self::$templateRoot = self::$templateRoot . '/';
+            }
+        }
+        return self::$templateRoot;
     }
     
     public function setName($name) {
