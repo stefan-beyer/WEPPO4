@@ -38,6 +38,10 @@ abstract class TemplateBase {
     abstract public function isExisting() : bool;
     abstract public function getOutput(bool $trim = true) : string;
     
+    public function hasController(): bool {
+        return !is_null($this->controller);
+    }
+    
     public function &getController() : \WEPPO\Controller\Controller {
         if (!$this->controller) {
             throw new \Exception("Template has no Controller");

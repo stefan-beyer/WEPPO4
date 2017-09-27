@@ -18,6 +18,10 @@ class ErrorHandler {
     
     protected $plus_code_lines = 2;
     protected $html = true;
+    
+    protected $email = '';
+    protected $debug = true;
+    protected $sendErrors = true;
 
 
     public function start() {
@@ -33,14 +37,37 @@ class ErrorHandler {
         
         set_error_handler([$this, 'handleError']);
         set_exception_handler([$this, 'handleException']);
+        
+        $settings = Settings::getInstance();
+        $this->debug = $settings->get('debug', false);
+        $this->email = $settings->get('sysMail');
+        $this->sendErrors = $settings->get('sendErrors');
     }
 
     public function handleException($ex) {
-        echo $this->getExceptionText($ex, true);
+        if ($this->debug) {
+            $this->html = true;
+            echo $this->getExceptionText($ex, true);
+        } else if ($this->sendErrors && $this->email) {
+            $this->html = false;
+            $subj = '[error] '.\WEPPO\Routing\Url::getHost();
+            $msg = date('d.m.Y H:i')."\n".$this->getExceptionText($ex, false);
+            mail($this->email, \WEPPO\Helpers\mailSubjectEncode($subj), $msg);
+            
+            echo '<html><head></head><body style="background-color:#7ffea0;">'
+            . '<center style="font-family:sans-serif; font-size:200%; color:#333;">'
+            . '<br/><br/>'
+                    . '<h1>Sorry</h1>'
+                    . '<p>Ein Fehler ist aufgetreten.<br/>Bitte versuchen Sie es<br/>zu einem späteren Zeitpunkt erneut.</p>'
+                    . '<p style="color:#777;font-size:50%; font-style:italic;">Der Zuständige wurde bereits automatisch informiert.</p>'
+            . '</center></body></html>';
+            
+        }
     }
     
     public function handleError($errno, $errstr = '', $errfile = '', $errline = '', $errcontext = null) {
-        echo $this->getErrorText($errno, $errstr, $errfile, $errline, $errcontext);
+        //echo $this->getErrorText($errno, $errstr, $errfile, $errline, $errcontext);
+        throw new \ErrorException($errstr, $errno, $errno, $errfile, $errline, null);
     }
     
     
