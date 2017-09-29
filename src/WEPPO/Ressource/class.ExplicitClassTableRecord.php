@@ -14,7 +14,32 @@ namespace WEPPO\Ressource;
  * wiederholt. Das ist Bääh!
  */
 class ExplicitClassTableRecord extends TableRecord {
-
+    
+    
+    /**
+     * Erzeugung eines objektes unter berücksichtigung der explicit Class
+     * wenn !id return null
+     * 
+     * @param type $id
+     * @param type $cols
+     * @return \WEPPO\Ressource\class
+     */
+    public static function create($id = 0, $cols = '*') {
+        if (!$id) { 
+            return null;
+            
+            # ist keine id angegeben wird kein objekt erzeugt.
+            # soll ein neues 'leeres' objekt erzeugt werden, kann wohl direkt new verwendet werden
+            
+            # Das macht also keinen sinn:
+            #$class = get_called_class();
+            #return new $class();
+        }
+        static::where(static::getTablename() . '1.id', intval($id));
+        return static::getOne($cols);
+        
+    }
+    
     /**
      * This helper method takes care of prepared statements' "bind_result method
      * , when the number of variables to pass is unknown.
@@ -56,14 +81,20 @@ class ExplicitClassTableRecord extends TableRecord {
             $std_classname = static::getStaticClass();
             while ($stmt->fetch()) {
                 $classname = $row['class'] ? $row['class'] : $std_classname;
-                if (class_exists($classname)) {
-                    $x = new $classname();
-                    $x->assign($row);
-                    static::$count += count($row); // ????
-                    \array_push($results, $x);
-                } else {
-                    trigger_error('class ' . $classname . ' not found in ExplicitClassTableRecord', E_USER_ERROR);
+                if (!class_exists($classname)) {
+                    $explicitClassError = 'Class '.$classname.' not found';
+                    $classname = $std_classname;
                 }
+                $x = new $classname();
+                $x->assign($row);
+                if (isset($explicitClassError)) {
+                    $x->explicitClassError = $explicitClassError;
+                }
+                static::$count += count($row); // ????
+                \array_push($results, $x);
+                #} else {
+                    //trigger_error('class ' . $classname . ' not found in ExplicitClassTableRecord', E_USER_ERROR);
+                #}
             }
 
             if (static::$doResolve /* && !empty(static::$resolveForeinFields) */) {
