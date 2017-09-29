@@ -44,30 +44,44 @@ class Application {
         
     }
 
-    /**
-     * Starts a normal request handling with the $_SERVER['REQUEST_URI']
-     * and $_GET and $_POST vars.
-     */
-    public function autoRequest() {
-
+    protected function doRequest(string $path, &$g, &$p) {
         # path will be prepared and converted into an array
-        $arrPath = $this->requestHandler->preparePath($_SERVER['REQUEST_URI']);
+        $arrPath = $this->requestHandler->preparePath($path);
 
         # Request erzeugen
-        $request = new \WEPPO\Routing\Request($arrPath, $_GET, $_POST);
+        $request = new \WEPPO\Routing\Request($arrPath, $g, $p);
 
         # execute request and catch redirections
         try {
+            
             $ret = $this->requestHandler->processRequest($request);
+            
         } catch (\WEPPO\Routing\RedirectException $e) { # other exceptions will be forwarded...
-            $url = \WEPPO\Routing\Url::getAbsUrl($e->getUrl());
-            header('Location: ' . $url, true, $e->getCode());
+            $url = $e->getUrl();
+            $mode = $e->getMode();
+            switch ($mode) {
+            case \WEPPO\Routing\REDIRECT_EXTERN:
+                header('Location: ' . \WEPPO\Routing\Url::getAbsUrl($url), true, $e->getCode());
+                break;
+            case \WEPPO\Routing\REDIRECT_INTERN:
+                $this->doRequest($url, $g, $p);
+                break;
+            }
             return;
         }
 
         if ($ret !== \WEPPO\Routing\RequestHandler::OK) {
             throw new \Exception("Die Anfrage kann nicht bearbeitet werden: RequestHandler::processRequest returned FAIL");
         }
+    }
+    /**
+     * Starts a normal request handling with the $_SERVER['REQUEST_URI']
+     * and $_GET and $_POST vars.
+     */
+    public function autoRequest() {
+
+        $this->doRequest($_SERVER['REQUEST_URI'], $_GET, $_POST);
+        
     }
 
     /**

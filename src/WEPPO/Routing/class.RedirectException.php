@@ -9,6 +9,10 @@
 
 namespace WEPPO\Routing;
 
+
+const REDIRECT_INTERN = 1;
+const REDIRECT_EXTERN = 2;
+
 /**
  * One hell of a special Exception.
  * 
@@ -19,11 +23,18 @@ namespace WEPPO\Routing;
  */
 class RedirectException extends \Exception {
     
-    public function __construct($url, $code = 303) {
+    protected $mode;
+    
+    public function __construct($url, $mode = REDIRECT_EXTERN, $code = 303) {
         parent::__construct($url, $code);
+        $this->mode = $mode;
     }
     
     public function getUrl() {
         return $this->getMessage();
+    }
+    
+    public function getMode() {
+        return $this->mode;
     }
 }
