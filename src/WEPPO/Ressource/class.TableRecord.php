@@ -583,17 +583,17 @@ class TableRecord extends \stdclass {
             if (isset($cast[$k])) {
                 $c = $cast[$k];
                 if (is_string($c) && class_exists($c)) {
-                    if ($v instanceof \WEPPO\Model\DBCastInterface) {
+                    if ($v instanceof \WEPPO\Ressource\DBCastInterface) {
                         $v = $v->toString();
                     } else {
                         $o = new $c();
-                        if ($o instanceof \WEPPO\Model\DBCastInterface2) {
+                        if ($o instanceof \WEPPO\Ressource\DBCastInterface2) {
                             $v = $o->toString($v);
                         } else {
                             $v = '';
                         }
                     }
-                } else if ($c instanceof \WEPPO\Model\DBCastInterface2) {
+                } else if ($c instanceof \WEPPO\Ressource\DBCastInterface2) {
                     $v = $c->toString($v);
                 } else if (isset($c['save']) && is_callable($c['save'])) {
                     $v = call_user_func_array($c['save'], array($v, &$data));
