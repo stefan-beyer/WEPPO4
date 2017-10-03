@@ -73,7 +73,10 @@ trait PageImplementation {
     }
 
     public function &setConfig($key, $value) {
-        $this->loadConfig();
+        //$this->loadConfig();
+        if (!is_array($this->Page_Config)) {
+            $this->Page_Config = [];
+        }
         
         # Should be an array
         if (substr($key, -2) === '[]') {
@@ -144,18 +147,16 @@ trait PageImplementation {
     protected function _match_regex($tid, $regex) : bool {
         $matches = [];
 
-        if (\preg_match($regex, $tid, $matches)) {
+        $a = \preg_match($regex, $tid, $matches);
+        if ($a) {
             $this->Page_Matches = $matches;
-            
-            //$this->map_matches();
-            //o($this->Page_Matches);
-            
             return true;
         }
         return false;
     }
     
     public function isMatch($tid, $mode) : bool {
+        
         if ($mode === PageStructure::MATCH_MODE_EXACT) {
             return $this->_match_exact($tid);
         }
@@ -173,27 +174,27 @@ trait PageImplementation {
     }
     
     //private
-    public 
-            function map_matches() {
+    public function map_matches() {
+        $mm = $this->getMatchMap();
         
-        if (!isset($this->Page_MatchMap[0]) || $this->Page_MatchMap[0] !== 'full') {
-            array_unshift($this->Page_MatchMap, 'full');
+        if (!isset($mm[0]) || $mm[0] !== 'full') {
+            array_unshift($mm, 'full');
         }
         
         // mehr matches als keys
         // matches die zu viel sind abschneiden / ignorieren
-        if (count($this->Page_Matches) > count($this->Page_MatchMap)) {
-            $this->Page_Matches = array_slice($this->Page_Matches, 0, count($this->Page_MatchMap), true);
+        if (count($this->Page_Matches) > count($mm)) {
+            $this->Page_Matches = array_slice($this->Page_Matches, 0, count($mm), true);
         } // TODO: test
         
         // mehr keys als matches
         // matches mit null auffüllen
-        else if (count($this->Page_Matches) < count($this->Page_MatchMap)) {
-            $this->Page_Matches = array_pad($this->Page_Matches, count($this->Page_MatchMap), null);
+        else if (count($this->Page_Matches) < count($mm)) {
+            $this->Page_Matches = array_pad($this->Page_Matches, count($mm), null);
         } // TODO: test
         
-        if (count($this->Page_Matches) === count($this->Page_MatchMap)) {
-            $this->Page_Matches = array_combine($this->Page_MatchMap, $this->Page_Matches);
+        if (count($this->Page_Matches) === count($mm)) {
+            $this->Page_Matches = array_combine($mm, $this->Page_Matches);
             return;
         }
     }
@@ -260,8 +261,8 @@ trait PageImplementation {
         if ($this->hasParent()) {
             $parent = $this->getParent();
             $url = \array_merge($url, $parent->getArrNamePath());
-            $url[] = $this->getPageName();
         }
+        $url[] = $this->getPageName();
         return $url;
     }
     

@@ -36,7 +36,6 @@ abstract class PageStructure {
     }
 
     public function &findPage(array $pathArr, $exact) {
-        
         // TODO kann man exact auch in den page-obekten angeben um das von der seite abhängig zu machen?
         
         if (!is_array($pathArr)) {
@@ -83,6 +82,7 @@ abstract class PageStructure {
             if (!$k) {
                 continue;
             }
+            
 
             $children = $last_page_hit->getChildren();
 
