@@ -70,6 +70,9 @@ class Page extends \WEPPO\Ressource\TableRecord  implements \WEPPO\Routing\PageI
     }
 
     public function getPageName(): string {
+        if (empty($this->name) && $this->hasParent()) {
+            $this->name = 'p-'.$this->id;
+        }
         return $this->name;
     }
 
