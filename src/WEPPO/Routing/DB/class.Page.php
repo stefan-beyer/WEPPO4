@@ -28,6 +28,7 @@ class Page extends \WEPPO\Ressource\TableRecord  implements \WEPPO\Routing\PageI
 
     protected function loadConfig() {
         if ($this->Page_Config === null) {
+            $this->Page_Config = [];
             Config::where('page_id', $this->id);
             $configs = Config::get();
             foreach ($configs as &$c) {
