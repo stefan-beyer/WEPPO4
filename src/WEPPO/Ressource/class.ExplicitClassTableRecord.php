@@ -36,8 +36,8 @@ class ExplicitClassTableRecord extends TableRecord {
             #return new $class();
         }
         static::where(static::getTablename() . '1.id', intval($id));
-        return static::getOne($cols);
-        
+        $r = static::getOne($cols);
+        return $r;
     }
     
     /**
