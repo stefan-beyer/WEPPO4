@@ -111,6 +111,8 @@ class Service {
      */
     public function dispatch(string $action, array $arrPath) : bool {
         
+        // o($action, get_called_class());
+        
         $this->calledAction = $action;
         
         try {
@@ -133,10 +135,7 @@ class Service {
         
         $method = 'action_'.$action;
         if (method_exists($this, $method)) {
-            $ret = $this->{$method}($arrPath);
-            if ($ret) {
-                return true;
-            }
+            return $this->{$method}($arrPath);
         }
         
         return $this->catchAll($action, $arrPath);
