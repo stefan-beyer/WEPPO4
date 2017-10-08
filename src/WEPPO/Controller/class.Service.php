@@ -107,7 +107,7 @@ class Service {
      * 
      * @param string $action
      * @param array $arrPath The Rest of the request path array
-     * @return bool
+     * @return bool true if the action got handeled
      */
     public function dispatch(string $action, array $arrPath) : bool {
         
@@ -125,12 +125,18 @@ class Service {
             #}
             $service->serviceArrPath = $this->serviceArrPath;
             $service->serviceArrPath[] = $action;
-            return $service->dispatch($action, $arrPath);
+            $ret = $service->dispatch($action, $arrPath);
+            if ($ret) {
+                return true;
+            }
         }
         
         $method = 'action_'.$action;
         if (method_exists($this, $method)) {
-            return $this->{$method}($arrPath);
+            $ret = $this->{$method}($arrPath);
+            if ($ret) {
+                return true;
+            }
         }
         
         return $this->catchAll($action, $arrPath);
@@ -142,6 +148,7 @@ class Service {
         $e->setRequest($this->getRequest());
         $e->setInfo('Action \''.$action.'\'');
         throw $e;
+        // return false
     }
     
     public function &getRootController() : Controller {
