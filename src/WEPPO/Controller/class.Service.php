@@ -80,7 +80,7 @@ class Service {
      * @return WEPPO::Controller::Service
      * @throws Exception
      */
-    protected function &getService(string $name) : Service {
+    public function &getService(string $name, bool $create = true) : Service {
         
         # Is there a Service for that name?
         if (!isset($this->services[$name])) {
@@ -89,9 +89,13 @@ class Service {
         
         # A string will be treated as classname: an service object will be created and stored.
         if (is_string($this->services[$name])) {
-            $classname = $this->services[$name];
-            # maybe not needed to store the object ...
-            $this->services[$name] = new $classname($this, $this->getRequest());
+            if ($create) {
+                $classname = $this->services[$name];
+                # maybe not needed to store the object ...
+                $this->services[$name] = new $classname($this, $this->getRequest());
+            } else {
+                throw new \Exception('Service Not Found');
+            }
         }
         
         $service = $this->services[$name];
