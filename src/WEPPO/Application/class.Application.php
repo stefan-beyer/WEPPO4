@@ -64,7 +64,9 @@ class Application {
                 header('Location: ' . \WEPPO\Routing\Url::getAbsUrl($url), true, $e->getCode());
                 break;
             case \WEPPO\Routing\REDIRECT_INTERN:
-                $this->doRequest($url, $g, $p);
+                if ($url !== $path) {
+                    $this->doRequest($url, $g, $p);
+                }
                 break;
             }
             return;
