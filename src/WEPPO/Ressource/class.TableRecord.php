@@ -302,7 +302,7 @@ class TableRecord extends \stdclass {
      *
      * @var string
      */
-    static public $count = 0;
+    static public $_count = 0;
 
     /**
      * Variable which holds last statement error
@@ -316,27 +316,27 @@ class TableRecord extends \stdclass {
      *
      * @var string
      */
-    static protected $host;
+    static protected $_host;
 
     /**
      * @var string SQL Benutzername
      */
-    static protected $username;
+    static protected $_username;
 
     /**
      * @var string SQL Passwort
      */
-    static protected $password;
+    static protected $_password;
 
     /**
      * @var string Datenbankname
      */
-    static protected $db;
+    static protected $_db;
 
     /**
      * @var integer DB-Server-Port
      */
-    static protected $port;
+    static protected $_port;
     static $isSubQuery = false;
 
     /**
@@ -354,14 +354,14 @@ class TableRecord extends \stdclass {
             return;
 
 
-        static::$host = $host;
-        static::$username = $username;
-        static::$password = $password;
-        static::$db = $db;
+        static::$_host = $host;
+        static::$_username = $username;
+        static::$_password = $password;
+        static::$_db = $db;
         if ($port == NULL)
-            static::$port = \ini_get('mysqli.default_port');
+            static::$_port = \ini_get('mysqli.default_port');
         else
-            static::$port = $port;
+            static::$_port = $port;
 
 
         static::connect();
@@ -387,7 +387,7 @@ class TableRecord extends \stdclass {
      */
     static public function connect() {
 
-        static::$_mysqli = new \mysqli(static::$host, static::$username, static::$password, static::$db, static::$port)
+        static::$_mysqli = new \mysqli(static::$_host, static::$_username, static::$_password, static::$_db, static::$_port)
                 or die('There was a problem connecting to the database');
 
         static::$_mysqli->set_charset('utf8');
@@ -465,7 +465,7 @@ class TableRecord extends \stdclass {
         static::$_groupBy = array();
         static::$_bindParams = array(''); // Create the empty 0 index
         static::$_query = null;
-        static::$count = 0;
+        static::$_count = 0;
     }
 
     static public function createObjects($co = null) {
@@ -653,7 +653,7 @@ class TableRecord extends \stdclass {
         $status = $stmt->execute();
         static::reset();
         static::$_stmtError = $stmt->error;
-        static::$count = $stmt->affected_rows;
+        static::$_count = $stmt->affected_rows;
 
         return $status;
     }
@@ -1020,7 +1020,7 @@ class TableRecord extends \stdclass {
             while ($stmt->fetch()) {
                 $x = new $classname();
                 $x->assign($row);
-                static::$count += count($row);
+                static::$_count += count($row);
                 \array_push($results, $x);
             }
 
@@ -1035,7 +1035,7 @@ class TableRecord extends \stdclass {
                 foreach ($row as $key => $val) {
                     $x[$key] = $val;
                 }
-                static::$count++;
+                static::$_count++;
                 \array_push($results, $x);
             }
         }
@@ -1455,7 +1455,7 @@ class TableRecord extends \stdclass {
 
         static::reset();
 
-        static::$count = array_pop(static::$stack);
+        static::$_count = array_pop(static::$stack);
         static::$_query = array_pop(static::$stack);
         static::$_bindParams = array_pop(static::$stack);
         static::$_groupBy = array_pop(static::$stack); //!
@@ -1481,7 +1481,7 @@ class TableRecord extends \stdclass {
         array_push(static::$stack, static::$_groupBy); //!
         array_push(static::$stack, static::$_bindParams); // die nächsten braucht man vermutlich nicht
         array_push(static::$stack, static::$_query);
-        array_push(static::$stack, static::$count);
+        array_push(static::$stack, static::$_count);
         static::reset();
         static::$isSubQuery = true;
     }
