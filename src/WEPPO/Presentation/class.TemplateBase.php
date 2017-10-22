@@ -28,6 +28,8 @@ abstract class TemplateBase {
     
     protected $params = [];
     
+    protected $context = null;
+    
     # abgeleitete klasse braucht eigenen, öffentlichen Konstruktor!
     protected function __construct(/*\WEPPO\Controller\Controller*/ &$controller) {
         $this->controller = $controller;
@@ -51,6 +53,14 @@ abstract class TemplateBase {
     
     public function setController(\WEPPO\Controller\Controller &$c) {
         $this->controller = $c;
+    }
+    
+    public function setContext($c) {
+        $this->context = $c;
+    }
+    
+    public function getContext() {
+        return $this->context;
     }
             
     /**
