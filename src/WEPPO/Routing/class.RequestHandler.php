@@ -94,6 +94,17 @@ class RequestHandler {
         }
         return $this->requestStack[count($this->requestStack) - 1];
     }
+    
+    public function &getOriginalRequest() : Request {
+        if (count($this->requestStack) === 0) {
+            throw new \Exception('No Request in request stack.');
+        }
+        return $this->requestStack[0];
+    }
+    
+    public function &getRequestStack() : array {
+        return $this->requestStack;
+    }
             
     
     function processRequest(Request &$request) {
