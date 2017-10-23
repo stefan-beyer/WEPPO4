@@ -186,9 +186,11 @@ class Gate {
      * @return false wenn die Zuordnung oder die Konfigurations-Datei nicht vorhanden ist
      */
     protected function _call($key) {
-        
         if (isset($this->definition[$key])) {
             $fn = $this->definition[$key];
+            if (is_callable($fn)) {
+                return $fn($key);
+            }
             $fn = APP_ROOT . $fn;
             if (\file_exists($fn)) {
                 if ($this->mode == self::MODE_PATH) {
