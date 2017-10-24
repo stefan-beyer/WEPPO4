@@ -27,7 +27,7 @@ class Service {
      */
     protected $services = [];
     
-    protected $parentController = null;
+    protected $parentService = null;
 
     protected $calledAction = null;
     
@@ -45,7 +45,7 @@ class Service {
      * @param WEPPO::Controller::Service $parent
      */
     public function __construct(/*Service || null*/ &$parent, \WEPPO\Routing\Request &$request) {
-        $this->parentController = $parent;
+        $this->parentService = $parent;
         $this->request = $request;
     }
 
@@ -155,10 +155,18 @@ class Service {
     }
     
     public function &getRootController() : Controller {
-        if ($this->parentController !== null) {
-            return $this->parentController->getRootController();
+        if ($this->parentService !== null) {
+            return $this->parentService->getRootController();
         }
         return $this;
+    }
+    
+    public function &getParentService() : Service {
+        return $this->parentService;
+    }
+    
+    public function hasParentService() : bool {
+        return !!$this->parentService;
     }
     
     public function &getPage() : \WEPPO\Routing\PageInterface {
