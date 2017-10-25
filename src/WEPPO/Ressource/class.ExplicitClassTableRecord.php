@@ -90,7 +90,7 @@ class ExplicitClassTableRecord extends TableRecord {
                 if (isset($explicitClassError)) {
                     $x->explicitClassError = $explicitClassError;
                 }
-                static::$count += count($row); // ????
+                static::$_count += count($row); // ????
                 \array_push($results, $x);
                 #} else {
                     //trigger_error('class ' . $classname . ' not found in ExplicitClassTableRecord', E_USER_ERROR);
@@ -108,7 +108,7 @@ class ExplicitClassTableRecord extends TableRecord {
                 foreach ($row as $key => $val) {
                     $x[$key] = $val;
                 }
-                static::$count++;
+                static::$_count++;
                 \array_push($results, $x);
             }
         }
