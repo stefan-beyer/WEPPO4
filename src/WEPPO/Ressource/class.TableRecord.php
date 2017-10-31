@@ -1558,16 +1558,22 @@ class TableRecord extends \stdclass {
     /**
      * Tabellenname erzeugen (Mehrzahl)
      */
+    protected static $_tableName;
     static function getTablename() {
-        return static::getTablenameSingular() . 's';
+        return static::$_tableName;
+        //return static::getTablenameSingular() . 's';
+    }
+    
+    static function table($tn) {
+        static::$_tableName = $tn;
     }
 
     /**
      * Tabellenname erzeugen (Einzahl)
-     */
     static function getTablenameSingular() {
         return \str_replace('\\', '_', \strtolower(static::getStaticClass()));
     }
+     */
 
     /**
      * Klassenname des aufrufenen Objektes ermitteln
