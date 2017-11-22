@@ -83,6 +83,10 @@ class DBManager {
             $this->error = $e->getMessage();
             return false;
         }
+        if (\WEPPO\Ressource\TableRecord::getLastError()) {
+            $this->error = \WEPPO\Ressource\TableRecord::getLastError();
+            return false;
+        }
         
         return true;
     }
@@ -94,6 +98,10 @@ class DBManager {
         } catch (\Exception $e) {
             $this->error = $e->getMessage();
             $res = false;
+        }
+        if (\WEPPO\Ressource\TableRecord::getLastError()) {
+            $this->error = \WEPPO\Ressource\TableRecord::getLastError();
+            return false;
         }
         
         return $res;
