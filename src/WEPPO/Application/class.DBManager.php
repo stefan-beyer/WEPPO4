@@ -76,15 +76,18 @@ class DBManager {
  #       //SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
         $sql = 'CREATE TABLE IF NOT EXISTS `'.$pfxTableName . "` (\n".implode(",\n",$cols)."\n) ".$extra;
+        
+        //echo $sql;
+        
         //$sql = 'SET foreign_key_checks = 0;'."\n" . $sql . ';'."\n";
         try {
             $res = \WEPPO\Ressource\TableRecord::rawQuery($sql);
         } catch (\Exception $e) {
-            $this->error = $e->getMessage();
+            $this->error = $e->getMessage() . ' SQL: "' . $sql.'"';
             return false;
         }
         if (\WEPPO\Ressource\TableRecord::getLastError()) {
-            $this->error = \WEPPO\Ressource\TableRecord::getLastError();
+            $this->error = \WEPPO\Ressource\TableRecord::getLastError() . ' SQL: "' . $sql.'"';
             return false;
         }
         
@@ -96,11 +99,11 @@ class DBManager {
         try {
             $res = \WEPPO\Ressource\TableRecord::rawQuery($sql);
         } catch (\Exception $e) {
-            $this->error = $e->getMessage();
+            $this->error = $e->getMessage() . ' SQL: "' . $sql.'"';
             $res = false;
         }
         if (\WEPPO\Ressource\TableRecord::getLastError()) {
-            $this->error = \WEPPO\Ressource\TableRecord::getLastError();
+            $this->error = \WEPPO\Ressource\TableRecord::getLastError() . ' SQL: "' . $sql.'"';
             return false;
         }
         
