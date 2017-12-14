@@ -78,6 +78,7 @@ class DBManager {
         $sql = 'CREATE TABLE IF NOT EXISTS `'.$pfxTableName . "` (\n".implode(",\n",$cols)."\n) ".$extra;
         
         //echo $sql;
+        $this->query('SET foreign_key_checks = 0');
         
         //$sql = 'SET foreign_key_checks = 0;'."\n" . $sql . ';'."\n";
         try {
@@ -90,6 +91,7 @@ class DBManager {
             $this->error = \WEPPO\Ressource\TableRecord::getLastError() . ' SQL: "' . $sql.'"';
             return false;
         }
+        $this->query('SET foreign_key_checks = 1');
         
         return true;
     }
