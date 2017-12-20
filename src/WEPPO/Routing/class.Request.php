@@ -114,6 +114,27 @@ class Request {
         return $v;
     }
     
+    public function collectPostArray(array $cols): array {
+        // TODO $cals evtl als assoc array mit cast infos...
+        // TODO: was wenn arrays unterschiedlich lang?
+        $result = [];
+        foreach ($cols as $col=>$key) {
+            $data = $this->p($col, []);
+            foreach ($data as $k=>$v) {
+                if (!array_key_exists($k, $result)) {
+                    $result[$k] = [];
+                }
+                $result[$k][$key] = $v;
+            }
+        }
+        foreach ($result as &$r) {
+            foreach ($cols as $col) {
+                if (!array_key_exists($col, $r)) return null;
+            }
+        }
+        return $result;
+    }
+    
     protected function _basic_cast($cast, $v) {
         switch ($cast) {
             case 'int':
