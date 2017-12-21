@@ -81,7 +81,7 @@ class ExplicitClassTableRecord extends TableRecord {
             $std_classname = static::getStaticClass();
             while ($stmt->fetch()) {
                 $classname = (isset($row['class']) && $row['class']) ? $row['class'] : $std_classname;
-                if (isset($row['class']) || !class_exists($classname)) {
+                if (!isset($row['class']) || !class_exists($classname)) {
                     $explicitClassError = 'Class '.$classname.' not found';
                     $classname = $std_classname;
                 }
