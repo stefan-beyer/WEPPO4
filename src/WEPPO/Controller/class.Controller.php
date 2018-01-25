@@ -86,13 +86,18 @@ class Controller extends Service {
      * In contrast to params (via @see WEPPO::Presentation::TemplateBase::set() and @see WEPPO::Presentation::TemplateBase::get()),
      * parts are generated on demand.
      * 
-     * To give a controller the abillity to generate parts, you just have to overwrite getParts().
+     * To give a controller the abillity to generate parts, you just have to 
+     * write methods part_foo() or overwrite getParts().
      * 
      * @param string $name
      * @return string
      */
     public function getPart(string $name) : string {
-        return '';
+        $methodName = 'part_'.$name;
+        if (!method_exists($this, $methodName)) {
+            return '';
+        }
+        return $this->{$methodName}();
     }
     
     

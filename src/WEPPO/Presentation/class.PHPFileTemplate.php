@@ -89,12 +89,11 @@ class PHPFileTemplate extends TemplateBase {
      * @param string $t Template-Typ
      * @return string
      */
-    /*
     static function quickContent(string $name, array $params, \WEPPO\Controller\Controller &$controller) {
-        $t = new Template($name, $controller);
+        $t = new self($name, $controller);
         $t->setParams($params);
         return $t->getOutput();
-    }*/
+    }
 
     /**
      * Schnelle, vereinfachte Ausgabe eines Templates
