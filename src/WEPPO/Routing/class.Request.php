@@ -47,7 +47,7 @@ class Request {
 
     public function &getPage() : PageInterface {
         if (is_null($this->page)) {
-            throw new \Excpetion('Request::getPage() Page is Null - use hasPage() first.');
+            throw new \Exception('Request::getPage() Page is Null - use hasPage() first.');
         }
         return $this->page;
     }

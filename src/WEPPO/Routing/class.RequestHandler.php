@@ -191,11 +191,13 @@ class RequestHandler {
         return $this->structure;
     }
     
-    public function preparePath(string $path) : array {
+    public function preparePath(string $path, $removeGatePath = true) : array {
         $path = \explode('?', $path);
         $path = isset($path[0]) ? $path[0] : '';
         $arrPath = self::path2Array($path);
-        $arrPath = $this->removeGatePath($arrPath);
+        if ($removeGatePath) {
+            $arrPath = $this->removeGatePath($arrPath);
+        }
         if (empty($arrPath)) {
             $arrPath = [''];
         }
