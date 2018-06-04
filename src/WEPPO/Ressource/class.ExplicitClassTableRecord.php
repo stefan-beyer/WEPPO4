@@ -15,7 +15,10 @@ namespace WEPPO\Ressource;
  */
 class ExplicitClassTableRecord extends TableRecord {
     
-    
+    public function __construct($id = 0, $cols = '*') {
+        $this->class = '\\'.get_called_class();
+        parent::__construct($id, $cols);
+    }
     /**
      * Erzeugung eines objektes unter berücksichtigung der explicit Class
      * wenn !id return null
@@ -37,7 +40,12 @@ class ExplicitClassTableRecord extends TableRecord {
         }
         static::where(static::getTablename() . '1.id', intval($id));
         $r = static::getOne($cols);
+        if ($r) $r->afterCreation();
         return $r;
+    }
+    
+    public function afterCreation() {
+        
     }
     
     /**

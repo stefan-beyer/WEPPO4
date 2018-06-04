@@ -32,7 +32,7 @@ class Page extends \WEPPO\Ressource\TableRecord  implements \WEPPO\Routing\PageI
             Config::where('page_id', $this->id);
             $configs = Config::get();
             foreach ($configs as &$c) {
-                $this->setConfig($c->key, $c->value);
+                $this->setConfig($c->key, $c->getValue());
             }
         }
         return $this->Page_Config;

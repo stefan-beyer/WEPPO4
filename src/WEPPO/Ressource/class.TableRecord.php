@@ -792,15 +792,26 @@ class TableRecord extends \stdclass {
      *
      * @return MysqliDb
      */
-    static public function join($joinTable, $joinCondition, $joinType = '') {
+    static public function join($joinTable, $joinCondition, $joinType = '', $insertBefore = false) {
         $allowedTypes = array('LEFT', 'RIGHT', 'OUTER', 'INNER', 'LEFT OUTER', 'RIGHT OUTER');
         $joinType = \strtoupper(trim($joinType));
         $joinTable = \filter_var($joinTable, FILTER_SANITIZE_STRING);
 
         if ($joinType && !in_array($joinType, $allowedTypes))
             die('Wrong JOIN type: ' . $joinType);
-
+        
+        if ($insertBefore) {
+            $saved = static::$_join;
+             static::$_join = [];
+        }
+        
         static::$_join[$joinType . " JOIN " . static::$_prefix . $joinTable] = $joinCondition;
+        
+        if ($insertBefore) {
+            foreach ($saved as $k=>$v) {
+                static::$_join[$k] = $v;
+            }
+        }
     }
 
     /**

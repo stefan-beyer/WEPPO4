@@ -70,6 +70,13 @@ class Request {
     public function hasController() : bool {
         return !!$this->controller;
     }
+    
+    public function isPost(): bool {
+        return !empty($this->post);
+    }
+    public function &getPost(): array {
+        return $this->post;
+    }
 
     /**
      * POST-Variable abrufen

@@ -91,6 +91,9 @@ class Service {
         if (is_string($this->services[$name])) {
             if ($create) {
                 $classname = $this->services[$name];
+                if (!class_exists($classname)) {
+                    throw new \Exception('service "'.$classname.'" not found');
+                }
                 # maybe not needed to store the object ...
                 $this->services[$name] = new $classname($this, $this->getRequest());
             } else {
