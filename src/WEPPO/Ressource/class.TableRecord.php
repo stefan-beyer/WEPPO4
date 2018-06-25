@@ -615,12 +615,14 @@ class TableRecord extends \stdclass {
      *
      * @return boolean Boolean indicating whether the insert query was completed succesfully.
      */
-    static public function insert($insertData) {
+    static public function insert($insertData, $useCast = true) {
         if (static::$isSubQuery)
             return;
 
         $tableName = static::getTablename();
-        static::prepareData($insertData);
+        if ($useCast) {
+            static::prepareData($insertData);
+        }
 
 
         static::$_query = "INSERT into " . static::$_prefix . $tableName;
@@ -640,12 +642,14 @@ class TableRecord extends \stdclass {
      *
      * @return boolean
      */
-    static public function update($tableData) {
+    static public function update($tableData, $useCast = true) {
         if (static::$isSubQuery)
             return;
 
         $tableName = static::getTablename();
-        static::prepareData($tableData);
+        if ($useCast) {
+            static::prepareData($tableData);
+        }
 
         static::$_query = "UPDATE " . static::$_prefix . $tableName . " SET ";
 

@@ -34,6 +34,8 @@ interface PageInterface {
 
     public function getConfig($key, $default = null, $inherit = true);
     
+    public function getConfigsWithPrefix($prefix, $inherit = true);
+    
     public function &getAllConfig(): array;
 
     public function hasConfig($key) : bool;

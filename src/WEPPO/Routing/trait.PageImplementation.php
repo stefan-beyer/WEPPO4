@@ -65,6 +65,47 @@ trait PageImplementation {
         }
         return $default;
     }
+    
+    
+    
+    public function getConfigsWithPrefix($prefix, $inherit = true) {
+        // todo inherit
+        $this->loadConfig();
+        $result = [];
+        foreach ($this->Page_Config as $k=>&$v) {
+            if (preg_match('#^'.preg_quote($prefix, '#').'(.*)$#', $k, $matches)) {
+                $key = $matches[1];
+                $result[$key] = $v;
+            }
+        }
+        if ($inherit) {
+            if ($this->hasParent()) {
+                $p = &$this->getParent();
+                $parentdata = $p->getConfigsWithPrefix($prefix, true);
+                foreach ($parentdata as $k=>&$v) {
+                    if (array_key_exists($k, $result)) continue;
+                    $result[$k] = $v;
+                }
+            }
+        }
+        return $result;
+        /*
+        \WEPPO\Routing\DB\Config::where('page_id', $page->id);
+        \WEPPO\Routing\DB\Config::where('`key`', 'grid2.contentMapping.%', 'LIKE');
+        $mappingConfigs = \WEPPO\Routing\DB\Config::get();
+        $result = [];
+        foreach ($mappingConfigs as &$mc) {
+            $key = preg_replace('#^'.preg_quote('grid2.contentMapping.', '#').'#', '', $mc->key);
+            $result[$key] = $mc->value;
+        }
+        o($result);
+         * 
+         */
+    }
+    
+    
+    
+    
 
     public function hasConfig($key): bool {
         $this->loadConfig();
