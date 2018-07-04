@@ -77,6 +77,10 @@ class Request {
     public function &getPost(): array {
         return $this->post;
     }
+    
+    public function getRawPostData(): string {
+        return file_get_contents("php://input");
+    }
 
     /**
      * POST-Variable abrufen

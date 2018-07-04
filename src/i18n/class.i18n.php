@@ -56,20 +56,29 @@ namespace i18n {
         static function init() {
 
             $hi_code = '';
-
-            if (self::$mode == 'cookie') {
-                if (isset($_COOKIE[self::$cookieName])) {
-                    $hi_code = $_COOKIE[self::$cookieName];
-                    $hi_code = substr($hi_code, 0, 2);
-                    if (!self::isLangAvailable($hi_code)) {
-                        $hi_code = '';
-                    }
+            
+            if (isset($_GET['lang'])) {
+                $hi_code = $_GET['lang']; // sanatize
+                if (!self::isLangAvailable($hi_code)) {
+                    $hi_code = '';
                 }
-            } else if (self::$mode == 'subdomain') {
-                $domain = explode('.', $_SERVER['SERVER_NAME']);
-                $l = isset($domain[0]) ? $domain[0] : '';
-                if ($l && self::isLangAvailable($l))
-                    $hi_code = $l;
+            }
+            
+            if (empty($hi_code)) {
+                if (self::$mode == 'cookie') {
+                    if (isset($_COOKIE[self::$cookieName])) {
+                        $hi_code = $_COOKIE[self::$cookieName];
+                        $hi_code = substr($hi_code, 0, 2);
+                        if (!self::isLangAvailable($hi_code)) {
+                            $hi_code = '';
+                        }
+                    }
+                } else if (self::$mode == 'subdomain') {
+                    $domain = explode('.', $_SERVER['SERVER_NAME']);
+                    $l = isset($domain[0]) ? $domain[0] : '';
+                    if ($l && self::isLangAvailable($l))
+                        $hi_code = $l;
+                }
             }
 
             if (empty($hi_code)) {
@@ -109,12 +118,15 @@ namespace i18n {
             return $hi_code;
         }
 
-        static function getLangURL($l) {
+        static function getLangURL($l, $backlink = null) {
             if (self::$mode == 'cookie') {
                 $url = '/language/select/' . $l;
+                if ($backlink) {
+                    $url .= '?backlink='.urlencode($backlink);
+                }
             } else if (self::$mode == 'subdomain') {
-                $url = \WEPPO\System::getAbsURI($_SERVER['REQUEST_URI']);
-
+                $url = \WEPPO\Routing\Url::getAbsUrl($_SERVER['REQUEST_URI']);
+                
                 # auseinandernehmen
                 $url = explode('://', $url);
                 $url[1] = explode('/', $url[1]);
