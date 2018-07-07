@@ -83,6 +83,8 @@ abstract class PageStructure {
                 continue;
             }
             
+            $k = urldecode($k);
+            
 
             $children = $last_page_hit->getChildren();
 

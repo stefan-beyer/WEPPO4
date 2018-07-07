@@ -182,13 +182,15 @@ trait PageImplementation {
         
         #echo $pattern, ' | ';
         
-        return $this->_match_regex($tid, '`^' . $pattern . '$`');
+        return $this->_match_regex($tid, '`^' . $pattern . '$`u');
     }
 
     protected function _match_regex($tid, $regex) : bool {
         $matches = [];
-
+        #o($regex);
+        #o($tid);
         $a = \preg_match($regex, $tid, $matches);
+        #o($matches);
         if ($a) {
             $this->Page_Matches = $matches;
             return true;
@@ -207,7 +209,7 @@ trait PageImplementation {
         }
 
         if ($mode == PageStructure::MATCH_MODE_REGEX) {
-            return $this->_match_regex($tid, '`^' . $this->getPattern() . '$`');
+            return $this->_match_regex($tid, '`^' . $this->getPattern() . '$`u');
         }
         
 
