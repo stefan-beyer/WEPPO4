@@ -15,11 +15,30 @@ namespace WEPPO\Ressource;
  */
 class ExplicitClassTableRecord extends TableRecord {
     
+    static $allClasses = false;
+    
     public function __construct($id = 0, $cols = '*') {
         $this->class = '\\'.get_called_class();
         parent::__construct($id, $cols);
     }
+    
+    static function ignoreClass() {
+        static::$allClasses = true;
+    }
+    
+    static function get($numRows = null, $columns = '*') {
+        if (!static::$allClasses) {
+            if (!isset(static::$_where['class'])) {
+                static::where('class', '\\'.get_called_class());
+            }
+        }
+        static::$allClasses = false;
+        return parent::get($numRows, $columns);
+    }
+    
+    
     /**
+     * ersetzt den Constructor für bereits existierende datensätze.
      * Erzeugung eines objektes unter berücksichtigung der explicit Class
      * wenn !id return null
      * 
@@ -43,6 +62,23 @@ class ExplicitClassTableRecord extends TableRecord {
         if ($r) $r->afterCreation();
         return $r;
     }
+    
+    // create without class
+    public static function createAny($id = 0, $cols = '*') {
+        static::ignoreClass();
+        return static::create($id, $cols);
+    }
+    
+    static function getAny($numRows = null, $columns = '*') {
+        static::ignoreClass();
+        return static::get($numRows, $columns);
+    }
+    
+    static function getAnyOne($columns = '*') {
+        static::ignoreClass();
+        return static::get($columns);
+    }
+    
     
     public function afterCreation() {
         
