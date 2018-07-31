@@ -538,6 +538,8 @@ class TableRecord extends \stdclass {
             $columns = '*';
 
         $tableName = static::getTablename();
+        
+        
 
         $column = \is_array($columns) ? \implode(', ', $columns) : $columns;
         static::$_query = "SELECT $column FROM " . static::$_prefix . $tableName . ' ' . $tableName . '1';

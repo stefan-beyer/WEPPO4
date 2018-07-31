@@ -76,7 +76,7 @@ class ExplicitClassTableRecord extends TableRecord {
     
     static function getAnyOne($columns = '*') {
         static::ignoreClass();
-        return static::get($columns);
+        return static::getOne($columns);
     }
     
     
