@@ -21,8 +21,10 @@ class Url {
                 $host = $_SERVER['HTTP_HOST'];
                 $h = strstr($host, ':', true);
                 $host = $h!==false ? $h : $host;
-            } else {
+            } else if (isset($_SERVER['SERVER_NAME'])) {
                 $host = $_SERVER['SERVER_NAME'];
+            } else {
+                $host = 'cli';
             }
         }
         return $host;

@@ -25,6 +25,8 @@ class ErrorHandler {
 
 
     public function start() {
+        if (!defined('CLI')) define('CLI', php_sapi_name() === 'cli');
+
         //echo 'start error handling';
         # PHP-Fehlerbehandlung wird eingestellt.
         # in der konfiguration wird eingestellt, wie Fehler abgefangen werden sollen
@@ -42,11 +44,13 @@ class ErrorHandler {
         $this->debug = $settings->get('debug', false);
         $this->email = $settings->get('sysMail');
         $this->sendErrors = $settings->get('sendErrors');
+        if (CLI) $this->html = false;
     }
 
     public function handleException($ex) {
         if ($this->debug) {
             $this->html = true;
+            if (CLI) $this->html = false;
             echo $this->getExceptionText($ex, true);
         } else if ($this->sendErrors && $this->email) {
             $this->html = false;

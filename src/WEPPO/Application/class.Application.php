@@ -16,25 +16,7 @@ namespace WEPPO\Application;
  * By default, run() will call autoRequest() to handle a normal Request.
  * It will also catch redirect exceptions.
  */
-class Application {
-
-    /** @var $requestHandler \WEPPO\Routing\RequestHandler */
-    protected $requestHandler;
-    
-    /**
-     * This contruktor must be called in all subclasses.
-     * It will register the application in the context.
-     * 
-     * @param \WEPPO\Routing\RequestHandler $requestHandler
-     */
-    public function __construct(\WEPPO\Routing\RequestHandler &$requestHandler) {
-        $this->requestHandler = $requestHandler;
-
-        $context = Context::getInstance();
-        $context->setApplication($this);
-
-        $this->internalInit();
-    }
+class Application extends ApplicationBase {
 
     protected function internalInit() {
         
@@ -92,32 +74,7 @@ class Application {
      */
     public function run() {
         $this->init();
-        
-        // fehler erzeugen
-        //$this->g->a();
-        
-        #try {
-            $this->autoRequest();
-        #} catch (\Exception $e) {
-            
-            #Context::getInstance()->getErrorHandler()->handleException($e);
-            
-            #if (Settings::getInstance()->get('printExceptions')) {
-            #    $this->_print_exception($e);
-            #}
-            #if (Settings::getInstance()->get('throwExceptions')) {
-            #    throw $e;
-            #}
-        #}
-    }
-
-    /**
-     * Get the RequestHandler instance.
-     * 
-     * @return WEPPO::Routing::RequestHandler
-     */
-    public function &getRequestHandler(): \WEPPO\Routing\RequestHandler {
-        return $this->requestHandler;
+        $this->autoRequest();
     }
 
 

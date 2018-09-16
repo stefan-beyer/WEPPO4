@@ -31,7 +31,7 @@ abstract class PageStructure {
     protected $rootPage = null;
 
     
-    public function __construct($patternMatching = MATCH_MODE_EXACT) {
+    public function __construct($patternMatching = self::MATCH_MODE_EXACT) {
         $this->matchMode = $patternMatching;
     }
 

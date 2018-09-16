@@ -63,7 +63,7 @@ class Context {
      * 
      * @param WEPPO::Application::Application $app
      */
-    public function setApplication(Application &$app) {
+    public function setApplication(ApplicationBase &$app) {
         $this->application = $app;
     }
     
@@ -72,7 +72,7 @@ class Context {
      * 
      * @return WEPPO::Application::Application
      */
-    public function &getApplication() : Application {
+    public function &getApplication() : ApplicationBase {
         return $this->application;
     }
     
