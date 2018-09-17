@@ -127,11 +127,17 @@ namespace i18n {
             } else if (self::$mode == 'subdomain') {
                 $url = \WEPPO\Routing\Url::getAbsUrl($_SERVER['REQUEST_URI']);
                 
+                # nicht so super, aber läuft...
+                
                 # auseinandernehmen
                 $url = explode('://', $url);
                 $url[1] = explode('/', $url[1]);
                 //_o($url);
-                $url[1][0] = $l . '.' . self::$domain;
+                $domain = explode('.', self::$domain);
+                if (count($domain) === 3) {
+                    unset($domain[0]);
+                }
+                $url[1][0] = $l . '.' . implode('.',$domain);
 
                 # zusammenbauen
                 $url[1] = implode('/', $url[1]);

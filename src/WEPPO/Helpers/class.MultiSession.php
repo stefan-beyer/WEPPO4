@@ -35,7 +35,7 @@ class MultiSession {
     /** @var array Eingelesene Session-Daten */
     private $data;
 
-
+    private $domain;
 
 
     /**
@@ -44,7 +44,7 @@ class MultiSession {
      * @param string $name
      * @throws Exception Bei Mix von manueller Session und MultiSession hindeutet.
      */
-    public function __construct($name) {
+    public function __construct($name, $domain = null) {
         # Wenn erkannt wurde, dass vor der ersten Objekterzeugung bereits ein session_start() erfolgt hat.
         # Das deutet auf einen Mix von manueller Session und MultiSession hin.
         if (self::$first && !empty(session_id())) {
@@ -54,6 +54,7 @@ class MultiSession {
         
         $this->name = $name;
         $this->data = null;
+        $this->domain = $domain;
         
         # Einlesen der Session-Variablen (wird nur gemacht wenn die Session bereits läuft)
         $this->read();
@@ -119,7 +120,7 @@ class MultiSession {
         //session_regenerate_id();
         
         \session_name($this->name);
-        \session_set_cookie_params(0, '/');
+        \session_set_cookie_params(0, '/', $this->domain ? ('.'.$this->domain['host']) : null);
         \session_start();
         \session_regenerate_id();
         $this->id = \session_id();
@@ -143,7 +144,14 @@ class MultiSession {
             \session_start();
             \session_unset();
             \session_destroy();
-            \setcookie($this->name, "", time() - 3600, '/');//, \WEPPO\System::getHost());
+            if ($this->domain) {
+                foreach ($this->domain['subdomains'] as $sub) {
+                    if (!empty($sub)) $sub .= '.';
+                    \setcookie($this->name, "", time() - 3600, '/', $sub.$this->domain['host']);
+                }
+                \setcookie($this->name, "", time() - 3600, '/', $this->domain['host']);
+            }
+            \setcookie($this->name, "", time() - 3600, '/');
             //\session_write_close();
             $this->running = false;
             $this->data = null;

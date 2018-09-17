@@ -1306,7 +1306,7 @@ class TableRecord extends \stdclass {
      */
     static protected function _prepareQuery() {
         if (!$stmt = static::$_mysqli->prepare(static::$_query)) {
-            \trigger_error("Problem preparing query (static::_query) " . static::$_mysqli->error, \E_USER_ERROR);
+            \trigger_error("Problem preparing query (static::_query) " . static::$_mysqli->error . PHP_EOL . static::$_query, \E_USER_ERROR);
         }
         return $stmt;
     }
