@@ -389,8 +389,10 @@ class TableRecord extends \stdclass {
 
         static::$_mysqli = new \mysqli(static::$_host, static::$_username, static::$_password, static::$_db, static::$_port)
                 or die('There was a problem connecting to the database');
-
-        static::$_mysqli->set_charset('utf8');
+        
+        $charset = defined('MYSQL_CHARSET') ? MYSQL_CHARSET : 'utf8';
+        
+        static::$_mysqli->set_charset($charset);
     }
 
     static public function getFields($fullInfo = false) {

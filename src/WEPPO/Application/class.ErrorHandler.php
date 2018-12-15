@@ -55,7 +55,7 @@ class ErrorHandler {
         } else if ($this->sendErrors && $this->email) {
             $this->html = false;
             $subj = '[error] '.\WEPPO\Routing\Url::getHost();
-            $msg = date('d.m.Y H:i')."\n".$this->getExceptionText($ex, false);
+            $msg = date('d.m.Y H:i')."\n".(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'no request uri')."\n".$this->getExceptionText($ex, false);
             mail($this->email, \WEPPO\Helpers\mailSubjectEncode($subj), $msg);
             
             echo '<html><head></head><body style="background-color:#7ffea0;">'
