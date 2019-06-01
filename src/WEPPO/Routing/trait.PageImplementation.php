@@ -37,6 +37,8 @@ trait PageImplementation {
     abstract public function getControllerName(): string;
 
     abstract public function getMatchMap(): array;
+    
+    abstract public function canHandleSubpath() : bool;
 
     /**
      * Should load the config into $this->Page_Config (not return it)

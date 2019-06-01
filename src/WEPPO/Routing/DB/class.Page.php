@@ -102,4 +102,8 @@ class Page extends \WEPPO\Ressource\TableRecord  implements \WEPPO\Routing\PageI
         return !!$this->parent_id;
     }
 
+  public function canHandleSubpath(): bool {
+    return !!$this->handle_subpath;
+  }
+
 }

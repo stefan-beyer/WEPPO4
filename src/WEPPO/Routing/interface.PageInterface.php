@@ -55,4 +55,6 @@ interface PageInterface {
     
 
     public function getMatches() : array;
+    
+    public function canHandleSubpath() : bool;
 }

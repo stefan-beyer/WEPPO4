@@ -125,6 +125,14 @@ class Request {
         return $v;
     }
     
+    public function hasG($name) {
+      return isset($this->get[$name]);
+    }
+    
+    public function hasP($name) {
+      return isset($this->post[$name]);
+    }
+    
     public function collectPostArray(array $cols): array {
         // TODO $cals evtl als assoc array mit cast infos...
         // TODO: was wenn arrays unterschiedlich lang?

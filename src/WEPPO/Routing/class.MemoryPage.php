@@ -19,6 +19,8 @@ class MemoryPage implements PageInterface {
     
     protected static $autoId = 0;
     
+    protected $handle_subpath = false;
+    
     public function __construct() {
         # automatische eindeutige namen vergeben: p_1, p_2, ...
         $this->Page_PageName = 'p_'.(++self::$autoId);
@@ -116,5 +118,11 @@ class MemoryPage implements PageInterface {
         $this->Page_Parent = $p;
     }
 
+  public function canHandleSubpath($b = null): bool {
+    if ($b !== null) {
+      $this->handle_subpath = $b;
+    }
+    return $this->handle_subpath;
+  }
 
 }

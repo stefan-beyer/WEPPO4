@@ -89,7 +89,7 @@ abstract class PageStructure {
             $children = $last_page_hit->getChildren();
 
             if (!$children) {
-                if ($exact) {
+                if ($exact && $last_page_hit && !$last_page_hit->canHandleSubpath()) {
                     throw new RequestException(RequestException::PAGE_NOT_FOUND);
                 }
                 break;
@@ -104,7 +104,7 @@ abstract class PageStructure {
             }
 
             if (!$treffer) {
-                if ($exact) {
+                if ($exact && $last_page_hit && !$last_page_hit->canHandleSubpath()) {
                     throw new RequestException(RequestException::PAGE_NOT_FOUND);
                 }
                 break;
