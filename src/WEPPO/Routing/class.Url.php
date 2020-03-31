@@ -63,4 +63,8 @@ class Url {
         return 'http' . ($https ? 's' : '') . '://' . $host . $port . $path;
     }
     
+    static public function isAbsUrl(string $path): bool {
+        return (strpos($path, 'https://')===0) || (strpos($path, 'http://')===0);
+    }
+    
 }
