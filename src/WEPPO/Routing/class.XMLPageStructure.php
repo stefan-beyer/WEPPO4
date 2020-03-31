@@ -107,6 +107,7 @@ class XMLPageStructure extends PageStructure {
         $code .= ($indent.'->setPattern('."'".$_($p->getPattern())."'".')' . PHP_EOL);
         $code .= ($indent.'->setControllerName('."'".$_($p->getControllerName())."'".')' . PHP_EOL);
         $code .= ($indent.'->setMatchMap(['.implode(',', $mm).'])' . PHP_EOL);
+        $code .= ($indent.'->setHandleSubpath('.($p->canHandleSubpath() ? 'true' : 'false').')' . PHP_EOL);
         
         $config = &$p->getAllConfig();
         foreach ($config as $k => $v) {
@@ -175,11 +176,15 @@ class XMLPageStructure extends PageStructure {
         } else {
             $matchmap = [];
         }
+        
+        $chs = !!((string) $xml->attributes()->handleSubpath);
 
         $page->setPattern($pattern)
                 ->setControllerName($controller)
                 ->setPageName($name)
-                ->setMatchMap($matchmap);
+                ->setMatchMap($matchmap)
+                ->setHandleSubpath($chs);
+        echo $chs ? 'ja ' : 'nein ';
         
         foreach ($xml->config as $ctag) {
             $type = (string) $ctag['type'];

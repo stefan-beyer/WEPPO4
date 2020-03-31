@@ -69,8 +69,16 @@ class DBManager {
         file_put_contents($this->dbversionFilename, ''.$v);
     }
     
+    public function hasTable(string $tableName) {
+      $pfxTableName = \WEPPO\Ressource\TableRecord::getPrefix() . $tableName;
+      return !empty(\WEPPO\Ressource\TableRecord::rawQuery("SHOW TABLES LIKE '".$pfxTableName."';"));
+    }
     
     public function createTabele(string $tableName, array $cols, $extra = 'ENGINE=InnoDB DEFAULT CHARSET=utf8') {
+      return $this->createTable($tableName, $cols, $extra);
+    }
+    
+    public function createTable(string $tableName, array $cols, $extra = 'ENGINE=InnoDB DEFAULT CHARSET=utf8') {
         $pfxTableName = \WEPPO\Ressource\TableRecord::getPrefix() . $tableName;
         
  #       //SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
@@ -119,7 +127,7 @@ class DBManager {
             WEPPOLight\DBManager::col('passhash', 'varchar', 255, 'NULL', 'NULL'),
             WEPPOLight\DBManager::col('PRIMARY KEY', 'id'),
             WEPPOLight\DBManager::col('KEY', ['name'=>'bill_id', 'col'=>'bill_id']),
-            WEPPOLight\DBManager::col('CONSTRAINT', ['col'=>'bill_id', 'othertable'=>'%bill', 'othercol'=>'id', 'options'=>'ON DELETE SET NULL ON UPDATE NO ACTION']),
+            WEPPOLight\DBManager::col('CONSTRAINT', ['col'=>'bill_id', 'othertable'=>'%%bill', 'othercol'=>'id', 'options'=>'ON DELETE SET NULL ON UPDATE NO ACTION']),
      * 
      * @param string $name
      * @param type $type

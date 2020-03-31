@@ -35,6 +35,7 @@ class Service {
     
     protected $request;
 
+    public static $dispatchMode = 'std';
 
     /**
      * 
@@ -117,8 +118,10 @@ class Service {
      * @return bool true if the action got handeled
      */
     public function dispatch(string $action, array $arrPath) : bool {
+        //logToConsole(json_encode([static::class, $action]));
         
         // o($action, get_called_class());
+      
         
         $this->calledAction = $action;
         
@@ -128,21 +131,61 @@ class Service {
             $service = null;
         }
         if ($service) {
-            #$action2 = array_shift($arrPath);
-            #if ($action2 === null) {
-            #    $action2 = '';
-            #}
+            if (self::$dispatchMode === 'v2') {
+              //$action = 'index';
+              //$nextAction = array_shift($arrPath);
+              //try {
+              //    $nextService = $service->getService($action);
+              //} catch (\Exception $e) {
+              //    $nextService = null;
+             // }
+            }
+          
             $service->serviceArrPath = $this->serviceArrPath;
             $service->serviceArrPath[] = $action;
-            $ret = $service->dispatch($action, $arrPath);
+            
+            if (self::$dispatchMode === 'std') {
+              $service->serviceArrPath = $this->serviceArrPath;
+              $service->serviceArrPath[] = $action;
+              $ret = $service->dispatch($action, $arrPath);
+            } else if (self::$dispatchMode === 'v2') {
+              
+              $oldAction = $action;
+              $oldPath = array_slice($arrPath, 0);
+              $action = array_shift($arrPath);
+              if (!$action) {
+                $action = 'index';
+              }
+              $ret = $service->dispatch($action, $arrPath);
+              //logToConsole(json_encode(['returend from: ', get_class($service), 'dispatch', $action]));
+              if (!$ret) {
+                $arrPath = $oldPath;
+                $action = 'index';
+                $ret = $service->dispatch($action, $arrPath);
+              }
+              //logToConsole(json_encode([$action, $arrPath]));
+            } else {
+              $ret = false;
+            }
+            
             if ($ret) {
                 return true;
             }
         }
         
         $method = 'action_'.$action;
+        //logToConsole(json_encode([static::class, $method]));
+        
         if (method_exists($this, $method)) {
-            return $this->{$method}($arrPath);
+          $return = $this->{$method}($arrPath);
+          if (!is_bool($return)) {
+            throw new \ErrorException('Action method ' . $action . ' not returning boolean.');
+          }
+          return $return;
+        }
+        
+        if (self::$dispatchMode === 'v2') {
+          return false;
         }
         
         return $this->catchAll($action, $arrPath);

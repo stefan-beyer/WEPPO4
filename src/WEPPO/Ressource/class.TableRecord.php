@@ -39,6 +39,28 @@ class TableRecord extends \stdclass {
             }
         }
     }
+    
+    /**
+     * Wenn locks ein string ist (WRITE oder READ)
+     * Wird nur die "eigene" tabelle gelockt
+     * sonst wird das array (tabelle=>WRITE/REAL) benutzt um ggf mehrere Tabellen zu sperren
+     */
+    static public function lock($locks) {
+      if (!is_array($locks)) { // selbst sperren
+        $locks = [static::getTablename()=>$locks];
+      }
+      $sql = [];
+      foreach ($locks as $tn => $l) {
+        $sql[] = static::getPrefix() . $tn . ' ' . $l;
+        $sql[] = static::getPrefix() . $tn . ' as ' . $tn . '1 ' . $l; // standart alias auch hinzufügen
+      }
+      $sql = 'LOCK TABLES ' . implode(', ', $sql);
+      return static::$_mysqli->query($sql);
+    }
+
+    static public function unlock() {
+      return static::$_mysqli->query('UNLOCK TABLES');
+    }
 
     static function isConnected() {
         return isset(static::$_mysqli) && !!static::$_mysqli;
@@ -393,6 +415,11 @@ class TableRecord extends \stdclass {
         $charset = defined('MYSQL_CHARSET') ? MYSQL_CHARSET : 'utf8';
         
         static::$_mysqli->set_charset($charset);
+    }
+    
+    static public function disconnect() {
+        static::$_mysqli->close();
+        static::$_mysqli = null;
     }
 
     static public function getFields($fullInfo = false) {

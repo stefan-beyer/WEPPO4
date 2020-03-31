@@ -74,8 +74,13 @@ class Request {
     public function isPost(): bool {
         return !empty($this->post);
     }
+    
     public function &getPost(): array {
         return $this->post;
+    }
+    
+    public function &getGet(): array {
+        return $this->get;
     }
     
     public function getRawPostData(): string {

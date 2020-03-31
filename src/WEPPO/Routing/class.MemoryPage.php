@@ -118,11 +118,16 @@ class MemoryPage implements PageInterface {
         $this->Page_Parent = $p;
     }
 
-  public function canHandleSubpath($b = null): bool {
-    if ($b !== null) {
-      $this->handle_subpath = $b;
+    public function canHandleSubpath($b = null): bool {
+      if ($b !== null) {
+        $this->handle_subpath = $b;
+      }
+      return $this->handle_subpath;
     }
-    return $this->handle_subpath;
-  }
+  
+    public function &setHandleSubpath($p) : MemoryPage {
+        $this->handle_subpath = $p;
+        return $this;
+    }
 
 }

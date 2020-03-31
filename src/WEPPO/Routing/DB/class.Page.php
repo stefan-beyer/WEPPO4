@@ -24,6 +24,7 @@ class Page extends \WEPPO\Ressource\TableRecord  implements \WEPPO\Routing\PageI
     
     public function loadEmpty() {
         parent::loadEmpty();
+        $this->handle_subpath = false;
     }
 
     protected function loadConfig() {
