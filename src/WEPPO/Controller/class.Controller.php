@@ -62,7 +62,13 @@ class Controller extends Service {
     if (empty($action)) {
       $action = $this->indexAction;
     }
-    $this->dispatch($action, $restPath);
+    $ret = $this->dispatch($action, $restPath);
+    if (!$ret) {
+      $e = new \WEPPO\Routing\RequestException(\WEPPO\Routing\RequestException::ACTION_NOT_HANDLED);
+      $e->setRequest($this->getRequest());
+      $e->setInfo('Action \'' . $action . '\'');
+      throw $e;
+    }
   }
 
   public function &getRequestHandler(): \WEPPO\Routing\RequestHandler {

@@ -84,7 +84,7 @@ namespace i18n {
             if (empty($hi_code)) {
                 $hi_code = self::guessLang();
             }
-
+            
             self::$instance = new i18n($hi_code);
         }
 
@@ -114,6 +114,11 @@ namespace i18n {
                     $hi_quof = $quoficient;
                 }
             }
+            
+            if (empty($hi_code)) {
+                $hi_code = self::$defaultLanguage;
+            }
+            
             // $hi_code ist the best choice
             return $hi_code;
         }
