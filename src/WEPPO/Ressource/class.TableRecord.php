@@ -1115,7 +1115,7 @@ class TableRecord extends \stdclass {
         $isUpdate = \strpos(static::$_query, 'UPDATE');
 
         if ($isInsert !== false) {
-            static::$_query .= '(`' . \implode(\array_keys($tableData), '`, `') . '`)';
+            static::$_query .= '(`' . \implode('`, `', \array_keys($tableData)) . '`)';
             static::$_query .= ' VALUES(';
         }
 

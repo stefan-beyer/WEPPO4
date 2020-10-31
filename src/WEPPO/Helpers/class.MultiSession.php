@@ -73,9 +73,7 @@ class MultiSession {
             $this->id = $_COOKIE[$this->name];
             
             # Session für PHP aktivieren
-            \session_name($this->name);
-            \session_id($this->id);
-            \session_start();
+            $this->init();
             
             # Daten aus der superglobal $_SESSION holen und damit für später verfügbar halten
             $this->data = $_SESSION;
@@ -94,9 +92,8 @@ class MultiSession {
             //$this->id = $_COOKIE[$this->name];
             
             # Session für PHP aktivieren
-            \session_name($this->name);
-            \session_id($this->id);
-            \session_start();
+            $this->init();
+            
             
             # Daten in die $_SESSION-superglobal schreiben
             $_SESSION = $this->data;
@@ -106,6 +103,34 @@ class MultiSession {
         }
     }
     
+    public function init() {
+        $cookieParams = [
+            'lifetime'=>0,
+            'path'=>'/',
+            'domain'=>$this->domain ? ('.'.$this->domain['host']) : null,
+            'secure' => IS_DEVEL ? false : true,
+            'httponly' => true, // prevent JavaScript access to session cookie
+            'samesite'=>'Lax'
+        ];
+        if(PHP_VERSION_ID < 70300) {
+          \session_set_cookie_params(
+                  $cookieParams['lifetime'],
+                  $cookieParams['path'] . '; samesite='.$cookieParams['samesite'],
+                  $cookieParams['domain'],
+                  $cookieParams['secure'],
+                  $cookieParams['httponly']
+                  );
+        } else {
+          \session_set_cookie_params($cookieParams);
+        }
+        \session_name($this->name);
+        if ($this->id) {
+          \session_id($this->id);
+        }
+        \session_start();      
+    }
+
+
     /**
      * Die Session starten.
      * Cookie setzen.
@@ -117,11 +142,8 @@ class MultiSession {
             return;
         }
         
-        //session_regenerate_id();
+        $this->init();
         
-        \session_name($this->name);
-        \session_set_cookie_params(0, '/', $this->domain ? ('.'.$this->domain['host']) : null);
-        \session_start();
         \session_regenerate_id();
         $this->id = \session_id();
         //$_SESSION['info'] = 'Hallo '.$this->name;

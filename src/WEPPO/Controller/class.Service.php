@@ -172,7 +172,7 @@ class Service {
     //logToConsole(json_encode([static::class, $method]));
 
     if (method_exists($this, $method)) {
-      logToConsole(json_encode([static::class, $action, 'try '.$method]));
+      //logToConsole(json_encode([static::class, $action, 'try '.$method]));
       $return = $this->{$method}($arrPath);
       if (!is_bool($return)) {
         throw new \ErrorException('Action method ' . $action . ' not returning boolean.');
@@ -188,14 +188,14 @@ class Service {
     }
     
     
-    logToConsole(json_encode([static::class, $action, 'try catchAll']));
+    //logToConsole(json_encode([static::class, $action, 'try catchAll']));
     $ret = $this->catchAll($action, $arrPath);
     if ($ret) {
       return $ret;
     }
     
     if ($action !== 'index' && method_exists($this, 'action_index')) {
-      logToConsole(json_encode([static::class, $action, 'try action_index explicit']));
+      //logToConsole(json_encode([static::class, $action, 'try action_index explicit']));
       array_unshift($arrPath, $action);
       $return = $this->action_index($arrPath);
       if (!is_bool($return)) {
