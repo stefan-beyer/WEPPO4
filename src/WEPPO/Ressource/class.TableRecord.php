@@ -1004,8 +1004,8 @@ class TableRecord extends \stdclass {
         static::_buildJoin();
         static::_buildTableData($tableData);
         static::_buildWhere();
-        static::_buildHaving();
         static::_buildGroupBy();
+        static::_buildHaving();
         static::_buildOrderBy();
         static::_buildLimit($numRows);
 

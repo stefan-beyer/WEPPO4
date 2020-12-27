@@ -8,6 +8,8 @@
  * 
  */
 
+define('_WEPPO_ROOT', __DIR__);
+
 
 /**
  * Debug-Ausgabe einer beliebigen Variable
@@ -22,7 +24,7 @@ function o($o, $t='') {
 	echo '</pre><hr/>';
 }
 
-include WEPPO_ROOT . 'WEPPO/Helpers/inc.functions.php';
+include _WEPPO_ROOT . '/Helpers/inc.functions.php';
 
 /**
  * WEPPO-Autoloader
@@ -50,7 +52,7 @@ spl_autoload_register(function ($class) {
         $cn[$lidx] = $ct.$classbasename;
 
         # Pfad zu Dateiname zusammenfügen
-        $path = WEPPO_ROOT . implode('/', $cn);
+        $path = _WEPPO_ROOT . '/../' . implode('/', $cn);
         
         //echo $path, '<br/>';
 

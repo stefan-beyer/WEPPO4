@@ -46,11 +46,11 @@ class RedirectController extends Controller {
         } else if ($mode === 'intern') {
             //$p = \WEPPO\System::$requestHandler->structure->getPageObject($m);
             #\WEPPO\System::$requestHandler->processRequest($to);
-            throw new \Ecxeption('RedirectController: intern NYI.');
+            throw new \Exception('RedirectController: intern NYI.');
         } else if ($mode === 'web') {
             $allowed = $this->getPage()->getConfig('redirect.allowed');
             
-            throw new \Ecxeption('RedirectController: web NYI.');
+            throw new \Exception('RedirectController: web NYI.');
         }
 
         return true;
