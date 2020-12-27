@@ -70,6 +70,30 @@ class Request {
     public function hasController() : bool {
         return !!$this->controller;
     }
+
+    public function getMethod() {
+        return $_SERVER['REQUEST_METHOD'] ?? null;
+    }
+
+    public function isPostMethod() : bool {
+        return $this->getMethod() === 'POST';
+    }
+
+    public function isGetMethod() : bool {
+        return $this->getMethod() === 'GET';
+    }
+
+    public function isPutMethod() : bool {
+        return $this->getMethod() === 'PUT';
+    }
+
+    public function isHeadMethod() : bool {
+        return $this->getMethod() === 'HEAD';
+    }
+
+    public function isDeleteMethod() : bool {
+        return $this->getMethod() === 'DEL'.'ETE';
+    }
     
     public function isPost(): bool {
         return !empty($this->post);
